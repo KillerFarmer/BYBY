@@ -1,0 +1,42 @@
+
+<html>
+    <div ng-controller="SignUpCtrl">
+        <div class="container">
+            <div style="text-align:center">
+                <h3>
+                    Create an account!
+                </h3>
+                <form name="signUpForm">
+                    <div class="row">
+                        <div class="col s6 m6">
+                            <h5>Enter your email address and a password.</h5>
+                            <img width="200" alt="signUpView" src="stickers/tiredko.png"/>
+                        </div>
+                        <div class="col s6 m6">
+                            <div>
+                                <input placeholder="Email" type="email" ng-model="email" name="email" required>
+                            </div>
+                            <div>
+                                <input placeholder="Password" type="password" ng-model="pswd" name="pswd" required>
+                            </div>
+                            <div>
+                                <input placeholder="Confirm password" type="password" ng-model="pswd2" name="pswd2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center">
+                        <a class="btn waves-effect waves-purple white black-text" ng-click="handleRegister()" ng-disabled="
+            signUpForm.email.$dirty && signUpForm.email.$invalid 
+            || signUpForm.pswd.$dirty && signUpForm.pswd.$invalid
+            || signUpForm.pswd2.$dirty && signUpForm.pswd2.$invalid 
+            || signUpForm.$invalid">Sign up</a>
+                    </div>
+                    <div style="text-align: center">
+                        <label>Already have an account? </label>
+                        <a href="#!/login">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</html>

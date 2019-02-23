@@ -1,0 +1,33 @@
+
+<html>
+    <div ng-controller="ResendCtrl">
+        <div class="container">
+            <div style="text-align:center">
+                <h3>
+                    Almost done!
+                </h3>
+                <form name="resendForm">
+                    <div class="row">
+                        <div class="col s6 m6">
+                            <h5>An email containing a verification code will be sent to your email.</h5>
+                            <img width="200" alt="resendView" src="stickers/sleepko.png">
+                        </div>
+                        <div class="col s6 m6">
+                            <h5>Enter your email below.</h5>
+                            <div>
+                                <input placeholder="Email" type="email" ng-model="email" name="email" required></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center">
+                        <a class="btn waves-effect waves-purple white black-text" ng-click="resendVerify()" ng-disabled="
+                        resendForm.email.$dirty && resendForm.email.$invalid ||
+                        resendForm.$invalid
+                        ">Continue</a>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</html>

@@ -1,0 +1,43 @@
+
+<html>
+    <div ng-controller="VerifyCtrl">
+        <div class="container">
+            <div style="text-align:center">
+                <h3>
+                    Almost done!
+                </h3>
+                <form name="verifyForm">
+                    <div class="row">
+                        <div class="col s6 m6">
+                            <h5>An email containing a verification code will be sent to your email.</h5>
+                            <img width="200" alt="verifyView" src="stickers/sleepko.png"/>
+                        </div>
+                        <div class="col s6 m6">
+                            <h5>Enter your email below.</h5>
+                            <div>
+                                <input placeholder="Email" type="email" ng-model="email" name="email" required>
+                            </div>
+                            <h5>Enter your verification code below.</h5>
+                            <div>
+                                <input placeholder="Your code" type="text" ng-model="vcode" name="vcode" required>
+                            </div>
+                        </div>
+                        <div style="text-align: center">
+                            <a class="btn waves-effect waves-purple white black-text" ng-click="handleVerify()" ng-disabled="
+                            verifyForm.email.$dirty && verifyForm.email.$invalid ||
+                            verifyForm.vcode.$dirty && verifyForm.vcode.$invalid ||
+                            verifyForm.$invalid
+                            ">Continue</a>
+                        </div>
+                        <div style="text-align: center">
+                            <label>Didn't receive an email? Wait for a few minutes.
+                            Getting impatient?
+                            </label>
+                            <a href="#!/resend">Resend code</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</html>
