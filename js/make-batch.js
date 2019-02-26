@@ -29,7 +29,7 @@ config(['$routeProvider', function($routeProvider) {
     });
     var email;
     email = window.user;
-    $scope.getRecipes  = function(){
+    function getrecipe(){
         $.ajax({
             method: 'POST',
             url: _config.api.invokeUrl + '/getrecipe',
@@ -40,12 +40,15 @@ config(['$routeProvider', function($routeProvider) {
                 User: email
             }),
             contentType: 'application/json',
-            success: completeRequest,
+            success: orderListABC(data),
             error: function ajaxError(jqXHR, textStatus, errorThrown) {
                 console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
                 console.error('Response: ', jqXHR.responseText);
                 alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
             }
         });
+    }
+    function orderListABC(data){
+        alert(data);//response
     }
 }]);
