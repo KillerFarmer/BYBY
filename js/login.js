@@ -17,7 +17,7 @@ angular.module('myApp.login', ['ngRoute'])
             signin(email, password,
                 function signinSuccess() {
                     console.log('Successfully Logged In');
-                    //window.location.href = 'ride.html';
+                    window.user = email;
                 },
                 function signinError(err) {
                     alert(err);
