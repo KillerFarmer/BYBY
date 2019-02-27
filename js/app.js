@@ -2,22 +2,22 @@
 
 // Declare app level module which depends on views, and core components
 angular.module('myApp', [
-        'ngRoute',
-        'myApp.login',
-        'myApp.signUp',
-        'myApp.makeBatch',
-        'myApp.verify',
-        'myApp.resend',
-        'myApp.home'
-    ])
-    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    'ngRoute',
+    'myApp.login',
+    'myApp.signUp',
+    'myApp.makeBatch',
+    'myApp.verify',
+    'myApp.resend',
+    'myApp.home'
+])
+    .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({ redirectTo: '/login' });
     }])
-    .controller('myAppCtrl', ['$window', function($scope) {
+    .controller('myAppCtrl', ['$scope', function ($scope) {
         if (!(_config.cognito.userPoolId &&
-                _config.cognito.userPoolClientId &&
-                _config.cognito.region)) {
+            _config.cognito.userPoolClientId &&
+            _config.cognito.region)) {
             alert('Error in config.js file, not configured.')
             return;
         }
@@ -51,4 +51,8 @@ angular.module('myApp', [
                 resolve(null);
             }
         });
+        $scope.signOut = function () {
+            userPool.getCurrentUser().signOut();
+            window.location.reload(true);
+        }
     }]);

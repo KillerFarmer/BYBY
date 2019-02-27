@@ -2,22 +2,21 @@
 
 angular.module('myApp.login', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/login', {
             templateUrl: 'views/login.html',
             controller: 'LoginCtrl'
         });
     }])
-    .controller('LoginCtrl', ['$scope', function($scope) {
-
-        $scope.handleSignin = function() {
+    .controller('LoginCtrl', ['$scope', function ($scope) {
+        $scope.handleSignin = function () {
             var email = $scope.email;
             var password = $scope.pswd;
             event.preventDefault();
             signin(email, password,
                 function signinSuccess() {
                     console.log('Successfully Logged In');
-                    window.user = email;
+                    window.location.reload(true);
                 },
                 function signinError(err) {
                     alert(err);
@@ -59,5 +58,8 @@ angular.module('myApp.login', ['ngRoute'])
                 Username: email,
                 Pool: userPool
             });
+        }
+        if (userPool.getCurrentUser() != null) {
+            window.location.href = '#!/home';
         }
     }]);
