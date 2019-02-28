@@ -29,6 +29,7 @@ config(['$routeProvider', function($routeProvider) {
         window.location.href = '#!/login';
     });
 
+
     function getrecipeList(token) {
         var req = {
             method: 'POST',
@@ -39,10 +40,11 @@ config(['$routeProvider', function($routeProvider) {
             data: { test: 'test' }
         }
         $http(req).then(function successCallback(response) {
-            console.log('Success' + JSON.stringify(response));
-            //aqui pon tus cosas Andrade.
+            console.log('Success');
+            recipe_list = response.data.Items;
+            //Aqui pon la primera vez que se organiza esque es asincrono entonces le vale el tiempo, andrade.
         }, function errorCallback(response) {
-            console.error('Error: ' + JSON.stringify(response));
+            console.error('Error');
 
         });
     }
