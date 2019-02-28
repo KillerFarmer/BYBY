@@ -28,15 +28,11 @@
             <div id="group1" class="group col s6 m6 l6">
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Nombre</a>
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('-Timestamp')">Fecha</a>
-                <div class="collection">
-                    <li class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy">
-                        <li class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy">
-                            <li class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy">
-                                <div>{{x.Name}}<a class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a></div>
-                            </li>
-                        </li>
+                <ul class="collection">
+                    <li ng-click="test(x.Name)" class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy">
+                        <div>{{x.Name}}<a class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a></div>
                     </li>
-                </div>
+                </ul>
             </div>
             <div id="group2" class="group col s6 m6 l6">
                 <img src="../stickers/map.png" alt="map">
