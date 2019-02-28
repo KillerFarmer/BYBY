@@ -34,15 +34,16 @@ config(['$routeProvider', function($routeProvider) {
             method: 'POST',
             url: _config.api.invokeUrl + '/getrecipe',
             headers: {
-                Authorization: token,
-                withCredentials: true,
+                Authorization: token
             },
             data: { test: 'test' }
         }
         $http(req).then(function successCallback(response) {
-            console.log('Success');
+            console.log('Success' + JSON.stringify(response));
+            //aqui pon tus cosas Andrade.
         }, function errorCallback(response) {
             console.error('Error: ' + JSON.stringify(response));
+
         });
     }
 }]);
