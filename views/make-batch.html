@@ -1,42 +1,47 @@
 <html>
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
   <title>Create Batch</title>
 
   <!-- CSS  -->
   <!-- Para asdsad-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
-<div ng-controller="MakeBatchCtrl">
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Create  Batch</h1>
+  <div ng-controller="MakeBatchCtrl">
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Create Batch</h1>
       </div>
       <br><br>
 
     </div>
 
 
-  <div id="items" class="row">
-      <div id="group1" class="group col s6 m6 l6">
-          <div id="rlist" class="group-items collection">
-
-         </div>
-      </div>
+    <div id="items" class="row">
+        <div id="group1" class="group col s6 m6 l6">
+            <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Nombre</a>
+            <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('-Timestamp')">Fecha</a>
+            <div class="group-items collection">
+                <a class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy"><div>{{x.Name}}<a class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a></div></a>
+          </div>
+        </div>
       <div id="group2" class="group col s6 m6 l6">
-          <img src="../stickers/map.png" alt="map">
+        <img src="../stickers/map.png" alt="map">
       </div>
- </div>
+    </div>
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
-  </body>
- </div>   
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../js/materialize.js"></script>
+    <script src="../js/init.js"></script>
+</body>
+</div>
+
 </html>
