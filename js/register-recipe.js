@@ -59,10 +59,10 @@ config(['$routeProvider', function($routeProvider) {
         require: 'ngModel',
         link: function(scope, element, attr, mCtrl) {
             function nameValidation(value) {
-                if (value.indexOf("e") > -1) {
-                    mCtrl.$setValidity('charE', true);
+                if (recipe_list.includes(value)) {
+                    mCtrl.$setValidity('recipeName', true);
                 } else {
-                    mCtrl.$setValidity('charE', false);
+                    mCtrl.$setValidity('recipeName', false);
                 }
                 return value;
             }
