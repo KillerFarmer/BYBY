@@ -39,9 +39,9 @@ config(['$routeProvider', function($routeProvider) {
             data: {
                 Timestamp: timestamp,
                 Ingredients: {
-                    Water: water,
-                    Hops: hops,
-                    Yeast: yeast
+                    Water: { water },
+                    Hops: { hops },
+                    Yeast: { yeast }
                 },
                 Name: name
             }
@@ -54,4 +54,19 @@ config(['$routeProvider', function($routeProvider) {
             console.error('Error');
         });
     }
-}]);
+}]).directive('nameDirective', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, mCtrl) {
+            function nameValidation(value) {
+                if (value.indexOf("e") > -1) {
+                    mCtrl.$setValidity('charE', true);
+                } else {
+                    mCtrl.$setValidity('charE', false);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
