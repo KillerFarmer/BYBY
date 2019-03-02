@@ -50,6 +50,7 @@ config(['$routeProvider', function($routeProvider) {
         $http(req).then(function successCallback(response) {
             console.log('Success');
             alert("Successfully added recipe!")
+            window.location.href = "#!/home"
         }, function errorCallback(response) {
             console.error('Error');
         });
