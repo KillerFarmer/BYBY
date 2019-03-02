@@ -21,7 +21,6 @@ config(['$routeProvider', function($routeProvider) {
     $http(req).then(function successCallback(response) {
         console.log('Success');
         recipe_list = response.data.Items;
-        $scope.recipes = recipe_list;
     }, function errorCallback(response) {
         console.error('Error');
     });
