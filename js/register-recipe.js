@@ -9,5 +9,49 @@ config(['$routeProvider', function($routeProvider) {
 }])
 
 .controller('RegisterRecipeCtrl', ['$scope', '$http', function($scope, $http) {
-
+    var recipe_list;
+    var req = {
+        method: 'POST',
+        url: _config.api.invokeUrl + '/getrecipe',
+        headers: {
+            Authorization: token
+        },
+        data: { info: 'Data was sent' }
+    }
+    $http(req).then(function successCallback(response) {
+        console.log('Success');
+        recipe_list = response.data.Items;
+        $scope.recipes = recipe_list;
+    }, function errorCallback(response) {
+        console.error('Error');
+    });
+    $scope.confirm = function() {
+        $scope.timestamp;
+        $scope.name;
+        $scope.water;
+        $scope.hops;
+        $scope.yeast;
+        var req = {
+            method: 'POST',
+            url: _config.api.invokeUrl + '/putrecipe',
+            headers: {
+                Authorization: token
+            },
+            data: {
+                Timestamp: timestamp,
+                Ingredients: {
+                    Water: water,
+                    Hops: hops,
+                    Yeast: yeast
+                },
+                Name: name
+            }
+        }
+        $http(req).then(function successCallback(response) {
+            console.log('Success');
+            alert("Successfully added recipe!")
+        }, function errorCallback(response) {
+            console.error('Error');
+        });
+    }
 }]);

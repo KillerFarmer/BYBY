@@ -38,7 +38,7 @@ config(['$routeProvider', function($routeProvider) {
             headers: {
                 Authorization: token
             },
-            data: { test: 'test' }
+            data: { info: 'Data was sent' }
         }
         $http(req).then(function successCallback(response) {
             console.log('Success');
