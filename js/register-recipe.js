@@ -10,8 +10,10 @@ config(['$routeProvider', function($routeProvider) {
 
 .controller('RegisterRecipeCtrl', ['$scope', '$http', function($scope, $http) {
     var recipe_list;
+    var authToken;
     window.authToken.then(function setAuthToken(token) {
         if (token) {
+            authToken = token;
             getrecipeList(token);
         } else {
             window.location.href = '#!/login';
