@@ -10,20 +10,33 @@ config(['$routeProvider', function($routeProvider) {
 
 .controller('RegisterRecipeCtrl', ['$scope', '$http', function($scope, $http) {
     var recipe_list;
-    var req = {
-        method: 'POST',
-        url: _config.api.invokeUrl + '/getrecipe',
-        headers: {
-            Authorization: token
-        },
-        data: { info: 'Data was sent' }
-    }
-    $http(req).then(function successCallback(response) {
-        console.log('Success');
-        recipe_list = response.data.Items;
-    }, function errorCallback(response) {
-        console.error('Error');
+    window.authToken.then(function setAuthToken(token) {
+        if (token) {
+            getrecipeList(token);
+        } else {
+            window.location.href = '#!/login';
+        }
+    }).catch(function handleTokenError(error) {
+        alert(error);
+        window.location.href = '#!/login';
     });
+
+    function getrecipeList(token) {
+        var req = {
+            method: 'POST',
+            url: _config.api.invokeUrl + '/getrecipe',
+            headers: {
+                Authorization: token
+            },
+            data: { info: 'Data was sent' }
+        }
+        $http(req).then(function successCallback(response) {
+            console.log('Success');
+            recipe_list = response.data.Items;
+        }, function errorCallback(response) {
+            console.error('Error');
+        });
+    }
     $scope.confirm = function() {
         $scope.timestamp;
         $scope.name;
