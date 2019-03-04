@@ -49,7 +49,7 @@ config(['$routeProvider', function($routeProvider) {
             method: 'POST',
             url: _config.api.invokeUrl + '/putrecipe',
             headers: {
-                Authorization: token
+                Authorization: authToken
             },
             data: {
                 Timestamp: timestamp,
