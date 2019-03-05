@@ -30,7 +30,6 @@ config(['$routeProvider', function($routeProvider) {
         window.location.href = '#!/login';
     });
 
-
     function getrecipeList(token) {
         var req = {
             method: 'POST',

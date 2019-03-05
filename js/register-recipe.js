@@ -40,11 +40,11 @@ config(['$routeProvider', function($routeProvider) {
         });
     }
     $scope.confirm = function() {
-        $scope.timestamp;
-        $scope.name;
-        $scope.water;
-        $scope.hops;
-        $scope.yeast;
+        var timestamp = Date.now();
+        var name;
+        var water;
+        var hops;
+        var yeast;
         var req = {
             method: 'POST',
             url: _config.api.invokeUrl + '/putrecipe',
