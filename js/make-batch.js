@@ -9,7 +9,7 @@ config(['$routeProvider', function($routeProvider) {
 }])
 
 .controller('MakeBatchCtrl', ['$scope', '$http', function($scope, $http) {
-
+    $scope.loading = true;
     var recipe_list;
     var poolData = {
         UserPoolId: _config.cognito.userPoolId,
@@ -44,6 +44,7 @@ config(['$routeProvider', function($routeProvider) {
             console.log('Success');
             recipe_list = response.data.Items;
             $scope.recipes = recipe_list;
+            $scope.loading = false;
         }, function errorCallback(response) {
             console.error('Error');
 
