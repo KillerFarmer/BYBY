@@ -54,9 +54,9 @@ config(['$routeProvider', function($routeProvider) {
             data: {
                 Timestamp: timestamp,
                 Ingredients: {
-                    Water: { water },
-                    Hops: { hops },
-                    Yeast: { yeast }
+                    Water: water,
+                    Hops: hops,
+                    Yeast: yeast
                 },
                 Name: name
             }
