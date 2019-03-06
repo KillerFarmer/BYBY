@@ -1,4 +1,6 @@
 /* Custom Stylesheet */
+
+
 /**
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
@@ -7,8 +9,18 @@
  */
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
+
 .icon-block .material-icons {
-	font-size: inherit;
+    font-size: inherit;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
