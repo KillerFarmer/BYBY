@@ -9,9 +9,8 @@ config(['$routeProvider', function($routeProvider) {
 }])
 
 .controller('RegisterRecipeCtrl', ['$scope', '$http', function($scope, $http) {
-    var range = document.getElementById('slider-temp');
 
-    noUiSlider.create(range, {
+    noUiSlider.create($scope.slidertemp, {
         start: [20, 80], // Handle start position
         step: 10, // Slider moves in increments of '10'
         margin: 20, // Handles must be more than '20' apart
@@ -28,9 +27,6 @@ config(['$routeProvider', function($routeProvider) {
             density: 2
         }
     });
-
-    var valueInput = document.getElementById('value-input'),
-        valueSpan = document.getElementById('value-span');
 
     // When the slider value changes, update the input and span
     range.noUiSlider.on('update', function(values, handle) {
