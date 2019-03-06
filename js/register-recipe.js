@@ -12,12 +12,12 @@ config(['$routeProvider', function($routeProvider) {
     var range = document.getElementById('slider-temp');
 
     noUiSlider.create(range, {
-        start: [ 20, 80 ], // Handle start position
+        start: [20, 80], // Handle start position
         step: 10, // Slider moves in increments of '10'
         margin: 20, // Handles must be more than '20' apart
         connect: true, // Display a colored bar between the handles
         direction: 'rtl', // Put '0' at the bottom of the slider
-        orientation: 'vertical', // Orient the slider vertically
+        orientation: 'horizontal', // Orient the slider vertically
         behaviour: 'tap-drag', // Move handle on tap, bar is draggable
         range: { // Slider can select '0' to '100'
             'min': 0,
@@ -30,11 +30,11 @@ config(['$routeProvider', function($routeProvider) {
     });
 
     var valueInput = document.getElementById('value-input'),
-            valueSpan = document.getElementById('value-span');
+        valueSpan = document.getElementById('value-span');
 
     // When the slider value changes, update the input and span
-    range.noUiSlider.on('update', function( values, handle ) {
-        if ( handle ) {
+    range.noUiSlider.on('update', function(values, handle) {
+        if (handle) {
             valueInput.value = values[handle];
         } else {
             valueSpan.innerHTML = values[handle];
@@ -42,7 +42,7 @@ config(['$routeProvider', function($routeProvider) {
     });
 
     // When the input changes, set the slider value
-    valueInput.addEventListener('change', function(){
+    valueInput.addEventListener('change', function() {
         range.noUiSlider.set([null, this.value]);
     });
 }]);
