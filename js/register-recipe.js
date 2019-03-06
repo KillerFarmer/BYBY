@@ -44,7 +44,8 @@ config(['$routeProvider', function($routeProvider) {
         var name;
         var water;
         var hops;
-        var yeast;
+        var yeasts;
+        var syrups;
         var req = {
             method: 'POST',
             url: _config.api.invokeUrl + '/putrecipe',
@@ -56,7 +57,8 @@ config(['$routeProvider', function($routeProvider) {
                 Ingredients: {
                     Water: water,
                     Hops: hops,
-                    Yeast: yeast
+                    Yeast: yeasts,
+                    Syrup: syrups
                 },
                 Name: name
             }
