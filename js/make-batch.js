@@ -4,7 +4,6 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/make-batch', {
         templateUrl: 'views/make-batch.html',
-        controller: 'MakeBatchCtrl'
     });
 }])
 

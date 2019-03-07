@@ -5,7 +5,6 @@ angular.module('myApp.login', ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/login', {
             templateUrl: 'views/login.html',
-            controller: 'LoginCtrl'
         });
     }])
     .controller('LoginCtrl', ['$scope', function ($scope) {
@@ -16,7 +15,7 @@ angular.module('myApp.login', ['ngRoute'])
             signin(email, password,
                 function signinSuccess() {
                     console.log('Successfully Logged In');
-                    window.location.reload(true);
+                    window.location.href = '#!/home';
                 },
                 function signinError(err) {
                     alert(err);
