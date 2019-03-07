@@ -28,7 +28,8 @@
             <div id="group1" class="group col s6 m6 l6">
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Nombre</a>
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('-Timestamp')">Fecha</a>
-                <ul class="collection" style="width: 850px; height: 500px; overflow: auto">
+                <ul class="collection"
+                    style="max-width: 850px; max-height: 500px; width: auto; height: auto;overflow: auto">
                     <div class="preloader-wrapper big active loader">
                         <div class="spinner-layer spinner-blue-only" ng-hide="!loading">
                             <div class="circle-clipper left">
@@ -43,7 +44,8 @@
                         </div>
                     </div>
                     <li ng-click="test(x.Name)" class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy">
-                        <div>{{x.Name}}<a class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a></div>
+                        <div>{{x.Name}}<a class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a>
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -5,7 +5,6 @@ angular.module('myApp.resend', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/resend', {
             templateUrl: 'views/resend.html',
-            controller: 'ResendCtrl'
         });
     }])
     .controller('ResendCtrl', ['$scope', function($scope) {
