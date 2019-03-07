@@ -10,35 +10,46 @@ config(['$routeProvider', function($routeProvider) {
 
 .controller('RegisterRecipeCtrl', ['$scope', '$http', function($scope, $http) {
 
-    noUiSlider.create($scope.slidertemp, {
-        start: [20, 80], // Handle start position
-        step: 10, // Slider moves in increments of '10'
-        margin: 20, // Handles must be more than '20' apart
-        connect: true, // Display a colored bar between the handles
-        direction: 'rtl', // Put '0' at the bottom of the slider
-        orientation: 'horizontal', // Orient the slider vertically
-        behaviour: 'tap-drag', // Move handle on tap, bar is draggable
-        range: { // Slider can select '0' to '100'
+    var slidertemp = document.getElementById('slider-temp');
+    noUiSlider.create(slidertemp, {
+        start: [20, 80],
+        connect: true,
+        step: 1,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
             'min': 0,
             'max': 100
         },
-        pips: { // Show a scale with the slider
-            mode: 'steps',
-            density: 2
-        }
+        format: wNumb({
+            decimals: 0
+        })
     });
-
-    // When the slider value changes, update the input and span
-    range.noUiSlider.on('update', function(values, handle) {
-        if (handle) {
-            valueInput.value = values[handle];
-        } else {
-            valueSpan.innerHTML = values[handle];
-        }
+    var sliderph = document.getElementById('slider-ph');
+    noUiSlider.create(sliderph, {
+        start: [20, 80],
+        connect: true,
+        step: 1,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
+            'min': 0,
+            'max': 100
+        },
+        format: wNumb({
+            decimals: 0
+        })
     });
-
-    // When the input changes, set the slider value
-    valueInput.addEventListener('change', function() {
-        range.noUiSlider.set([null, this.value]);
+    var sliderpressure = document.getElementById('slider-pressure');
+    noUiSlider.create(sliderpressure, {
+        start: [20, 80],
+        connect: true,
+        step: 1,
+        orientation: 'horizontal', // 'horizontal' or 'vertical'
+        range: {
+            'min': 0,
+            'max': 100
+        },
+        format: wNumb({
+            decimals: 0
+        })
     });
 }]);
