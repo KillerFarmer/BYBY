@@ -5,7 +5,6 @@ angular.module('myApp.verify', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/verify', {
             templateUrl: 'views/verify.html',
-            controller: 'VerifyCtrl'
         });
     }])
     .controller('VerifyCtrl', ['$scope', function($scope) {

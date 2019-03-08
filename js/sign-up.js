@@ -5,7 +5,6 @@ angular.module('myApp.signUp', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/sign-up', {
         templateUrl: 'views/sign-up.html',
-        controller: 'SignUpCtrl'
     });
 }])
 
