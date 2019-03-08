@@ -21,19 +21,20 @@
                             <div>
                                 <h5>Name</h5>
                                 <div class="divider"></div>
-                                <input type="text" placeholder="Name" name = "Name" ng-model="name" required ng-change="search()"required pattern="^[a-zA-Z0-9\x00]*$" />
+                                <input type="text" placeholder="Name" name="Name" ng-model="name" required
+                                    ng-change="search()" required pattern="^[a-zA-Z0-9]*$" />
                                 <div style="color:red;"
-                                ng-show="registerForm.Name.$invalid && registerForm.Name.$dirty">
-                                Only
-                                alphanumeric characters are
-                                allowed!
-                            </div>
+                                    ng-show="registerForm.Name.$invalid && registerForm.Name.$dirty">
+                                    Only
+                                    alphanumeric characters are
+                                    allowed!
+                                </div>
                                 <div ng-hide="!notfound" style="color:red">Name already in database!</div>
                                 <br><br>
                                 <div class="divider"></div>
                                 <h5>Water</h5>
                                 <div class="divider"></div>
-                                <input type="number" placeholder="Amount of water" ng-model="water" required />
+                                <input type="number" placeholder="Amount of water (L)" ng-model="water" required />
                                 <br><br>
                                 <div class="divider"></div>
                                 <br>
@@ -43,16 +44,16 @@
                                         <div>
                                             <div id={{grain.id}}>
                                                 <span>
-                                                    <input name= "grain{{grainid}}"type="text" ng-model="grain.name"
-                                                        placeholder="Hops" required pattern="^[a-zA-Z0-9\x00]*$"/>
-                                                    <div name= "grain{{grainid}}err" style="color:red;"
-                                                        ng-show="registerForm.grain{{grainid}}.$invalid && registerForm.grain{{grainid}}.$dirty">
+                                                    <input name="grain{{$index+1}}" type="text" ng-model="grain.name"
+                                                        placeholder="Hops" required pattern="^[a-zA-Z0-9]*$" />
+                                                    <div name="grain{{$index+1}}err" style="color:red;"
+                                                        ng-show="registerForm.grain{{$index+1}}.$invalid && registerForm.grain{{$index+1}}.$dirty">
                                                         Only
                                                         alphanumeric characters are
                                                         allowed!
                                                     </div>
-                                                    <input type="number" ng-model="grain.amount" placeholder="Amount"
-                                                        required />
+                                                    <input type="number" ng-model="grain.amount"
+                                                        placeholder="Amount (gr)" required />
                                                 </span>
                                             </div>
                                             <span ng-hide="grainlist.length == 1">
@@ -78,13 +79,16 @@
                                         <div>
                                             <div id={{yeast.id}}>
                                                 <span>
-                                                    <input type="text" ng-model="yeast.name" placeholder="Yeast"
-                                                        required />
-                                                    <div style="color:red;display:none">Only alphanumeric characters are
+                                                    <input name="yeast{{$index+1}}" type="text" ng-model="yeast.name"
+                                                        placeholder="Yeast" required pattern="^[a-zA-Z0-9]*$" />
+                                                    <div name="yeast{{$index+1}}err" style="color:red;"
+                                                        ng-show="registerForm.yeast{{$index+1}}.$invalid && registerForm.yeast{{$index+1}}.$dirty">
+                                                        Only
+                                                        alphanumeric characters are
                                                         allowed!
                                                     </div>
-                                                    <input type="number" ng-model="yeast.amount" placeholder="Amount"
-                                                        required />
+                                                    <input type="number" ng-model="yeast.amount"
+                                                        placeholder="Amount (gr)" required />
                                                 </span>
                                             </div>
                                             <span ng-hide="yeastlist.length == 1">
@@ -109,13 +113,16 @@
                                         <div>
                                             <div id={{syrup.id}}>
                                                 <span>
-                                                    <input type="text" ng-model="syrup.name" placeholder="Syrup"
-                                                        required />
-                                                    <div style="color:red;display:none">Only alphanumeric characters are
+                                                    <input name="syrup{{$index+1}}" type="text" ng-model="syrup.name"
+                                                        placeholder="Syrup" required pattern="^[a-zA-Z0-9]*$" />
+                                                    <div name="syrup{{$index+1}}err" style="color:red;"
+                                                        ng-show="registerForm.syrup{{$index+1}}.$invalid && registerForm.syrup{{$index+1}}.$dirty">
+                                                        Only
+                                                        alphanumeric characters are
                                                         allowed!
                                                     </div>
-                                                    <input type="number" ng-model="syrup.amount" placeholder="Amount"
-                                                        required />
+                                                    <input type="number" ng-model="syrup.amount"
+                                                        placeholder="Amount (gr)" required />
                                                 </span>
                                             </div>
                                             <span ng-hide="syruplist.length == 1">

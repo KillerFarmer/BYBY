@@ -15,8 +15,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.notfound = false;
         var nameList = [];
 
-        $scope.grainid = 0;
-
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -40,7 +38,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.grainlist = [{ name: '', amount: '' }];
 
         $scope.newGrain = function ($event) {
-            $scope.grainid++;
             $scope.grainlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
