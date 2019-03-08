@@ -8,10 +8,12 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
     }])
 
     .controller('RegisterRecipeCtrl', ['$scope', '$http', function ($scope, $http) {
-        var recipe_list;
-        var tempVals = [];
-        var phVals = [];
-        var pressVals = [];
+        var recipe_list=[];
+        var tempVals = [-16, 80];
+        var phVals = [3, 11];
+        var pressVals = [500, 940];
+        $scope.notfound = false;
+        var nameList =[];
 
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
@@ -32,34 +34,25 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             alert(error);
             window.location.href = '#!/login';
         });
-        $scope.addTextBox = function () {
-            alert('hola');
-        }
 
-        var grainCounter = 0;
-        $scope.grainlist = [{ id: grainCounter, name: '', amount: ''}];
+        $scope.grainlist = [{ name: '', amount: '' }];
 
         $scope.newGrain = function ($event) {
-            grainCounter++;
-            $scope.grainlist.push({ id: grainCounter, name: '', amount: ''});
+            $scope.grainlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
 
-        var yeastCounter = 0;
-        $scope.yeastlist = [{ id: yeastCounter, name: '', amount: ''}];
+        $scope.yeastlist = [{ name: '', amount: '' }];
 
         $scope.newYeast = function ($event) {
-            yeastCounter++;
-            $scope.yeastlist.push({ id: yeastCounter, name: '', amount: ''});
+            $scope.yeastlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
 
-        var syrupCounter = 0;
-        $scope.syruplist = [{ id: syrupCounter, name: '', amount: ''}];
+        $scope.syruplist = [{ name: '', amount: '' }];
 
         $scope.newSyrup = function ($event) {
-            syrupCounter++;
-            $scope.syruplist.push({ id: syrupCounter, name: '', amount: ''});
+            $scope.syruplist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
 
@@ -117,12 +110,15 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             $http(req).then(function successCallback(response) {
                 console.log('Success');
                 recipe_list = response.data.Items;
+                recipe_list.forEach(function(element) {
+                    nameList.push(element.Name);
+                  });
             }, function errorCallback(response) {
                 console.error('Error');
             });
         }
         $scope.confirm = function () {
-            var timestamp = Math.floor(Date.now()/1000);
+            var timestamp = Math.floor(Date.now() / 1000);
             var name = $scope.name;
             var water = $scope.water;
             var hops = $scope.grainlist;
@@ -170,19 +166,12 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         press.noUiSlider.on('update', function (values, handle) {
             pressVals[handle] = values[handle];
         });
-    }]).directive('nameDirective', function () {
-        return {
-            require: 'ngModel',
-            link: function (scope, element, attr, mCtrl) {
-                function nameValidation(value) {
-                    if (recipe_list.includes(value)) {
-                        mCtrl.$setValidity('recipeName', true);
-                    } else {
-                        mCtrl.$setValidity('recipeName', false);
-                    }
-                    return value;
-                }
-                mCtrl.$parsers.push(myValidation);
+        $scope.search = function () {
+            if (nameList.includes($scope.name) && nameList.length > 0) {
+                $scope.notfound = true;
             }
-        };
-    });
+            else {
+                $scope.notfound = false;
+            }
+        }
+    }]);
