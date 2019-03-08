@@ -37,11 +37,10 @@
                                         <div>
                                             <div id={{grain.id}}>
                                                 <span>
-                                                    <input id="{{ 'grain-' + grainid}}" type="text"
-                                                        ng-model="grain.name" placeholder="Hops" required
-                                                        ng-change="alfa('grain-' + grainid)" />
-                                                    <div id="{{ 'grain-' + grainid + 'err'}}"
-                                                        style="color:red;display:none">Only alphanumeric characters are
+                                                    <input type="text" ng-model="grain.name" placeholder="Hops"
+                                                        required />
+                                                    <div style="color:red;display:none">Only
+                                                        alphanumeric characters are
                                                         allowed!
                                                     </div>
                                                     <input type="number" ng-model="grain.amount" placeholder="Amount"
@@ -71,11 +70,9 @@
                                         <div>
                                             <div id={{yeast.id}}>
                                                 <span>
-                                                    <input id="{{ 'yeast-' + yeastid}}" type="text"
-                                                        ng-model="yeast.name" placeholder="Yeast"
-                                                        ng-change="alfa('yeast-' + yeastid)" required />
-                                                    <div id="{{ 'yeast-' + yeastid + 'err'}}"
-                                                        style="color:red;display:none">Only alphanumeric characters are
+                                                    <input type="text" ng-model="yeast.name" placeholder="Yeast"
+                                                        required />
+                                                    <div style="color:red;display:none">Only alphanumeric characters are
                                                         allowed!
                                                     </div>
                                                     <input type="number" ng-model="yeast.amount" placeholder="Amount"
@@ -104,11 +101,9 @@
                                         <div>
                                             <div id={{syrup.id}}>
                                                 <span>
-                                                    <input id="{{ 'syrup-' + syrupid}}" type="text"
-                                                        ng-model="syrup.name" placeholder="Syrup" required
-                                                        ng-change="alfa('syrup-' + syrupid)" />
-                                                    <div id="{{ 'syrup-' + syrupid + 'err'}}"
-                                                        style="color:red;display:none">Only alphanumeric characters are
+                                                    <input type="text" ng-model="syrup.name" placeholder="Syrup"
+                                                        required />
+                                                    <div style="color:red;display:none">Only alphanumeric characters are
                                                         allowed!
                                                     </div>
                                                     <input type="number" ng-model="syrup.amount" placeholder="Amount"
