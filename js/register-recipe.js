@@ -13,11 +13,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         var phVals = [3, 11];
         var pressVals = [500, 940];
         $scope.notfound = false;
-        $scope.charc = false;
         var nameList = [];
-        $scope.grainid = 0;
-        $scope.yeastid = 0;
-        $scope.syrupid = 0; 
 
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
@@ -42,7 +38,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.grainlist = [{ name: '', amount: '' }];
 
         $scope.newGrain = function ($event) {
-            $scope.grainid++;
             $scope.grainlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
@@ -50,7 +45,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.yeastlist = [{ name: '', amount: '' }];
 
         $scope.newYeast = function ($event) {
-            $scope.yeastid++;
             $scope.yeastlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
@@ -58,7 +52,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.syruplist = [{ name: '', amount: '' }];
 
         $scope.newSyrup = function ($event) {
-            $scope.syrupid++;
             $scope.syruplist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
@@ -179,17 +172,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             }
             else {
                 $scope.notfound = false;
-            }
-        }
-        $scope.alfa = function (id) {
-            var value = document.getElementById(id).value;
-            var div = document.getElementById(id + 'err');
-            console.log(div);   
-            if (/^[a-zA-Z0-9_]*$/.test(value)) {
-                div.style.display = "none";
-            }
-            else {
-                div.style.display = "block";
             }
         }
     }]);
