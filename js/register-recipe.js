@@ -8,9 +8,17 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
     }])
 
     .controller('RegisterRecipeCtrl', ['$scope', '$http', function ($scope, $http) {
-        $scope.addTextBox = function () {
-            alert('hola');
-        }
+        var recipe_list = [];
+        var tempVals = [-16, 80];
+        var phVals = [3, 11];
+        var pressVals = [500, 940];
+        $scope.notfound = false;
+        $scope.charc = false;
+        var nameList = [];
+        $scope.grainid = 0;
+        $scope.yeastid = 0;
+        $scope.syrupid = 0; 
+
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -22,6 +30,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         window.authToken.then(function setAuthToken(token) {
             if (token) {
                 authToken = token;
+                getrecipeList(token);
             } else {
                 window.location.href = '#!/login';
             }
@@ -29,33 +38,31 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             alert(error);
             window.location.href = '#!/login';
         });
-        var grainCounter=0;
-        $scope.grainlist = [ {id:grainCounter, name : '', amount : '',inline:true} ];
-    
-        $scope.newGrain = function($event){
-            grainCounter++;
-            $scope.grainlist.push(  { id:grainCounter, name : '', amount : '',inline:true} );
+
+        $scope.grainlist = [{ name: '', amount: '' }];
+
+        $scope.newGrain = function ($event) {
+            $scope.grainid++;
+            $scope.grainlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
-    
-        var yeastCounter=0;
-        $scope.yeastlist = [ {id:yeastCounter, name : '', amount : '',inline:true} ];
-    
-        $scope.newYeast = function($event){
-            yeastCounter++;
-            $scope.yeastlist.push(  { id:yeastCounter, name : '', amount : '',inline:true} );
+
+        $scope.yeastlist = [{ name: '', amount: '' }];
+
+        $scope.newYeast = function ($event) {
+            $scope.yeastid++;
+            $scope.yeastlist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
-    
-        var syrupCounter=0;
-        $scope.syruplist = [ {id:syrupCounter, name : '', amount : '',inline:true} ];
-    
-        $scope.newSyrup = function($event){
-            syrupCounter++;
-            $scope.syruplist.push(  { id:syrupCounter, name : '', amount : '',inline:true} );
+
+        $scope.syruplist = [{ name: '', amount: '' }];
+
+        $scope.newSyrup = function ($event) {
+            $scope.syrupid++;
+            $scope.syruplist.push({ name: '', amount: '' });
             $event.preventDefault();
         }
-    
+
         var temp = document.getElementById('slider-temp');
         noUiSlider.create(temp, {
             start: [-16, 80],
@@ -98,4 +105,91 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                 decimals: 0
             })
         });
+        function getrecipeList(token) {
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/getrecipe',
+                headers: {
+                    Authorization: token
+                },
+                data: { info: 'Data was sent' }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+                recipe_list = response.data.Items;
+                recipe_list.forEach(function (element) {
+                    nameList.push(element.Name);
+                });
+            }, function errorCallback(response) {
+                console.error('Error');
+            });
+        }
+        $scope.confirm = function () {
+            var timestamp = Math.floor(Date.now() / 1000);
+            var name = $scope.name;
+            var water = $scope.water;
+            var hops = $scope.grainlist;
+            var yeasts = $scope.yeastlist;
+            var syrups = $scope.syruplist;
+            var restrictions = [
+                { Sensor: "Temperaure", min: tempVals[0], max: tempVals[1] },
+                { Sensor: "PH", min: phVals[0], max: phVals[1] },
+                { Sensor: "Pressure", min: pressVals[0], max: pressVals[1] }
+            ];
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/putrecipe',
+                headers: {
+                    Authorization: authToken
+                },
+                data: {
+                    Timestamp: timestamp,
+                    Ingredients: {
+                        Water: water,
+                        Hops: hops,
+                        Yeast: yeasts,
+                        Syrup: syrups
+                    },
+                    Name: name,
+                    Restrictions: restrictions,
+                }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+                alert("Successfully added recipe!")
+                window.location.href = "#!/home"
+            }, function errorCallback(response) {
+                console.log(req);
+                console.error(response);
+                console.error('Error');
+            });
+        }
+        temp.noUiSlider.on('update', function (values, handle) {
+            tempVals[handle] = values[handle];
+        });
+        ph.noUiSlider.on('update', function (values, handle) {
+            phVals[handle] = values[handle];
+        });
+        press.noUiSlider.on('update', function (values, handle) {
+            pressVals[handle] = values[handle];
+        });
+        $scope.search = function () {
+            if (nameList.includes($scope.name) && nameList.length > 0) {
+                $scope.notfound = true;
+            }
+            else {
+                $scope.notfound = false;
+            }
+        }
+        $scope.alfa = function (id) {
+            var value = document.getElementById(id).value;
+            var div = document.getElementById(id + 'err');
+            console.log(div);   
+            if (/^[a-zA-Z0-9_]*$/.test(value)) {
+                div.style.display = "none";
+            }
+            else {
+                div.style.display = "block";
+            }
+        }
     }]);

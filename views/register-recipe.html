@@ -1,142 +1,160 @@
 <html>
 <div ng-controller="RegisterRecipeCtrl">
     <div class="container">
-        <div style="text-align:center">
-            <div class="row">
-                <div class="col s2 m2 l2 offset-l1">
-                    <img width="200" src="../stickers/amazedko.png" />
+        <form name="registerForm">
+            <div style="text-align:center">
+                <div class="row">
+                    <div class="col s2 m2 l2 offset-l1">
+                        <img width="200" src="../stickers/amazedko.png" />
+                    </div>
+                    <div class="col s8 m8 l8">
+                        <h3 class="orange-text">Register a new recipe!</h3>
+                    </div>
                 </div>
-                <div class="col s8 m8 l8">
-                    <h3 class="orange-text">Register a new recipe!</h3>
-                </div>
-            </div>
-            <div class="divider"></div>
-            <div class="row">
-                <div class="group col s12 m6 l4">
-                    <h4>Ingredients</h4>
-                    <ul class="collection"
-                        style="width:auto;height:auto; max-width: 400px; max-height: 300px; overflow: auto">
-                        <div>
-                            <h5>Water</h5>
-                            <div class="divider"></div>
-                            <div style="display:inline-block">
-                                <input placeholder="Water" />
-                                <input placeholder="Amount" />
-                            </div>
-                            <br><br>
-                            <div class="divider"></div>
-                            <br>
-                            <h5>Grain</h5>
-                            <ul>
-                                <li ng-repeat="grain in grainlist">
-                                    <div>
-                                        <div id={{grain.id}} style="display:inline">
-                                            <span style="display:inline">
-                                                <input type="text" ng-model="grain.name" placeholder="Grain" />
-                                                <input type="text" ng-model="grain.amount" placeholder="Amount"
-                                                    required />
-                                            </span>
-                                        </div>
-                                        <span ng-hide="grainlist.length == 1">
-                                            <a class="btn waves-effect waves-red white black-text"
-                                                ng-click="grainlist.splice($index, 1)">-</a>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="btn waves-effect waves-purple white black-text"
-                                        ng-click="newGrain($event)"> +
-                                    </a>
-                                </li>
-                            </ul>
-                            <br>
-                            <div class="divider"></div>
-                            <br><br>
-                            <h5>Yeast</h5>
-                            <div class="divider"></div>
-                            <div class="divider"></div>
-                            <ul>
-                                <li ng-repeat="yeast in yeastlist">
-                                    <div>
-                                        <div id={{yeast.id}} style="display:inline">
-                                            <span style="display:inline">
-                                                <input type="text" ng-model="yeast.name" placeholder="Yeast" />
-                                                <input type="text" ng-model="yeast.amount" placeholder="Amount"
-                                                    required />
-                                            </span>
-                                        </div>
-                                        <span ng-hide="yeastlist.length == 1">
-                                            <a class="btn waves-effect waves-red white black-text"
-                                                ng-click="yeastlist.splice($index, 1)">-</a>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="btn waves-effect waves-purple white black-text"
-                                        ng-click="newYeast($event)"> +
-                                    </a>
-                                </li>
-                            </ul>
-                            <br>
-                            <div class="divider"></div>
-                            <br><br>
-                            <h5>Malt/Syrup</h5>
-                            <div class="divider"></div>
-                            <ul>
-                                <li ng-repeat="syrup in syruplist">
-                                    <div>
-                                        <div id={{syrup.id}} style="display:inline">
-                                            <span style="display:inline">
-                                                <input type="text" ng-model="syrup.name" placeholder="Syrup" />
-                                                <input type="text" ng-model="syrup.amount" placeholder="Amount"
-                                                    required />
-                                            </span>
-                                        </div>
-                                        <span ng-hide="syruplist.length == 1">
-                                            <a class="btn waves-effect waves-red white black-text"
-                                                ng-click="syruplist.splice($index, 1)">-</a>
-                                        </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="btn waves-effect waves-purple white black-text"
-                                        ng-click="newSyrup($event)"> +
-                                    </a>
-                                </li>
-                            </ul>
-                            <br>
-                            <div class="divider"></div>
-                            <br><br>
+                <div class="divider"></div>
 
-                        </div>
-                    </ul>
-                </div>
-                <div class="group col s12 m6 l8">
-                    <div class="row">
-                        <h4>Restrictions</h4>
-                        <div class="group col s4 m4 l4">
+                <div class="row">
+                    <div class="group col s12 m6 l4">
+                        <h4>Ingredients</h4>
+                        <ul class="collection"
+                            style="width:auto;height:auto; max-width: 600px; max-height: 500px; overflow: auto">
+                            <div>
+                                <h5>Name</h5>
+                                <div class="divider"></div>
+                                <input type="text" placeholder="Name" ng-model="name" required ng-change="search()" />
+                                <div ng-hide="!notfound" style="color:red">Name already in database!</div>
+                                <br><br>
+                                <div class="divider"></div>
+                                <h5>Water</h5>
+                                <div class="divider"></div>
+                                <input type="number" placeholder="Amount of water" ng-model="water" required />
+                                <br><br>
+                                <div class="divider"></div>
+                                <br>
+                                <h5>Hops</h5>
+                                <ul>
+                                    <li ng-repeat="grain in grainlist">
+                                        <div>
+                                            <div id={{grain.id}}>
+                                                <span>
+                                                    <input type="text" ng-model="grain.name" placeholder="Hops"
+                                                        required />
+                                                    <div style="color:red;display:none">Only
+                                                        alphanumeric characters are
+                                                        allowed!
+                                                    </div>
+                                                    <input type="number" ng-model="grain.amount" placeholder="Amount"
+                                                        required />
+                                                </span>
+                                            </div>
+                                            <span ng-hide="grainlist.length == 1">
+                                                <a class="btn waves-effect waves-red white black-text"
+                                                    ng-click="grainlist.splice($index, 1)">-</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="btn waves-effect waves-purple white black-text"
+                                            ng-click="newGrain($event)"> +
+                                        </a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <div class="divider"></div>
+                                <br><br>
+                                <h5>Yeast</h5>
+                                <div class="divider"></div>
+                                <div class="divider"></div>
+                                <ul>
+                                    <li ng-repeat="yeast in yeastlist">
+                                        <div>
+                                            <div id={{yeast.id}}>
+                                                <span>
+                                                    <input type="text" ng-model="yeast.name" placeholder="Yeast"
+                                                        required />
+                                                    <div style="color:red;display:none">Only alphanumeric characters are
+                                                        allowed!
+                                                    </div>
+                                                    <input type="number" ng-model="yeast.amount" placeholder="Amount"
+                                                        required />
+                                                </span>
+                                            </div>
+                                            <span ng-hide="yeastlist.length == 1">
+                                                <a class="btn waves-effect waves-red white black-text"
+                                                    ng-click="yeastlist.splice($index, 1)">-</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="btn waves-effect waves-purple white black-text"
+                                            ng-click="newYeast($event)"> +
+                                        </a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <div class="divider"></div>
+                                <br><br>
+                                <h5>Malt/Syrup</h5>
+                                <div class="divider"></div>
+                                <ul>
+                                    <li ng-repeat="syrup in syruplist">
+                                        <div>
+                                            <div id={{syrup.id}}>
+                                                <span>
+                                                    <input type="text" ng-model="syrup.name" placeholder="Syrup"
+                                                        required />
+                                                    <div style="color:red;display:none">Only alphanumeric characters are
+                                                        allowed!
+                                                    </div>
+                                                    <input type="number" ng-model="syrup.amount" placeholder="Amount"
+                                                        required />
+                                                </span>
+                                            </div>
+                                            <span ng-hide="syruplist.length == 1">
+                                                <a class="btn waves-effect waves-red white black-text"
+                                                    ng-click="syruplist.splice($index, 1)">-</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="btn waves-effect waves-purple white black-text"
+                                            ng-click="newSyrup($event)"> +
+                                        </a>
+                                    </li>
+                                </ul>
+                                <br>
+                                <div class="divider"></div>
+                                <br><br>
+
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="group col s4 offset-s2">
+                        <div class="row">
+                            <h4>Restrictions</h4>
                             <img width="65" height="65" src="../stickers/tempi.png" />
                             <h5 class="orange-text">Temperature (C)</h5>
                             <div id="slider-temp"></div>
                         </div>
-                        <div class="group col s4 m4 l4">
+                        <div class="row">
                             <img width="65" height="65" src="../stickers/waterph.png" />
                             <h5 class="orange-text">pH</h5>
                             <div id="slider-ph"></div>
                         </div>
-                        <div class="group col s4 m4 l4">
+                        <div class="row">
                             <img width="65" height="65" src="../stickers/pres.png" />
                             <h5 class="orange-text">Pressure (hPa)</h5>
                             <div id="slider-press"></div>
                         </div>
                     </div>
                 </div>
+                <a class="btn waves-effect waves-purple white black-text" ng-click="confirm()"
+                    ng-disabled="registerForm.$invalid || notfound || charc"> Save recipe </a>
+                <div class="divider"></div>
+                <br>
+                <br>
             </div>
-            <div class="divider"></div>
-            <br>
-            <a class="btn waves-effect waves-purple white black-text" ng-click="addTextBox()"> Save recipe </a>
-            <br>
-        </div>
+        </form>
     </div>
 </div>
 
