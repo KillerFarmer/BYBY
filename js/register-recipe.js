@@ -181,12 +181,4 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                 $scope.notfound = false;
             }
         }
-        $scope.alfa = function (value) {
-            if (/^[a-zA-Z0-9_]*$/.test(value)) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
     }]);

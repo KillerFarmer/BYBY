@@ -37,9 +37,10 @@
                                         <div>
                                             <div id={{grain.id}}>
                                                 <span>
-                                                    <input type="text" ng-model="grain.name" placeholder="Hops"
-                                                        required />
-                                                    <div style="color:red;display:none">Only
+                                                    <input name="{{'grain'+grainid}}" type="text" ng-model="grain.name"
+                                                        placeholder="Hops" pattern="^[a-zA-Z0-9_]*$" required />
+                                                    <div style="color:red"
+                                                        ng-show="registerForm.{{'grain'+grainid}}.$dirty || registerForm.{{'grain'+grainid}}.$invalid">Only
                                                         alphanumeric characters are
                                                         allowed!
                                                     </div>
@@ -149,7 +150,7 @@
                     </div>
                 </div>
                 <a class="btn waves-effect waves-purple white black-text" ng-click="confirm()"
-                    ng-disabled="registerForm.$invalid || notfound || charc"> Save recipe </a>
+                    ng-disabled="registerForm.$invalid || notfound"> Save recipe </a>
                 <div class="divider"></div>
                 <br>
                 <br>
