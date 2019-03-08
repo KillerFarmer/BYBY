@@ -184,7 +184,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.alfa = function (id) {
             var value = document.getElementById(id).value;
             var div = document.getElementById(id + 'err');
-            console.log(div);
+            console.log(div);   
             if (/^[a-zA-Z0-9_]*$/.test(value)) {
                 div.style.display = "none";
             }
