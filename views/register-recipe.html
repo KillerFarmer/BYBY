@@ -31,14 +31,19 @@
                                 <br><br>
                                 <div class="divider"></div>
                                 <br>
-                                <h5>Grain</h5>
+                                <h5>Hops</h5>
                                 <ul>
                                     <li ng-repeat="grain in grainlist">
-                                        <div style="float:left;">
+                                        <div>
                                             <div id={{grain.id}}>
                                                 <span>
-                                                    <input type="text" ng-model="grain.name" placeholder="Grain"
-                                                        required />
+                                                    <input id="{{ 'grain-' + grainid}}" type="text"
+                                                        ng-model="grain.name" placeholder="Hops" required
+                                                        ng-change="alfa('grain-' + grainid)" />
+                                                    <div id="{{ 'grain-' + grainid + 'err'}}"
+                                                        style="color:red;display:none">Only alphanumeric characters are
+                                                        allowed!
+                                                    </div>
                                                     <input type="number" ng-model="grain.amount" placeholder="Amount"
                                                         required />
                                                 </span>
@@ -66,8 +71,13 @@
                                         <div>
                                             <div id={{yeast.id}}>
                                                 <span>
-                                                    <input type="text" ng-model="yeast.name" placeholder="Yeast"
-                                                        required />
+                                                    <input id="{{ 'yeast-' + yeastid}}" type="text"
+                                                        ng-model="yeast.name" placeholder="Yeast"
+                                                        ng-change="alfa('yeast-' + yeastid)" required />
+                                                    <div id="{{ 'yeast-' + yeastid + 'err'}}"
+                                                        style="color:red;display:none">Only alphanumeric characters are
+                                                        allowed!
+                                                    </div>
                                                     <input type="number" ng-model="yeast.amount" placeholder="Amount"
                                                         required />
                                                 </span>
@@ -94,8 +104,13 @@
                                         <div>
                                             <div id={{syrup.id}}>
                                                 <span>
-                                                    <input type="text" ng-model="syrup.name" placeholder="Syrup"
-                                                        required />
+                                                    <input id="{{ 'syrup-' + syrupid}}" type="text"
+                                                        ng-model="syrup.name" placeholder="Syrup" required
+                                                        ng-change="alfa('syrup-' + syrupid)" />
+                                                    <div id="{{ 'syrup-' + syrupid + 'err'}}"
+                                                        style="color:red;display:none">Only alphanumeric characters are
+                                                        allowed!
+                                                    </div>
                                                     <input type="number" ng-model="syrup.amount" placeholder="Amount"
                                                         required />
                                                 </span>
@@ -138,9 +153,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="divider"></div>
                 <a class="btn waves-effect waves-purple white black-text" ng-click="confirm()"
-                    ng-disabled="registerForm.$invalid || notfound"> Save recipe </a>
+                    ng-disabled="registerForm.$invalid || notfound || charc"> Save recipe </a>
+                <div class="divider"></div>
                 <br>
                 <br>
             </div>
