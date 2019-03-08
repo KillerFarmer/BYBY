@@ -181,15 +181,12 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                 $scope.notfound = false;
             }
         }
-        $scope.alfa = function (id) {
-            var value = document.getElementById(id).value;
-            var div = document.getElementById(id + 'err');
-            console.log(div);   
+        $scope.alfa = function (value) {
             if (/^[a-zA-Z0-9_]*$/.test(value)) {
-                div.style.display = "none";
+                return false;
             }
             else {
-                div.style.display = "block";
+                return true;
             }
         }
     }]);
