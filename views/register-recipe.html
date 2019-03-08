@@ -21,7 +21,13 @@
                             <div>
                                 <h5>Name</h5>
                                 <div class="divider"></div>
-                                <input type="text" placeholder="Name" ng-model="name" required ng-change="search()" />
+                                <input type="text" placeholder="Name" name = "Name" ng-model="name" required ng-change="search()"required pattern="^[a-zA-Z0-9\x00]*$" />
+                                <div style="color:red;"
+                                ng-show="registerForm.Name.$invalid && registerForm.Name.$dirty">
+                                Only
+                                alphanumeric characters are
+                                allowed!
+                            </div>
                                 <div ng-hide="!notfound" style="color:red">Name already in database!</div>
                                 <br><br>
                                 <div class="divider"></div>
@@ -37,10 +43,11 @@
                                         <div>
                                             <div id={{grain.id}}>
                                                 <span>
-                                                    <input name="{{'grain'+grainid}}" type="text" ng-model="grain.name"
-                                                        placeholder="Hops" pattern="^[a-zA-Z0-9_]*$" required />
-                                                    <div style="color:red"
-                                                        ng-show="registerForm.{{'grain'+grainid}}.$dirty || registerForm.{{'grain'+grainid}}.$invalid">Only
+                                                    <input name= "grain{{grainid}}"type="text" ng-model="grain.name"
+                                                        placeholder="Hops" required pattern="^[a-zA-Z0-9\x00]*$"/>
+                                                    <div name= "grain{{grainid}}err" style="color:red;"
+                                                        ng-show="registerForm.grain{{grainid}}.$invalid && registerForm.grain{{grainid}}.$dirty">
+                                                        Only
                                                         alphanumeric characters are
                                                         allowed!
                                                     </div>
