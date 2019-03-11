@@ -149,7 +149,16 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             }
             $http(req).then(function successCallback(response) {
                 console.log('Success');
-                Swal.fire("Successfully added recipe!")
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You recipe was registered.',
+                    imageUrl: '/stickers/victoryko.png',
+                    imageWidth: 300,
+                    imageHeight: 200,
+                    imageAlt: 'success',
+                    animation: true,
+                    confirmButtonColor: '#f08080'
+                  })
                 window.location.href = "#!/home"
             }, function errorCallback(response) {
                 console.log(req);
