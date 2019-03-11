@@ -33,7 +33,7 @@
 	background: purple;
 }
 #slider-temp .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: orange;
+	background-color: purple;
 }
 
 /** ph slide*/
@@ -44,16 +44,16 @@
 	background: pink;
 }
 #slider-ph .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: orange;
+	background-color: pink;
 }
 
 /** press slide*/
 #slider-ph .noUi-connect {
-	background: blue;
+	background: cadetblue;
 }
 #slider-ph .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
-	background: blue;
+	background: cadetblue;
 }
 #slider-ph .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: orange;
+	background-color: cadetblue;
 }
