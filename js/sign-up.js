@@ -42,7 +42,7 @@ angular.module('myApp.signUp', ['ngRoute'])
             }
         };
         var onFailure = function registerFailure(err) {
-            alert(err);
+            Swal.fire(err);
             if (err == 'UsernameExistsException: User already exists') {
                 window.location.href = '#!/verify';
             }
@@ -52,7 +52,7 @@ angular.module('myApp.signUp', ['ngRoute'])
         if (password === password2) {
             register(email, password, onSuccess, onFailure);
         } else {
-            alert('Passwords do not match');
+            Swal.fire('Passwords do not match');
         }
     }
 

@@ -31,7 +31,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                 window.location.href = '#!/login';
             }
         }).catch(function handleTokenError(error) {
-            alert(error);
+            Swal.fire(error);
             window.location.href = '#!/login';
         });
 
@@ -149,7 +149,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             }
             $http(req).then(function successCallback(response) {
                 console.log('Success');
-                alert("Successfully added recipe!")
+                Swal.fire("Successfully added recipe!")
                 window.location.href = "#!/home"
             }, function errorCallback(response) {
                 console.log(req);

@@ -30,7 +30,7 @@ angular.module('myApp.resend', ['ngRoute'])
         $scope.resendVerify = function() {
             createCognitoUser($scope.email).resendConfirmationCode(function(err, result) {
                 if (err) {
-                    alert(err);
+                    Swal.fire(err);
                 } else {
                     window.location.href = "#!/verify";
                 }

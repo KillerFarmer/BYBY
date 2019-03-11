@@ -18,7 +18,7 @@ angular.module('myApp.login', ['ngRoute'])
                     window.location.href = '#!/home';
                 },
                 function signinError(err) {
-                    alert(err);
+                    Swal.fire(err);
                     if (err == 'UserNotConfirmedException: User is not confirmed.') {
                         window.location.href = '#!/verify';
                     }

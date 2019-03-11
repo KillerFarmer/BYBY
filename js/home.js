@@ -23,7 +23,7 @@ angular.module('myApp.home', ['ngRoute'])
                 window.location.href = '#!/login';
             }
         }).catch(function handleTokenError(error) {
-            alert(error);
+            Swal.fire(error);
             window.location.href = '#!/login';
         });
     }]);

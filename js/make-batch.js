@@ -25,7 +25,7 @@ config(['$routeProvider', function($routeProvider) {
             window.location.href = '#!/login';
         }
     }).catch(function handleTokenError(error) {
-        alert(error);
+        Swal.fire(error);
         window.location.href = '#!/login';
     });
 
@@ -65,6 +65,6 @@ config(['$routeProvider', function($routeProvider) {
         return (convdataTime);
     }
     $scope.test = function(name) {
-        alert(name);
+        Swal.fire(name);
     }
 }]);

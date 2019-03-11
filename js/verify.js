@@ -28,11 +28,11 @@ angular.module('myApp.verify', ['ngRoute'])
                 function verifySuccess(result) {
                     console.log('call result: ' + result);
                     console.log('Successfully verified');
-                    alert('Verification successful. You will now be redirected to the login page.');
+                    Swal.fire('Verification successful. You will now be redirected to the login page.');
                     window.location.href = '#!/login';
                 },
                 function verifyError(err) {
-                    alert(err);
+                    Swal.fire(err);
                 }
             );
         }
