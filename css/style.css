@@ -24,8 +24,7 @@
     bottom: 0;
     margin: auto;
 }
-/** Map */
-#map {
+        #map {
         height: 100%;
       }
       html, body {
@@ -33,6 +32,7 @@
         margin: 0;
         padding: 0;
       }
+
 /** Temperature slide*/
 
 #slider-temp .noUi-connect {

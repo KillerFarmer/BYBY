@@ -1,18 +1,6 @@
 <html>
-<!--
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>Create Batch</title>
 
-    <!-- CSS  -->
-    <!-- Para asdsad--><!--
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-</head>-->
-
-<body>
+<body> 
     <div ng-controller="MakeBatchCtrl">
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
@@ -22,8 +10,6 @@
             <br><br>
 
         </div>
-
-
         <div id="items" class="row">
             <div id="group1" class="group col s6 m6 l6">
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Nombre</a>
@@ -50,14 +36,15 @@
                 </ul>
             </div>
             <div id="group2" class="group col s6 m6 l6">
-                <div id="map"></div>
+                <div id="map" style="width: 500px;height: 500px;"></div>
             </div>
         </div>
 
         <!--  Scripts-->
-<!--        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="../js/materialize.js"></script>
-        <script src="../js/init.js"></script>-->
+         <script src="../js/init.js"></script>
+    <script src="../js/map.js"></script>
+    <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9caaLIKM2dPajF1bOI24MBRxOxkp-Cmo&callback=initMap"></script>
+
 </div>
 </body>
 
