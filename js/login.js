@@ -8,6 +8,10 @@ angular.module('myApp.login', ['ngRoute'])
         });
     }])
     .controller('LoginCtrl', ['$scope', function ($scope) {
+        var poolData = {
+            UserPoolId: _config.cognito.userPoolId,
+            ClientId: _config.cognito.userPoolClientId
+        };
         var userPool;
         userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
         var authToken;
