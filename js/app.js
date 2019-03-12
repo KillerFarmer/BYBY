@@ -16,9 +16,19 @@ angular.module('myApp', [
     }])
     .controller('myAppCtrl', ['$scope', function ($scope) {
         if (!(_config.cognito.userPoolId &&
+<<<<<<< HEAD
             _config.cognito.userPoolClientId &&
             _config.cognito.region)) {
             Swal.fire('Error in config.js file, not configured.')
+=======
+                _config.cognito.userPoolClientId &&
+                _config.cognito.region)) {
+            Swal.fire({
+                type: 'error',
+                title: 'Something went wrong!',
+                text: 'Error in config.js file, not configured.'
+            })
+>>>>>>> 2de0d823765085cb6fe1d0249fd3f9616e707bab
             return;
         }
         var poolData = {

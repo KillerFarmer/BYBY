@@ -23,7 +23,7 @@ angular.module('myApp.login', ['ngRoute'])
                         window.location.href = '#!/verify';
                     }
                 }
-            );
+            );  
         }
 
         function signin(email, password, onSuccess, onFailure) {
