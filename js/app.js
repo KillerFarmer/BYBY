@@ -1,24 +1,28 @@
 'use strict';
 // Declare app level module which depends on views, and core components
 angular.module('myApp', [
-        'ngRoute',
-        'myApp.login',
-        'myApp.signUp',
-        'myApp.makeBatch',
-        'myApp.verify',
-        'myApp.resend',
-        'myApp.registerRecipe',
-        'myApp.home'
-    ])
-    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    'ngRoute',
+    'myApp.login',
+    'myApp.signUp',
+    'myApp.makeBatch',
+    'myApp.verify',
+    'myApp.resend',
+    'myApp.registerRecipe',
+    'myApp.home'
+])
+    .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
         $locationProvider.hashPrefix('!');
         $routeProvider.otherwise({ redirectTo: '/login' });
     }])
-    .controller('myAppCtrl', ['$scope', function($scope) {
+    .controller('myAppCtrl', ['$scope', function ($scope) {
         if (!(_config.cognito.userPoolId &&
                 _config.cognito.userPoolClientId &&
                 _config.cognito.region)) {
-            Swal.fire('Error in config.js file, not configured.')
+            Swal.fire({
+                type: 'error',
+                title: 'Something went wrong!',
+                text: 'Error in config.js file, not configured.'
+            })
             return;
         }
         var poolData = {
@@ -51,8 +55,10 @@ angular.module('myApp', [
                 resolve(null);
             }
         });
-        $scope.signOut = function() {
-            userPool.getCurrentUser().signOut();
-            window.location.href="#!/login";
+        $scope.signOut = function () {
+            if (userPool.getCurrentUser() != null) {
+                userPool.getCurrentUser().signOut();
+                window.location.reload("#!/login");
+            }
         }
     }]);
