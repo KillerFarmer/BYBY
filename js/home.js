@@ -23,7 +23,11 @@ angular.module('myApp.home', ['ngRoute'])
                 window.location.href = '#!/login';
             }
         }).catch(function handleTokenError(error) {
-            Swal.fire(error);
+            Swal.fire({
+                type: 'error',
+                title: 'Something went wrong!',
+                text: error
+            });
             window.location.href = '#!/login';
         });
     }]);
