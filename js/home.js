@@ -2,19 +2,18 @@
 
 angular.module('myApp.home', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/home', {
             templateUrl: 'views/home.html',
         });
     }])
-    .controller('HomeCtrl', ['$scope', function($scope) {
+    .controller('HomeCtrl', ['$scope', function ($scope) {
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
         };
         var userPool;
         userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-    
         var authToken;
         window.authToken.then(function setAuthToken(token) {
             if (token) {

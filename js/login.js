@@ -15,7 +15,7 @@ angular.module('myApp.login', ['ngRoute'])
             signin(email, password,
                 function signinSuccess() {
                     console.log('Successfully Logged In');
-                    window.location.href = '#!/home';
+                    window.location.reload('#!/home');
                 },
                 function signinError(err) {
                     Swal.fire(err);
@@ -57,8 +57,5 @@ angular.module('myApp.login', ['ngRoute'])
                 Username: email,
                 Pool: userPool
             });
-        }
-        if (userPool.getCurrentUser() != null) {
-            window.location.href = '#!/home';
         }
     }]);
