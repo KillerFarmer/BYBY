@@ -1,6 +1,7 @@
 <html>
 
-<body> 
+
+<body>
     <div ng-controller="MakeBatchCtrl">
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
@@ -15,9 +16,9 @@
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Nombre</a>
                 <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('-Timestamp')">Fecha</a>
                 <ul class="collection"
-                    style="max-width: 850px; max-height: 500px; width: auto; height: auto;overflow: auto">
+                    style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
                     <div class="preloader-wrapper big active loader">
-                        <div class="spinner-layer spinner-blue-only" ng-hide="!loading">
+                        <div id="loadRec" class="spinner-layer spinner-blue-only" ng-hide="!loading">
                             <div class="circle-clipper left">
                                 <div class="circle"></div>
                             </div>
@@ -36,15 +37,31 @@
                 </ul>
             </div>
             <div id="group2" class="group col s6 m6 l6">
-                <div id="map" style="width: 500px;height: 500px;"></div>
+                <div id="map" style="width: 800px;height: 500px;"></div>
+                <ul class="collection"
+                    style="max-width: 800px; max-height: 200px; width: auto; height: auto;overflow: auto">
+                    <div class="preloader-wrapper big active loader">
+                        <div id="loadFacl" class="spinner-layer spinner-blue-only" ng-hide="!loading">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <li ng-click="test(x.Name)" class="collection-item" ng-repeat="x in facls">
+                        <div>{{x.Name}}<a class="secondary-content black-text"><i>{{x.Address}}</i></a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <!--  Scripts-->
-    <script src="../js/map.js"></script>
-    <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9caaLIKM2dPajF1bOI24MBRxOxkp-Cmo&callback=initMap"></script>
-
-</div>
+    </div>
 </body>
 
 

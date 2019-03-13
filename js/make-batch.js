@@ -10,6 +10,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
     .controller('MakeBatchCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.loading = true;
         var recipe_list;
+        var facility_list;
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -21,6 +22,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
         window.authToken.then(function setAuthToken(token) {
             if (token) {
                 getrecipeList(token);
+                getFacilityList(token);
             } else {
                 window.location.href = '#!/login';
             }
@@ -48,6 +50,29 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 
             });
         }
+        function getFacilityList(token) {
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/getfacility',
+                headers: {
+                    Authorization: token
+                },
+                data: {
+                    Coordinates: {
+                        lat: 32.505836,
+                        lng: -116.924076
+                    }
+                }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+                facility_list = response.data.Items;
+                $scope.facls = facility_list;
+            }, function errorCallback(response) {
+                console.error('Error');
+
+            });
+        }
 
         $scope.orderByMe = function (x) {
             $scope.myOrderBy = x;
@@ -69,33 +94,26 @@ angular.module('myApp.makeBatch', ['ngRoute']).
         }
         function initMap() {
             var map;
+            var position = {
+                lat: 32.505836,
+                lng: -116.924076
+            }
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: -34.397, lng: 150.644 },
                 zoom: 6
             });
-            var infoWindow;
-            infoWindow = new google.maps.InfoWindow;
-
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                console.log('Geolocation is supported!');
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-                console.log('Your browser doesnt support geolocation');
-            }
+            var pos = {
+                lat: position.lat,
+                lng: position.lng
+            };
+            var userPos = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: 'Hello World!'
+            });
+            userPos.setMap(map);
+            map.setZoom(15);
+            map.setCenter(pos);
         }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
