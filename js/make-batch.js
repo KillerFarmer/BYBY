@@ -23,6 +23,8 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             recipe: '',
             facility: ''
         };
+        var old_recipe;
+        var old_facility;
 
         userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
         window.authToken.then(function setAuthToken(token) {
@@ -148,12 +150,22 @@ angular.module('myApp.makeBatch', ['ngRoute']).
         initMap();
 
         $scope.addFacility = function (facility) {
+            if(old_facility != null){
+                document.getElementById(old_facility).setAttribute("class","collection-item");
+            }
             batch.facility = facility;
+            document.getElementById(facility).setAttribute("class","collection-item active");
+            old_facility = facility;
             console.log(batch);
         }
 
         $scope.addRecipe = function (recipe) {
+            if(old_recipe != null){
+                document.getElementById(old_recipe).setAttribute("class","collection-item");
+            }
             batch.recipe = recipe;
+            document.getElementById(recipe).setAttribute("class","collection-item active");
+            old_recipe = recipe;
             console.log(batch);
         }
     }]);
