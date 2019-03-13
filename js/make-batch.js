@@ -168,6 +168,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                     var facility = facility_list.find(facl => facl.Name == marker.title);
                     infowindow.open(map, marker);
                     getBioreactorList(authToken, facility);
+                    $scope.Facility = facility.Name;
                 });
                 bounds.extend(marker.position);
             });
@@ -195,23 +196,35 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             $http(req).then(function successCallback(response) {
                 console.log('Success');
                 bioreactor_list = response.data.Items;
-                $scope.facls = bioreactor_list;
-                console.log($scope.facls);
+                if (bioreactor_list.length > 0) {
+                    $scope.Bioreactor = bioreactor_list[0].Id;
+                }
+                else {
+                    $scope.Bioreactor = "";
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Something went wrong!',
+                        text: 'No Bioreactors available at this location!'
+                    });
+                }
+
             }, function errorCallback(response) {
                 console.error('Error');
 
             });
         }
 
-        $scope.addBioreactor = function (bioreactor) {
+        function addBioreactor(bioreactor) {
             if (old_bioreactor != null) {
                 document.getElementById(old_bioreactor).setAttribute("class", "collection-item");
             }
             batch.bioreactor = bioreactor;
             document.getElementById(bioreactor).setAttribute("class", "collection-item active");
             old_bioreactor = bioreactor;
+            $scope.Bioreactor = bioreactor;
             console.log(batch);
         }
+
 
         $scope.addRecipe = function (recipe) {
             if (old_recipe != null) {
@@ -220,6 +233,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             batch.recipe = recipe;
             document.getElementById(recipe).setAttribute("class", "collection-item active");
             old_recipe = recipe;
+            $scope.RecipeName = recipe;
             console.log(batch);
         }
     }]);

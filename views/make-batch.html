@@ -34,14 +34,25 @@
                 </div>
                 <div id="group2" class="group col s6 m6 l6">
                     <div id="map" style="width: 800px;height: 500px;"></div>
-                    <ul class="collection"
-                        style="max-width: 800px; max-height: 200px; width: auto; height: auto;overflow: auto">
-                        <li id="{{x.Id}}" ng-click="addBioreactor(x.Id)" class="collection-item"
-                            ng-repeat="x in facls">
-                            <div>Bioreactor: {{x.Id}}<a class="secondary-content black-text"><i>{{x.State}}</i></a>
-                            </div>
-                        </li>
-                    </ul>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Facility</th>
+                                    <th>Recipe Name</th>
+                                    <th>Bioreactor</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>{{Facility}}</td>
+                                    <td>{{RecipeName}}</td>
+                                    <td>{{Bioreactor}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
