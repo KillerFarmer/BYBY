@@ -15,9 +15,9 @@
             </div>
             <div id="buttons" class="row">
                 <div class="group col s8 m6 l4">
-                    <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Nombre</a>
+                    <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Name</a>
                     <a class="btn waves-effect waves-purple white black-text"
-                        ng-click="orderByMe('-Timestamp')">Fecha</a>
+                        ng-click="orderByMe('-Timestamp')">Date</a>
                 </div>
             </div>
             <div id="items" class="row">
@@ -33,7 +33,7 @@
                     </ul>
                 </div>
                 <div id="group2" class="group col s6 m6 l6">
-                    <div id="map" style="width: 800px;height: 500px;"></div>
+                    <div id="map" style="width: 650px; height: 500px;"></div>
                     <div>
                         <table>
                             <thead>
@@ -52,6 +52,11 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <br>
+                    <div class="group col offset-s5">
+                        <a class="btn waves-effect waves-purple white black-text"
+                            ng-click="Confirm()">Confirm</a>
                     </div>
                 </div>
             </div>

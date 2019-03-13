@@ -22,7 +22,10 @@ angular.module('myApp.makeBatch', ['ngRoute']).
         var authToken;
         var batch = {
             recipe: '',
-            bioreactor: ''
+            bioreactor: '',
+            status: '',
+            timestamp: '',
+            id: ''
         };
         var old_recipe;
         var old_bioreactor;
@@ -136,7 +139,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
         }
 
         function setMarkers(facilities) {
-            var image = "../stickers/byby.png"
+            var image = "../stickers/black.png";
             facilities.forEach(element => {
                 var contentString = '<div id="content">' +
                     '<div id="siteNotice">' +
@@ -160,11 +163,17 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                 infowindows.push(infowindow);
                 marker.setMap(map);
                 marker.addListener('click', function () {
+                    var accepted = "../stickers/blue.png";
+                    var image = "../stickers/black.png";
                     infowindows.forEach(element => {
                         if (isInfoWindowOpen(element)) {
                             element.close();
                         }
                     });
+                    markers.forEach(element => {
+                        element.setIcon(image);
+                    });
+                    marker.setIcon(accepted);
                     var facility = facility_list.find(facl => facl.Name == marker.title);
                     infowindow.open(map, marker);
                     getBioreactorList(authToken, facility);
@@ -222,7 +231,6 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             document.getElementById(bioreactor).setAttribute("class", "collection-item active");
             old_bioreactor = bioreactor;
             $scope.Bioreactor = bioreactor;
-            console.log(batch);
         }
 
 
@@ -234,6 +242,41 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             document.getElementById(recipe).setAttribute("class", "collection-item active");
             old_recipe = recipe;
             $scope.RecipeName = recipe;
-            console.log(batch);
+        }
+
+        $scope.Confirm = function () {
+            var timestamp = Math.floor(Date.now() / 1000);
+            var ingredients = recipe_list.find(recipe => recipe.Name == $scope.RecipeName);
+            var bioreactor = bioreactor_list.find(bio => bio.Id == $scope.Bioreactor);
+            var status = "Created";
+            var id = getId();   
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/putbatch',
+                headers: {
+                    Authorization: authToken
+                },
+                data: {
+                    Timestamp: timestamp,
+                    Recipe: ingredients,
+                    Status: status,
+                    Bioreactor: bioreactor,
+                    Id: id,
+                }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+
+            }, function errorCallback(response) {
+                console.error('Error');
+            });
+        }
+
+        function getId() {
+            var s = '';
+            for (var i = 0; i < 10; i++) {
+                s += faker.random.alphaNumeric();
+            }
+            return s;
         }
     }]);
