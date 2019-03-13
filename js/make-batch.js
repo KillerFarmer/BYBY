@@ -9,6 +9,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 
     .controller('MakeBatchCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.loading = true;
+        var bounds = new google.maps.LatLngBounds();
         var recipe_list;
         var facility_list;
         var poolData = {
@@ -16,9 +17,14 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             ClientId: _config.cognito.userPoolClientId
         };
         var userPool;
-        userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
-
+        var map;
         var authToken;
+        var batch = {
+            recipe: '',
+            facility: ''
+        };
+
+        userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
         window.authToken.then(function setAuthToken(token) {
             if (token) {
                 getrecipeList(token);
@@ -50,6 +56,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 
             });
         }
+
         function getFacilityList(token) {
             var req = {
                 method: 'POST',
@@ -68,6 +75,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                 console.log('Success');
                 facility_list = response.data.Items;
                 $scope.facls = facility_list;
+                setMarkers(facility_list);
             }, function errorCallback(response) {
                 console.error('Error');
 
@@ -89,11 +97,8 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 
             return (convdataTime);
         }
-        $scope.test = function (name) {
-            Swal.fire(name);
-        }
+
         function initMap() {
-            var map;
             var position = {
                 lat: 32.505836,
                 lng: -116.924076
@@ -109,7 +114,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             var userPos = new google.maps.Marker({
                 position: position,
                 map: map,
-                title: 'Hello World!'
+                title: 'You are here!'
             });
             userPos.setMap(map);
             map.setZoom(15);
@@ -122,8 +127,33 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                 'Error: The Geolocation service failed.' :
                 'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
-            console.log(pos);
             console.log('Map should be showing');
         }
+
+        function setMarkers(facilities) {
+            var image = "../stickers/byby.png"
+            facilities.forEach(element => {
+                var marker = new google.maps.Marker({
+                    position: element.Coordinates,
+                    map: map,
+                    title: element.Name,
+                    icon: image
+                });
+                marker.setMap(map);
+                bounds.extend(marker.position);
+            });
+            map.fitBounds(bounds);
+        }
+
         initMap();
+
+        $scope.addFacility = function (facility) {
+            batch.facility = facility;
+            console.log(batch);
+        }
+
+        $scope.addRecipe = function (recipe) {
+            batch.recipe = recipe;
+            console.log(batch);
+        }
     }]);

@@ -66,3 +66,7 @@
 #slider-ph .noUi-target.noUi-horizontal .noUi-tooltip {
 	background-color: cadetblue;
 }
+
+.active {
+  background: purple;
+}

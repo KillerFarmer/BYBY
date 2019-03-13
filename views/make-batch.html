@@ -20,7 +20,8 @@
             <div id="group1" class="group col s6 m6 l6">
                 <ul class="collection"
                     style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
-                    <li ng-click="test(x.Name)" class="collection-item" ng-repeat="x in recipes| orderBy:myOrderBy">
+                    <li ng-click="addRecipe(x.Name)" class="collection-item"
+                        ng-repeat="x in recipes| orderBy:myOrderBy">
                         <div>{{x.Name}}<a class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a>
                         </div>
                     </li>
@@ -30,7 +31,7 @@
                 <div id="map" style="width: 800px;height: 500px;"></div>
                 <ul class="collection"
                     style="max-width: 800px; max-height: 200px; width: auto; height: auto;overflow: auto">
-                    <li ng-click="test(x.Name)" class="collection-item" ng-repeat="x in facls">
+                    <li id="{{x.Name}}" ng-click="addFacility(x.Name)" class="collection-item" ng-repeat="x in facls">
                         <div>{{x.Name}}<a class="secondary-content black-text"><i>{{x.Address}}</i></a>
                         </div>
                     </li>
