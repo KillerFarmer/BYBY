@@ -8,6 +8,24 @@ angular.module('myApp.login', ['ngRoute'])
         });
     }])
     .controller('LoginCtrl', ['$scope', function ($scope) {
+        var poolData = {
+            UserPoolId: _config.cognito.userPoolId,
+            ClientId: _config.cognito.userPoolClientId
+        };
+        var userPool;
+        userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+        var authToken;
+        window.authToken.then(function setAuthToken(token) {
+            if (token) {
+                window.location.href = '#!/home';
+            }
+        }).catch(function handleTokenError(error) {
+            Swal.fire({
+                type: 'error',
+                title: 'Something went wrong!',
+                text: error
+            });
+        });
         $scope.handleSignin = function () {
             var email = $scope.email;
             var password = $scope.pswd;
@@ -15,7 +33,7 @@ angular.module('myApp.login', ['ngRoute'])
             signin(email, password,
                 function signinSuccess() {
                     console.log('Successfully Logged In');
-                    window.location.href = '#!/home';
+                    window.location.reload('#!/login');
                 },
                 function signinError(err) {
                     Swal.fire(err);
@@ -23,7 +41,7 @@ angular.module('myApp.login', ['ngRoute'])
                         window.location.href = '#!/verify';
                     }
                 }
-            );
+            );  
         }
 
         function signin(email, password, onSuccess, onFailure) {
@@ -57,8 +75,5 @@ angular.module('myApp.login', ['ngRoute'])
                 Username: email,
                 Pool: userPool
             });
-        }
-        if (userPool.getCurrentUser() != null) {
-            window.location.href = '#!/home';
         }
     }]);
