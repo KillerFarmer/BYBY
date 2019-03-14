@@ -9,6 +9,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 
     .controller('MakeBatchCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.loading = true;
+        $scope.filled = true;
         var bounds = new google.maps.LatLngBounds();
         var recipe_list;
         var facility_list;
@@ -28,9 +29,11 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             id: ''
         };
         var old_recipe;
-        var old_bioreactor;
         var markers = [];
         var infowindows = [];
+        $scope.Facility = '';
+        $scope.RecipeName = '';
+        $scope.Bioreactor = '';
 
         userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
         window.authToken.then(function setAuthToken(token) {
@@ -207,9 +210,16 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                 bioreactor_list = response.data.Items;
                 if (bioreactor_list.length > 0) {
                     $scope.Bioreactor = bioreactor_list[0].Id;
+                    if ($scope.RecipeName.length > 0 && bioreactor_list.length > 0) {
+                        $scope.filled = false;
+                    }
+                    else {
+                        $scope.filled = true;
+                    }
                 }
                 else {
                     $scope.Bioreactor = "";
+                    $scope.filled=true;
                     Swal.fire({
                         type: 'error',
                         title: 'Something went wrong!',
@@ -223,16 +233,6 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             });
         }
 
-        function addBioreactor(bioreactor) {
-            if (old_bioreactor != null) {
-                document.getElementById(old_bioreactor).setAttribute("class", "collection-item");
-            }
-            batch.bioreactor = bioreactor;
-            document.getElementById(bioreactor).setAttribute("class", "collection-item active");
-            old_bioreactor = bioreactor;
-            $scope.Bioreactor = bioreactor;
-        }
-
 
         $scope.addRecipe = function (recipe) {
             if (old_recipe != null) {
@@ -242,6 +242,12 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             document.getElementById(recipe).setAttribute("class", "collection-item active");
             old_recipe = recipe;
             $scope.RecipeName = recipe;
+            if ($scope.Facility.length > 0 && $scope.Bioreactor.length > 0) {
+                $scope.filled = false;
+            }
+            else {
+                $scope.filled = true;
+            }
         }
 
         $scope.Confirm = function () {
@@ -249,7 +255,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             var ingredients = recipe_list.find(recipe => recipe.Name == $scope.RecipeName);
             var bioreactor = bioreactor_list.find(bio => bio.Id == $scope.Bioreactor);
             var status = "Created";
-            var id = getId();   
+            var id = getId();
             var req = {
                 method: 'POST',
                 url: _config.api.invokeUrl + '/putbatch',
