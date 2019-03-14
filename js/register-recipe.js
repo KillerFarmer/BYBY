@@ -161,8 +161,6 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                   })
                 window.location.href = "#!/home"
             }, function errorCallback(response) {
-                console.log(req);
-                console.error(response);
                 console.error('Error');
             });
         }

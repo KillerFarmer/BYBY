@@ -219,7 +219,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                 }
                 else {
                     $scope.Bioreactor = "";
-                    $scope.filled=true;
+                    $scope.filled = true;
                     Swal.fire({
                         type: 'error',
                         title: 'Something went wrong!',
@@ -272,6 +272,17 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             }
             $http(req).then(function successCallback(response) {
                 console.log('Success');
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You batch was created.',
+                    imageUrl: '/stickers/victoryko.png',
+                    imageWidth: 300,
+                    imageHeight: 200,
+                    imageAlt: 'success',
+                    animation: true,
+                    confirmButtonColor: '#f08080'
+                  })
+                window.location.href = "#!/home"
 
             }, function errorCallback(response) {
                 console.error('Error');
@@ -285,4 +296,5 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             }
             return s;
         }
+
     }]);
