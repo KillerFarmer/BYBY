@@ -59,7 +59,6 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
-                responsive: false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -100,7 +99,6 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
-                responsive: false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -141,7 +139,6 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
-                responsive: false,
                 scales: {
                     yAxes: [{
                         ticks: {

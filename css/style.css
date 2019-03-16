@@ -70,3 +70,10 @@
 .active {
   background: purple;
 }
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 20%;
+  width: 80%;
+}

@@ -3,15 +3,15 @@
     <div ng-include='"frames/header.html"'></div>
 </div>
 <div ng-controller="BatchViewCtrl">
-    <div class="col s2 offset-s6">
-        <div>
-            <canvas id="tempChart" height="400" style=" width:100%;"></canvas>
+    <div>
+        <div class="chart-container">
+            <canvas id="tempChart" height="100px"></canvas>
         </div>
-        <div>
-            <canvas id="phChart" height="400" style=" width:100%;"></canvas>
+        <div class="chart-container">
+            <canvas id="phChart" height="100px"></canvas>
         </div>
-        <div>
-            <canvas id="pressChart" height="400" style=" width:100%;"></canvas>
+        <div class="chart-container">
+            <canvas id="pressChart" height="100px"></canvas>
         </div>
     </div>
 </div>
