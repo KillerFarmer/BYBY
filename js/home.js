@@ -7,7 +7,23 @@ angular.module('myApp.home', ['ngRoute'])
             templateUrl: 'views/home.html',
         });
     }])
-    .controller('HomeCtrl', ['$scope', function ($scope) {
+    .factory('batchService', function () {
+        var savedData = {}
+        function set(data) {
+            savedData = data;
+        }
+        function get() {
+            return savedData;
+        }
+
+        return {
+            set: set,
+            get: get
+        }
+
+    })
+    .controller('HomeCtrl', ['$scope', '$http', 'batchService', function ($scope, $http, batchService) {
+        $scope.batches;
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -18,6 +34,7 @@ angular.module('myApp.home', ['ngRoute'])
         window.authToken.then(function setAuthToken(token) {
             if (token) {
                 authToken = token;
+                getBatchList(token);
             } else {
                 window.location.href = '#!/login';
             }
@@ -29,4 +46,27 @@ angular.module('myApp.home', ['ngRoute'])
             });
             window.location.href = '#!/login';
         });
+        function getBatchList(token) {
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/getbatch',
+                headers: {
+                    Authorization: token
+                },
+                data: {
+                    Info: 'Data sent!'
+                }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+                $scope.batches = response.data.Items;
+                console.log($scope.batches);
+            }, function errorCallback(response) {
+                console.error('Error');
+            });
+
+        }
+        $scope.selectBatch = function (name) {
+            batchService.set(name);
+        }
     }]);
