@@ -66,8 +66,8 @@ angular.module('myApp.home', ['ngRoute'])
             });
 
         }
-        $scope.selectBatch = function (name) {
-            batchService.set(name);
+        $scope.selectBatch = function (batch) {
+            batchService.set(batch);
             window.location.href('#!/batch-view');
         }
     }]);

@@ -158,7 +158,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                     imageAlt: 'success',
                     animation: true,
                     confirmButtonColor: '#f08080'
-                  })
+                })
                 window.location.href = "#!/home"
             }, function errorCallback(response) {
                 console.error('Error');
