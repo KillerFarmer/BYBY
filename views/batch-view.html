@@ -3,6 +3,7 @@
     <div ng-include='"frames/header.html"'></div>
 </div>
 <div ng-controller="BatchViewCtrl">
+    <a class="btn waves-effect waves-purple white black-text" ng-click="reloadData()"> Reload Placeholder </a>
     <div>
         <div class="chart-container">
             <canvas id="tempChart" height="100px"></canvas>

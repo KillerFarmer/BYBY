@@ -16,13 +16,16 @@ angular.module('myApp.batchView', ['ngRoute'])
         var phs_labels = [];
         var press_labels = [];
 
-        var batch = batchService.get();
+        var batch;
+        var batchid;
+
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
         };
         var userPool;
         userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
         var authToken;
         window.authToken.then(function setAuthToken(token) {
             if (token) {
@@ -38,6 +41,12 @@ angular.module('myApp.batchView', ['ngRoute'])
             });
             window.location.href = '#!/login';
         });
+
+        if (batchService.get() != null || batchService.get().length > 0) {
+            batch = batchService.get();
+            batchid = batch.Id + '|' + batch.Timestamp;
+        }
+
         var test = [{
             Batch: "{Batch PK}|{Batch SK}",
             Timestamp: 1552596209,
@@ -72,11 +81,10 @@ angular.module('myApp.batchView', ['ngRoute'])
 
         },
         ];
-        getData(test);
+        getDataList(test);
         var temp = document.getElementById('tempChart');
         var ph = document.getElementById('phChart');
         var press = document.getElementById('pressChart');
-
         var tempChart = new Chart(temp, {
             type: 'line',
             data: {
@@ -158,7 +166,13 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }
             }
         });
-        function getData(sensorData) {
+        function getDataList(sensorData) {
+            temps = [];
+            phs = [];
+            pres = [];
+            temps_labels = [];
+            phs_labels = [];
+            press_labels = [];
             sensorData.forEach(element => {
                 temps.push(element.Data.Temperature);
                 phs.push(element.Data.Ph);
@@ -179,4 +193,51 @@ angular.module('myApp.batchView', ['ngRoute'])
 
             return (convdataTime);
         }
+
+        function getBatchData(batch) {
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/putbatch',
+                headers: {
+                    Authorization: authToken
+                },
+                data: {
+                    Batch: batch,
+                }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+                getDataList(response.data.Items);
+            }, function errorCallback(response) {
+                console.error('Error');
+            });
+        }
+
+        $scope.reloadData = function () {
+            var test_data =
+            {
+                Batch: "{Batch PK}|{Batch SK}",
+                Timestamp: 1552599209,
+                Data:
+                {
+                    Temperature: 150,
+                    Ph: 8,
+                    Pressure: 120
+                }
+
+            };
+            test.push(test_data);
+            getDataList(test);
+            addData(presChart, press_labels, pres);
+            addData(tempChart, temps_labels, temps);
+            addData(phChart, phs_labels, phs);
+        }
+        function addData(chart, label, data) {
+            chart.data.labels = label;
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data = data;
+            });
+            chart.update();
+        }
+
     }]);
