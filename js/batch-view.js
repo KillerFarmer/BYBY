@@ -16,8 +16,8 @@ angular.module('myApp.batchView', ['ngRoute'])
         var phs_labels = [];
         var press_labels = [];
 
-        var batch;
-        var batchid;
+        var batch="";
+        var batchid="";
 
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
@@ -90,7 +90,7 @@ angular.module('myApp.batchView', ['ngRoute'])
             data: {
                 labels: temps_labels,
                 datasets: [{
-                    label: 'Temp',
+                    label: 'Temperature',
                     data: temps,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
