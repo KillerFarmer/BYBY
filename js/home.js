@@ -60,7 +60,6 @@ angular.module('myApp.home', ['ngRoute'])
             $http(req).then(function successCallback(response) {
                 console.log('Success');
                 $scope.batches = response.data.Items;
-                console.log($scope.batches);
             }, function errorCallback(response) {
                 console.error('Error');
             });

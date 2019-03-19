@@ -30,6 +30,9 @@ angular.module('myApp.batchView', ['ngRoute'])
             if (token) {
                 authToken = token;
                 batch = batchService.get();
+                if (Object.entries(batch).length === 0 && batch.constructor === Object) {
+                    window.location.href = '#!/home';
+                }
                 getBatchData(batch.Id);
             }
             else {
@@ -182,7 +185,7 @@ angular.module('myApp.batchView', ['ngRoute'])
             getBatchData(batch.Id);
             reload();
         }
-        function reload(){
+        function reload() {
             addData(presChart, press_labels, pres);
             addData(tempChart, temps_labels, temps);
             addData(phChart, phs_labels, phs);
