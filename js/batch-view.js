@@ -15,7 +15,6 @@ angular.module('myApp.batchView', ['ngRoute'])
         var temps_labels = [];
         var phs_labels = [];
         var press_labels = [];
-
         var batch = "";
 
         var poolData = {
