@@ -16,8 +16,7 @@ angular.module('myApp.batchView', ['ngRoute'])
         var phs_labels = [];
         var press_labels = [];
 
-        var batch="";
-        var batchid="";
+        var batch = "";
 
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
@@ -30,7 +29,10 @@ angular.module('myApp.batchView', ['ngRoute'])
         window.authToken.then(function setAuthToken(token) {
             if (token) {
                 authToken = token;
-            } else {
+                batch = batchService.get();
+                getBatchData(batch.Id);
+            }
+            else {
                 window.location.href = '#!/login';
             }
         }).catch(function handleTokenError(error) {
@@ -42,46 +44,7 @@ angular.module('myApp.batchView', ['ngRoute'])
             window.location.href = '#!/login';
         });
 
-        if (batchService.get() != null || batchService.get().length > 0) {
-            batch = batchService.get();
-            batchid = batch.Id + '|' + batch.Timestamp;
-        }
 
-        var test = [{
-            Batch: "{Batch PK}|{Batch SK}",
-            Timestamp: 1552596209,
-            Data:
-            {
-                Temperature: 200,
-                Ph: 10,
-                Pressure: 200
-            }
-
-        },
-        {
-            Batch: "{Batch PK}|{Batch SK}",
-            Timestamp: 1552597209,
-            Data:
-            {
-                Temperature: 10,
-                Ph: 5,
-                Pressure: 100
-            }
-
-        },
-        {
-            Batch: "{Batch PK}|{Batch SK}",
-            Timestamp: 1552598209,
-            Data:
-            {
-                Temperature: 120,
-                Ph: 6,
-                Pressure: 150
-            }
-
-        },
-        ];
-        getDataList(test);
         var temp = document.getElementById('tempChart');
         var ph = document.getElementById('phChart');
         var press = document.getElementById('pressChart');
@@ -197,7 +160,7 @@ angular.module('myApp.batchView', ['ngRoute'])
         function getBatchData(batch) {
             var req = {
                 method: 'POST',
-                url: _config.api.invokeUrl + '/putbatch',
+                url: _config.api.invokeUrl + '/getmeasurement',
                 headers: {
                     Authorization: authToken
                 },
@@ -208,26 +171,18 @@ angular.module('myApp.batchView', ['ngRoute'])
             $http(req).then(function successCallback(response) {
                 console.log('Success');
                 getDataList(response.data.Items);
+                reload();
+
             }, function errorCallback(response) {
                 console.error('Error');
             });
         }
 
         $scope.reloadData = function () {
-            var test_data =
-            {
-                Batch: "{Batch PK}|{Batch SK}",
-                Timestamp: 1552599209,
-                Data:
-                {
-                    Temperature: 150,
-                    Ph: 8,
-                    Pressure: 120
-                }
-
-            };
-            test.push(test_data);
-            getDataList(test);
+            getBatchData(batch.Id);
+            reload();
+        }
+        function reload(){
             addData(presChart, press_labels, pres);
             addData(tempChart, temps_labels, temps);
             addData(phChart, phs_labels, phs);
