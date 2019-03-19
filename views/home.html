@@ -14,13 +14,13 @@
     <div class="row ">
       <div class="group col s12 m12 l12">
         <ul class="collection" style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
-          <li class="collection-item avatar" ng-click="selectBatch(x)" ng-repeat="x in batches">
+          <a href="#!/batch-view" class="collection-item avatar" ng-click="selectBatch(x)" ng-repeat="x in batches">
             <img src="/stickers/blue.png" alt="icon" class="circle">
             <span class="title">Batch in {{x.Bioreactor.FacilityName}}</span>
             <p>{{x.Recipe.Name}} <br>
               {{x.Status}}
             </p>
-          </li>
+          </a>
         </ul>
       </div>
 
