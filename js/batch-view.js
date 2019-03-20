@@ -65,12 +65,24 @@ angular.module('myApp.batchView', ['ngRoute'])
                 datasets: [{
                     label: 'Temperature',
                     data: temps,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(51, 123, 255, 0.2)',
+                    borderColor: 'rgba(51, 123, 255, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation:{
+                    onComplete: function(animation){
+                        var sourceCanvas = stempChart.chart.canvas;
+                        var copyWidth = stempChart.scales['y-axis-0'].width - 10;
+                        var copyHeight = stempChart.scales['y-axis-0'].height + stempChart.scales['y-axis-0'].top + 10;
+                        var targetCtx = document.getElementById("ChartAxis");
+                        targetCtx.canvas.width = copyWidth;
+                targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                    }
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -82,9 +94,42 @@ angular.module('myApp.batchView', ['ngRoute'])
                     line: {
                         tension: 0
                     }
+                },
+                annotation: {
+                    drawTime: "afterDraw",
+                    annotations: [{
+                        id:"tempminline",
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: '30',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        label: {
+                            backgroundColor: 'rgba(255, 51, 51, 0.2)',
+                            content: "Min Value",
+                            enabled: true
+                        }
+                    },{
+                        id:"tempmaxline",
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: '41',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        label: {
+                            backgroundColor: 'rgba(255, 51, 51, 0.2)',
+                            content: "Max Value",
+                            enabled: true
+                        }
+                        
+                    }]
                 }
             }
         });
+        var stempChart = new Chart(tempChart, stempChart);
+        
         var phChart = new Chart(ph, {
             type: 'line',
             data: {
@@ -98,6 +143,7 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
+                responsive:true,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -109,6 +155,52 @@ angular.module('myApp.batchView', ['ngRoute'])
                     line: {
                         tension: 0
                     }
+                },
+                pan:{
+                    enabled: true,
+                    mode: "x",
+                    speed: 10,
+                    threshold: 10   
+                },
+                zoom: {
+                    enabled: true,
+                    drag: false,
+                    mode: "x",
+                    limits: {
+                        max: 5,
+                        min: 0.5
+                    }
+                },
+                annotation: {
+                    drawTime: "afterDraw",
+                    annotations: [{
+                        id:"phminline",
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: '5',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        label: {
+                            backgroundColor: 'rgba(255, 51, 51, 0.2)',
+                            content: "Min Value",
+                            enabled: true
+                        }
+                    },{
+                        id:"phmaxline",
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: '15',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        label: {
+                            backgroundColor: 'rgba(255, 51, 51, 0.2)',
+                            content: "Max Value",
+                            enabled: true
+                        }
+                        
+                    }],
                 }
             }
         });
@@ -119,12 +211,13 @@ angular.module('myApp.batchView', ['ngRoute'])
                 datasets: [{
                     label: 'Pressure',
                     data: pres,
-                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                    borderColor: 'rgba(255, 159, 64, 1)',
+                    backgroundColor: 'rgba(0, 153, 0, 0.2)',
+                    borderColor: 'rgba(0, 153, 0, 1)',
                     borderWidth: 1
                 }]
             },
             options: {
+                responsive:true,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -136,6 +229,53 @@ angular.module('myApp.batchView', ['ngRoute'])
                     line: {
                         tension: 0
                     }
+                },
+                pan:{
+                    enabled: true,
+                    mode: "x",
+                    speed: 10,
+                    threshold: 10   
+                },
+                zoom: {
+                    enabled: true,
+                    drag: false,
+                    mode: "x",
+                    limits: {
+                        max: 5,
+                        min: 0.5
+                    }
+                },
+                annotation: {
+                    drawTime: "afterDraw",
+                    annotations: [{
+                        id:"presminline",
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: '30',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        label: {
+                            backgroundColor: 'rgba(255, 51, 51, 0.2)',
+                            content: "Min Value",
+                            enabled: true
+                        }
+                    },{
+                        id:"presmaxline",
+                        type: 'line',
+                        mode: 'horizontal',
+                        scaleID: 'y-axis-0',
+                        value: '41',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        label: {
+                            backgroundColor: 'rgba(255, 51, 51, 0.2)',
+                            content: "Max Value",
+                            enabled: true
+                        }
+                        
+                    }],
+    
                 }
             }
         });
@@ -166,7 +306,6 @@ angular.module('myApp.batchView', ['ngRoute'])
 
             return (convdataTime);
         }
-
         function getBatchData(batch) {
             var req = {
                 method: 'POST',
@@ -187,7 +326,6 @@ angular.module('myApp.batchView', ['ngRoute'])
                 console.error('Error');
             });
         }
-
         $scope.reloadData = function () {
             getBatchData(batch.Id);
             reload();
