@@ -32,7 +32,7 @@ angular.module('myApp.batchView', ['ngRoute'])
                 if (Object.entries(batch).length === 0 && batch.constructor === Object) {
                     window.location.href = '#!/home';
                 }
-                if(batch.Status != 'In Progress.'){
+                if(batch.Status != 'In Progress'){
                     Swal.fire({
                         type: 'error',
                         title: 'Something went wrong!',
