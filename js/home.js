@@ -67,14 +67,6 @@ angular.module('myApp.home', ['ngRoute'])
         }
         $scope.selectBatch = function (batch) {
             batchService.set(batch);
-            if(batch.Status != 'In Progress.'){
-                Swal.fire({
-                    type: 'error',
-                    title: 'Something went wrong!',
-                    text: 'No Bioreactors available at this location!'
-                });
-                window.location.href = '#!/home';
-            }
         }
 
     }]);
