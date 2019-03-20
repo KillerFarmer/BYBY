@@ -74,20 +74,25 @@
   margin: auto;
   height: 20%;
   width: 80%;
+  text-align: center;
+}
+canvas {
+  margin: 0 auto;
 }
 .chartWrapper{
   position: relative
 }
 .chartWrapper > canvas {
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
   pointer-events: none;
   
 }
 .chartAreaWrapper{
-  width: 80%;
+  width: 100%;
   overflow-x: scroll;
   position: relative;
-  
 }
+
+    

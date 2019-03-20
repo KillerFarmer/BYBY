@@ -3,29 +3,31 @@
     <div ng-include='"frames/header.html"'></div>
 </div>
 <div ng-controller="BatchViewCtrl">
-    <a class="btn waves-effect waves-purple white black-text" ng-click="reloadData()"> Reload Placeholder </a>
+    <div class="containb center">
+        <a class="waves-effect waves-purple white black-text btn-small center" ng-click="reloadData()"><i class="material-icons right">refresh</i>Reload Charts</a>
+    </div>
     <div>
         <div class="chart-container">
-            Temperature
+            <h4 class="center orange-text">Temperature</h4>
             <div class="chartWrapper">
                 <div class="chartAreaWrapper">
-                    <canvas id="tempChart" height="400px" width="2400"></canvas>
+                    <canvas id="tempChart" height="400px" width="4000"></canvas>
                 </div>
             </div>
         </div>
-        <div class="chart-container">
-            Ph
+        <div class="chart-container center">
+            <h4 class="orange-text center">pH</h4>
             <div class="chartWrapper">
                 <div class="chartAreaWrapper">
-                    <canvas id="phChart" height="400px" width="2400"></canvas>
+                    <canvas id="phChart" height="400px" width="2800"></canvas>
                 </div>
             </div>
         </div>
-        <div class="chart-container">
-            Pressure
+        <div class="chart-container center">
+            <h4 class="orange-text center">Pressure</h4>
             <div class="chartWrapper">
                 <div class="chartAreaWrapper">
-                    <canvas id="pressChart" height="400px" width="2400"></canvas>
+                    <canvas id="pressChart" height="400px" width="2800"></canvas>
                 </div>
             </div>
         </div>
