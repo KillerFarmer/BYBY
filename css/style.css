@@ -76,18 +76,18 @@
   width: 80%;
 }
 .chartWrapper{
-    position: relative
+  position: relative
 }
 .chartWrapper > canvas {
-    position: absolute;
-    left: 0;
-    top=0;
-    pointer-events: none;
-    
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  
 }
 .chartAreaWrapper{
-    width: 600px;
-    overflow-x: scroll;
-    position: relative;
-    
+  width: 80%;
+  overflow-x: scroll;
+  position: relative;
+  
 }

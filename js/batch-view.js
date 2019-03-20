@@ -17,6 +17,10 @@ angular.module('myApp.batchView', ['ngRoute'])
         var press_labels = [];
         var batch = "";
 
+        var temp_rest = [];
+        var ph_rest = [];
+        var press_rest = [];
+
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -25,21 +29,31 @@ angular.module('myApp.batchView', ['ngRoute'])
         userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
         var authToken;
+        batch = batchService.get();
+        if (Object.entries(batch).length === 0 && batch.constructor === Object) {
+            Swal.fire({
+                type: 'error',
+                title: 'Something went wrong!',
+                text: 'No batch has been selected!'
+            });
+            window.location.href = '#!/home';
+        }
+        else if (batch.Status != 'In Progress') {
+            Swal.fire({
+                type: 'error',
+                title: 'Something went wrong!',
+                text: 'Batch has not started yet!'
+            });
+            window.location.href = '#!/home';
+        }
+        else {
+            temp_rest = batch.Recipe.Restrictions[0];
+            ph_rest = batch.Recipe.Restrictions[1];
+            press_rest = batch.Recipe.Restrictions[2];
+        }
         window.authToken.then(function setAuthToken(token) {
             if (token) {
                 authToken = token;
-                batch = batchService.get();
-                if (Object.entries(batch).length === 0 && batch.constructor === Object) {
-                    window.location.href = '#!/home';
-                }
-                if(batch.Status != 'In Progress'){
-                    Swal.fire({
-                        type: 'error',
-                        title: 'Something went wrong!',
-                        text: 'Batch has not started yet!'
-                    });
-                    window.location.href = '#!/home';
-                }
                 getBatchData(batch.Id);
             }
             else {
@@ -71,18 +85,7 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                animation:{
-                    onComplete: function(animation){
-                        var sourceCanvas = stempChart.chart.canvas;
-                        var copyWidth = stempChart.scales['y-axis-0'].width - 10;
-                        var copyHeight = stempChart.scales['y-axis-0'].height + stempChart.scales['y-axis-0'].top + 10;
-                        var targetCtx = document.getElementById("ChartAxis");
-                        targetCtx.canvas.width = copyWidth;
-                targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
-                    }
-                },
+                responsive: false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -98,11 +101,11 @@ angular.module('myApp.batchView', ['ngRoute'])
                 annotation: {
                     drawTime: "afterDraw",
                     annotations: [{
-                        id:"tempminline",
+                        id: "min",
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: '30',
+                        value: temp_rest.min,
                         borderColor: 'red',
                         borderWidth: 1,
                         label: {
@@ -110,12 +113,12 @@ angular.module('myApp.batchView', ['ngRoute'])
                             content: "Min Value",
                             enabled: true
                         }
-                    },{
-                        id:"tempmaxline",
+                    }, {
+                        id: "max",
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: '41',
+                        value: temp_rest.max,
                         borderColor: 'red',
                         borderWidth: 1,
                         label: {
@@ -123,13 +126,15 @@ angular.module('myApp.batchView', ['ngRoute'])
                             content: "Max Value",
                             enabled: true
                         }
-                        
+
                     }]
-                }
+                },
+                legend: {
+                    display: false
+                },
             }
         });
-        var stempChart = new Chart(tempChart, stempChart);
-        
+
         var phChart = new Chart(ph, {
             type: 'line',
             data: {
@@ -143,7 +148,7 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
-                responsive:true,
+                responsive: false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -156,29 +161,14 @@ angular.module('myApp.batchView', ['ngRoute'])
                         tension: 0
                     }
                 },
-                pan:{
-                    enabled: true,
-                    mode: "x",
-                    speed: 10,
-                    threshold: 10   
-                },
-                zoom: {
-                    enabled: true,
-                    drag: false,
-                    mode: "x",
-                    limits: {
-                        max: 5,
-                        min: 0.5
-                    }
-                },
                 annotation: {
                     drawTime: "afterDraw",
                     annotations: [{
-                        id:"phminline",
+                        id: "min",
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: '5',
+                        value: ph_rest.min,
                         borderColor: 'red',
                         borderWidth: 1,
                         label: {
@@ -186,12 +176,12 @@ angular.module('myApp.batchView', ['ngRoute'])
                             content: "Min Value",
                             enabled: true
                         }
-                    },{
-                        id:"phmaxline",
+                    }, {
+                        id: "max",
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: '15',
+                        value: ph_rest.max,
                         borderColor: 'red',
                         borderWidth: 1,
                         label: {
@@ -199,9 +189,12 @@ angular.module('myApp.batchView', ['ngRoute'])
                             content: "Max Value",
                             enabled: true
                         }
-                        
+
                     }],
-                }
+                },
+                legend: {
+                    display: false
+                },
             }
         });
         var presChart = new Chart(press, {
@@ -217,7 +210,7 @@ angular.module('myApp.batchView', ['ngRoute'])
                 }]
             },
             options: {
-                responsive:true,
+                responsive: false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -230,29 +223,14 @@ angular.module('myApp.batchView', ['ngRoute'])
                         tension: 0
                     }
                 },
-                pan:{
-                    enabled: true,
-                    mode: "x",
-                    speed: 10,
-                    threshold: 10   
-                },
-                zoom: {
-                    enabled: true,
-                    drag: false,
-                    mode: "x",
-                    limits: {
-                        max: 5,
-                        min: 0.5
-                    }
-                },
                 annotation: {
                     drawTime: "afterDraw",
                     annotations: [{
-                        id:"presminline",
+                        id: "min",
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: '30',
+                        value: press_rest.min,
                         borderColor: 'red',
                         borderWidth: 1,
                         label: {
@@ -260,12 +238,12 @@ angular.module('myApp.batchView', ['ngRoute'])
                             content: "Min Value",
                             enabled: true
                         }
-                    },{
-                        id:"presmaxline",
+                    }, {
+                        id: "max",
                         type: 'line',
                         mode: 'horizontal',
                         scaleID: 'y-axis-0',
-                        value: '41',
+                        value: press_rest.max,
                         borderColor: 'red',
                         borderWidth: 1,
                         label: {
@@ -273,10 +251,13 @@ angular.module('myApp.batchView', ['ngRoute'])
                             content: "Max Value",
                             enabled: true
                         }
-                        
+
                     }],
-    
-                }
+
+                },
+                legend: {
+                    display: false
+                },
             }
         });
         function getDataList(sensorData) {
@@ -331,9 +312,9 @@ angular.module('myApp.batchView', ['ngRoute'])
             reload();
         }
         function reload() {
-            addData(presChart, press_labels, pres);
             addData(tempChart, temps_labels, temps);
             addData(phChart, phs_labels, phs);
+            addData(presChart, press_labels, pres);
         }
         function addData(chart, label, data) {
             chart.data.labels = label;
