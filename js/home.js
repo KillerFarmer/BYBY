@@ -24,6 +24,7 @@ angular.module('myApp.home', ['ngRoute'])
     })
     .controller('HomeCtrl', ['$scope', '$http', 'batchService', function ($scope, $http, batchService) {
         $scope.batches;
+        $scope.recipes;
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -35,6 +36,7 @@ angular.module('myApp.home', ['ngRoute'])
             if (token) {
                 authToken = token;
                 getBatchList(token);
+                getrecipeList(token);
             } else {
                 window.location.href = '#!/login';
             }
@@ -68,5 +70,23 @@ angular.module('myApp.home', ['ngRoute'])
         $scope.selectBatch = function (batch) {
             batchService.set(batch);
         }
+        function getrecipeList(token) {
+            var req = {
+                method: 'POST',
+                url: _config.api.invokeUrl + '/getrecipe',
+                headers: {
+                    Authorization: token
+                },
+                data: { info: 'Data was sent' }
+            }
+            $http(req).then(function successCallback(response) {
+                console.log('Success');
+                recipe_list = response.data.Items;
+                $scope.recipes = recipe_list;
+                $scope.loading = false;
+            }, function errorCallback(response) {
+                console.error('Error');
 
+            });
+        }
     }]);
