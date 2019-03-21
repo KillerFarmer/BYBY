@@ -254,7 +254,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
             var timestamp = Math.floor(Date.now() / 1000);
             var ingredients = recipe_list.find(recipe => recipe.Name == $scope.RecipeName);
             var bioreactor = bioreactor_list.find(bio => bio.Id == $scope.Bioreactor);
-            var status = "Created";
+            var status = "Ready to Start.";
             var id = getId();
             var req = {
                 method: 'POST',

@@ -8,6 +8,7 @@ angular.module('myApp', [
     'myApp.verify',
     'myApp.resend',
     'myApp.registerRecipe',
+    'myApp.batchView',
     'myApp.home'
 ])
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
@@ -16,8 +17,8 @@ angular.module('myApp', [
     }])
     .controller('myAppCtrl', ['$scope', function ($scope) {
         if (!(_config.cognito.userPoolId &&
-                _config.cognito.userPoolClientId &&
-                _config.cognito.region)) {
+            _config.cognito.userPoolClientId &&
+            _config.cognito.region)) {
             Swal.fire({
                 type: 'error',
                 title: 'Something went wrong!',

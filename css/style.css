@@ -41,32 +41,58 @@
 #slider-temp .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
 	background: purple;
 }
-#slider-temp .noUi-target.noUi-horizontal .noUi-tooltip {
+#slider-temp .noUi-tooltip {
 	background-color: purple;
 }
-
 /** ph slide*/
 #slider-ph .noUi-connect {
-	background: pink;
+	background: royalblue;
 }
 #slider-ph .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
-	background: pink;
+	background: royalblue;
 }
-#slider-ph .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: pink;
+#slider-ph .noUi-tooltip {
+	background-color: royalblue;
 }
-
 /** press slide*/
-#slider-ph .noUi-connect {
-	background: cadetblue;
+#slider-press .noUi-connect {
+	background: indianred;
 }
-#slider-ph .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
-	background: cadetblue;
+#slider-press .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+	background: indianred;
 }
-#slider-ph .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: cadetblue;
+#slider-press .noUi-tooltip {
+	background-color: indianred;
 }
 
 .active {
   background: purple;
 }
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 20%;
+  width: 80%;
+  text-align: center;
+}
+canvas {
+  margin: 0 auto;
+}
+.chartWrapper{
+  position: relative
+}
+.chartWrapper > canvas {
+  position: relative;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  
+}
+.chartAreaWrapper{
+  width: 100%;
+  overflow-x: scroll;
+  position: relative;
+}
+
+    
