@@ -41,28 +41,28 @@
 #slider-temp .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
 	background: purple;
 }
-#slider-temp .noUi-target.noUi-horizontal .noUi-tooltip {
+#slider-temp .noUi-tooltip {
 	background-color: purple;
 }
 /** ph slide*/
 #slider-ph .noUi-connect {
-	background: blue;
+	background: royalblue;
 }
 #slider-ph .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
-	background: blue;
+	background: royalblue;
 }
-#slider-ph .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: blue;
+#slider-ph .noUi-tooltip {
+	background-color: royalblue;
 }
 /** press slide*/
 #slider-press .noUi-connect {
-	background: red;
+	background: indianred;
 }
 #slider-press .noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
-	background: red;
+	background: indianred;
 }
-#slider-press .noUi-target.noUi-horizontal .noUi-tooltip {
-	background-color: red;
+#slider-press .noUi-tooltip {
+	background-color: indianred;
 }
 
 .active {
