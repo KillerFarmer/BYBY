@@ -279,11 +279,15 @@ angular.module('myApp.batchView', ['ngRoute'])
 
         function dateConvert(timestamp) {
             var date = new Date(timestamp * 1000);
+            var months_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            var month = months_arr[date.getMonth()];
+            var day = date.getDate();
             var seconds = date.getSeconds();
             var minutes = date.getMinutes();
             var hour = date.getHours();
+            var year = date.getFullYear().toString().substr(-2);
 
-            var convdataTime = hour + ':' + minutes + ':' + seconds;
+            var convdataTime = day + '/' + month + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
 
             return (convdataTime);
         }
