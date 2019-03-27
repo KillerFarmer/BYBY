@@ -81,12 +81,53 @@ angular.module('myApp.home', ['ngRoute'])
             }
             $http(req).then(function successCallback(response) {
                 console.log('Success');
-                recipe_list = response.data.Items;
+                var recipe_list = response.data.Items;
                 $scope.recipes = recipe_list;
                 $scope.loading = false;
             }, function errorCallback(response) {
                 console.error('Error');
 
             });
+        }
+
+        $scope.changeStatus = function(batch){
+            var icon;
+            if (batch.Status == 'Ready to Start') {
+                icon = "/stickers/red.png";
+                return icon;
+            }
+            else if (batch.Status == 'In Progress') {
+                icon = "/stickers/blue.png";
+                return icon;
+            }
+            else if (batch.Status == 'Finished') {
+                icon = "/stickers/check.png";
+                return icon;
+            } 
+        }
+
+        $scope.showRecipe = function(recipe){
+            console.log(recipe);
+            var ingredients = recipe.Ingredients;
+            var restrictions = recipe.Restrictions;
+            Swal.fire({
+                position: 'top-end',
+                type: 'success',
+                title: recipe.Name,
+                text: dateConvert(recipe.Timestamp),
+                html: '<p ng-repeat="i in ingredients"> {{i}} : {{i.name}} | {{i.amount}}</p>',
+            });
+        }
+
+        function dateConvert(timestamp) {
+
+            var months_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            var date = new Date(timestamp * 1000);
+            var year = date.getFullYear();
+            var month = months_arr[date.getMonth()];
+            var day = date.getDate();
+            var convdataTime = month + '-' + day + '-' + year;
+
+            return (convdataTime);
         }
     }]);

@@ -40,8 +40,7 @@ angular.module('myApp.batchView', ['ngRoute'])
         }
         else if (batch.Status == 'Ready to Start') {
             Swal.fire({
-                type: 'error',
-                title: 'Something went wrong!',
+                title: 'Oops!',
                 text: 'Batch has not started yet!'
             });
             window.location.href = '#!/home';

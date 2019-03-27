@@ -12,18 +12,27 @@
     <div class="divider"></div>
     <br>
     <div class="row ">
-      <div class="group col s12 m12 l12">
+      <div class="group col s12 m6 l8">
         <ul class="collection" style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
-          <a href="#!/batch-view" class="collection-item avatar" ng-click="selectBatch(x)" ng-repeat="x in batches">
-            <img src="/stickers/blue.png" alt="icon" class="circle">
-            <span class="title">Batch in {{x.Bioreactor.FacilityName}}</span>
-            <p>{{x.Recipe.Name}} <br>
-              {{x.Status}}
+          <a href="#!/batch-view" class="collection-item avatar" ng-click="selectBatch(batch)" ng-repeat="batch in batches">
+            <img ng-src="{{changeStatus(batch)}}" alt="icon" class="circle">
+            <span class="title">Batch in {{batch.Bioreactor.FacilityName}}</span>
+            <p>{{batch.Recipe.Name}} <br>
+              {{batch.Status}}
             </p>
           </a>
         </ul>
       </div>
-
+      <div class="group col s12 m6 l4">
+        <ul class="collection" style="max-width: 450px; max-height: 700px; width: auto; height: auto;overflow: auto">
+          <a class="collection-item avatar" ng-click="showRecipe(recipe)" ng-repeat="recipe in recipes">
+            <img src="/stickers/rec.png" width='200px' alt="icon" class="circle">
+            <span class="title">{{recipe.Name}}</span>
+            <p>Click to view details
+            </p>
+          </a>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
