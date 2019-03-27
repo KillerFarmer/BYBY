@@ -123,6 +123,10 @@ angular.module('myApp.home', ['ngRoute'])
             ingredients.Syrup.forEach(ingredient => {
                 body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
             });
+            body += '<p> <b>Restrictions:</b></p>';
+            restrictions.forEach(restriction => {
+                body += '<p>' + restriction.Sensor + '| Max:' + restriction.max + ' Min: ' + restriction.min + ' </p>';
+            });
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
