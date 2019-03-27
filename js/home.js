@@ -2,16 +2,18 @@
 
 angular.module('myApp.home', ['ngRoute'])
 
-    .config(['$routeProvider', function ($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/home', {
             templateUrl: 'views/home.html',
         });
     }])
-    .factory('batchService', function () {
+    .factory('batchService', function() {
         var savedData = {}
+
         function set(data) {
             savedData = data;
         }
+
         function get() {
             return savedData;
         }
@@ -22,7 +24,7 @@ angular.module('myApp.home', ['ngRoute'])
         }
 
     })
-    .controller('HomeCtrl', ['$scope', '$http', 'batchService', function ($scope, $http, batchService) {
+    .controller('HomeCtrl', ['$scope', '$http', 'batchService', function($scope, $http, batchService) {
         $scope.batches;
         $scope.recipes;
         var poolData = {
@@ -48,6 +50,7 @@ angular.module('myApp.home', ['ngRoute'])
             });
             window.location.href = '#!/login';
         });
+
         function getBatchList(token) {
             var req = {
                 method: 'POST',
@@ -67,9 +70,10 @@ angular.module('myApp.home', ['ngRoute'])
             });
 
         }
-        $scope.selectBatch = function (batch) {
+        $scope.selectBatch = function(batch) {
             batchService.set(batch);
         }
+
         function getrecipeList(token) {
             var req = {
                 method: 'POST',
@@ -90,32 +94,40 @@ angular.module('myApp.home', ['ngRoute'])
             });
         }
 
-        $scope.changeStatus = function(batch){
+        $scope.changeStatus = function(batch) {
             var icon;
             if (batch.Status == 'Ready to Start') {
                 icon = "/stickers/red.png";
                 return icon;
-            }
-            else if (batch.Status == 'In Progress') {
+            } else if (batch.Status == 'In Progress') {
                 icon = "/stickers/blue.png";
                 return icon;
-            }
-            else if (batch.Status == 'Finished') {
+            } else if (batch.Status == 'Finished') {
                 icon = "/stickers/check.png";
                 return icon;
-            } 
+            }
         }
 
-        $scope.showRecipe = function(recipe){
-            console.log(recipe);
+        $scope.showRecipe = function(recipe) {
             var ingredients = recipe.Ingredients;
             var restrictions = recipe.Restrictions;
+            var body = '<p> <b>Ingredients: </b></p> <p> <b>Water: </b>' + ingredients.Water + 'L</p><p> <b> Hops: </b></p>';
+            ingredients.Hops.forEach(ingredient => {
+                body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
+            });
+            body += '<p> <b>Yeast:</b></p>';
+            ingredients.Yeast.forEach(ingredient => {
+                body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
+            });
+            body += '<p> <b>Syrup:</b></p>';
+            ingredients.Syrup.forEach(ingredient => {
+                body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
+            });
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
                 title: recipe.Name,
-                text: dateConvert(recipe.Timestamp),
-                html: '<p ng-repeat="i in ingredients"> {{i}} : {{i.name}} | {{i.amount}}</p>',
+                html: '<p> Created on:' + dateConvert(recipe.Timestamp) + '</p>' + body,
             });
         }
 
