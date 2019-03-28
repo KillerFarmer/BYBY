@@ -105,6 +105,8 @@ angular.module('myApp.home', ['ngRoute'])
             } else if (batch.Status == 'Finished') {
                 icon = "/stickers/check.png";
                 return icon;
+            } else if (batch.Status == 'Ready for Pickup'){
+                icon = "/stickers/pickup.png";
             }
         }
 
@@ -148,7 +150,10 @@ angular.module('myApp.home', ['ngRoute'])
             body += "</tbody></table>";
             Swal.fire({
                 position: 'top-end',
-                type: 'success',
+                imageUrl: '/stickers/black.png',
+                imageWidth: 300,
+                imageHeight: 200,
+                imageAlt: 'success',
                 title: recipe.Name,
                 html: '<p> Created on: ' + dateConvert(recipe.Timestamp) + '</p>' + body,
             });

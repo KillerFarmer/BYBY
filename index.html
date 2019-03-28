@@ -31,9 +31,8 @@
   <script src="lib/html5-boilerplate/dist/js/vendor/chartjs-plugin-zoom.min.js"></script>
   <script src="lib/html5-boilerplate/dist/js/vendor/hammer.js"></script>
   <script src="js/config.js"></script>
-  <script src="js/init.js"></script>
-
-<body>
+</head>
+<main>
 
 
   <!--[if lt IE 7]>
@@ -43,7 +42,6 @@
 
   <div ng-controller='myAppCtrl'>
     <div ng-view></div>
-    <div ng-include='"frames/footer.html"'></div>
   </div>
 
   <!-- In production use:
@@ -64,8 +62,9 @@
   <script src="js/materialize.js"></script>
   <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9caaLIKM2dPajF1bOI24MBRxOxkp-Cmo"> </script>
-</body>
-</head>
-
+</main>
+<footer>
+<div ng-include='"frames/footer.html"'></div>
+</footer>
 
 </html>
