@@ -110,4 +110,11 @@ canvas {
   bottom: 0;
   width: 100%;
 }
+#map{
+  height: 400px;
+  overflow: hidden;
+  padding-bottom: 22.25%;
+  padding-top: 30px;
+  position: relative;
+}
     
