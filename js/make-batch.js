@@ -236,10 +236,10 @@ angular.module('myApp.makeBatch', ['ngRoute']).
 
         $scope.addRecipe = function (recipe) {
             if (old_recipe != null) {
-                document.getElementById(old_recipe).setAttribute("class", "collection-item");
+                document.getElementById(old_recipe).setAttribute("class", "collection-item avatar");
             }
             batch.recipe = recipe;
-            document.getElementById(recipe).setAttribute("class", "collection-item active");
+            document.getElementById(recipe).setAttribute("class", "collection-item avatar active");
             old_recipe = recipe;
             $scope.RecipeName = recipe;
             if ($scope.Facility.length > 0 && $scope.Bioreactor.length > 0) {
