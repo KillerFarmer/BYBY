@@ -150,7 +150,7 @@ angular.module('myApp.home', ['ngRoute'])
             body += "</tbody></table>";
             Swal.fire({
                 position: 'top-end',
-                imageUrl: '/stickers/black.png',
+                imageUrl: '/stickers/blackbig.png',
                 imageWidth: 300,
                 imageHeight: 200,
                 imageAlt: 'success',
