@@ -281,7 +281,7 @@ angular.module('myApp.makeBatch', ['ngRoute']).
                     imageAlt: 'success',
                     animation: true,
                     confirmButtonColor: '#f08080'
-                  })
+                })
                 window.location.href = "#!/home"
 
             }, function errorCallback(response) {
