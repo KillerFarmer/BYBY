@@ -26,12 +26,12 @@
                 <div id="group1" class="group col s6 m6 l6">
                     <ul class="collection"
                         style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
-                        <li id={{x.Name}} ng-click="addRecipe(x.Name)" class="collection-item"
-                            ng-repeat="x in recipes| orderBy:myOrderBy">
-                            <div>{{x.Name}}<a
-                                    class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a>
-                            </div>
-                        </li>
+                        <a id="{{x.Name}}" ng-click="addRecipe(x.Name)" class="collection-item avatar"
+                        ng-repeat="x in recipes| orderBy:myOrderBy">
+                            <img src="/stickers/black.png" alt="icon" class="circle">
+                            <span class="title">{{x.Name}}</span>
+                            <p>{{dateConvert(x.Timestamp)}}</p>
+                        </a>
                     </ul>
                 </div>
                 <div class="row">
