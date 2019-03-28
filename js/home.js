@@ -111,27 +111,46 @@ angular.module('myApp.home', ['ngRoute'])
         $scope.showRecipe = function(recipe) {
             var ingredients = recipe.Ingredients;
             var restrictions = recipe.Restrictions;
-            var body = '<p> <b>Ingredients: </b></p> <p> <b>Water: </b>' + ingredients.Water + 'L</p><p> <b> Hops: </b></p>';
+            var headingredients = "<table><thead><tr><th>Name</th><th>Amount(gr)</th></tr></thead>";
+            var headrestrictions = "<table><thead><tr><th>Sensor</th><th>Min</th><th>Max</th></tr></thead>";
+            var body = '<p> <h3>Ingredients</h3></p> <p> <table><tbody><tr><th>Water</th><th>' + ingredients.Water + ' L </th></tr></tbody></table></p><p> <h4> Hops </h4></p>';
+            body += headingredients + '<tbody>'
             ingredients.Hops.forEach(ingredient => {
-                body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
+                body += '<tr><th>' + ingredient.name + '</th><th>' + ingredient.amount + '</th></tr>';
             });
-            body += '<p> <b>Yeast:</b></p>';
+            body += "</tbody></table>";
+            body += '<p> <h4>Yeast</h4></p>';
+            body += headingredients + '<tbody>'
             ingredients.Yeast.forEach(ingredient => {
-                body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
+                body += '<tr><th>' + ingredient.name + '</th><th>' + ingredient.amount + '</th></tr>';
             });
-            body += '<p> <b>Syrup:</b></p>';
+            body += "</tbody></table>";
+            body += '<p> <h4>Syrup</h4></p>';
+            body += headingredients + '<tbody>'
             ingredients.Syrup.forEach(ingredient => {
-                body += '<p>' + ingredient.name + '| ' + ingredient.amount + 'gr</p>';
+                body += '<tr><th>' + ingredient.name + '</th><th>' + ingredient.amount + '</th></tr>';
             });
-            body += '<p> <b>Restrictions:</b></p>';
+            body += "</tbody></table>";
+            body += '<p> <h3>Restrictions</h3></p>';
+            body += headrestrictions + '<tbody>'
+            var units = '';
             restrictions.forEach(restriction => {
-                body += '<p>' + restriction.Sensor + '| Max:' + restriction.max + ' Min: ' + restriction.min + ' </p>';
+                if (restriction.Sensor == 'Temperature') {
+                    units = '°C';
+
+                } else if (restriction.Sensor == 'Pressure') {
+                    units = 'hPa';
+                } else {
+                    units = '';
+                }
+                body += '<tr><th>' + restriction.Sensor + '</th><th>' + restriction.min + units + '</th><th>' + restriction.max + units + '</th></tr>';
             });
+            body += "</tbody></table>";
             Swal.fire({
                 position: 'top-end',
                 type: 'success',
                 title: recipe.Name,
-                html: '<p> Created on:' + dateConvert(recipe.Timestamp) + '</p>' + body,
+                html: '<p> Created on: ' + dateConvert(recipe.Timestamp) + '</p>' + body,
             });
         }
 
@@ -146,4 +165,4 @@ angular.module('myApp.home', ['ngRoute'])
 
             return (convdataTime);
         }
-    }]);
+    }]);;
