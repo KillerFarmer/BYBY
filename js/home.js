@@ -105,8 +105,9 @@ angular.module('myApp.home', ['ngRoute'])
             } else if (batch.Status == 'Finished') {
                 icon = "/stickers/check.png";
                 return icon;
-            } else if (batch.Status == 'Ready for Pickup'){
+            } else if (batch.Status == 'Ready for Pickup') {
                 icon = "/stickers/pickup.png";
+                return icon;
             }
         }
 

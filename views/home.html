@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <html>
 <div ng-controller='myAppCtrl'>
-  <div ng-include='"frames/header.html"'></div>
+    <div ng-include='"frames/header.html"'></div>
 </div>
 
 <div ng-controller='HomeCtrl'>
-  <div class="container">
-    <div class="row center">
-      <h3 class="header center blue-grey-text darken-4">Home</h3>
+    <div class="container">
+        <div class="row center">
+            <h3 class="header center blue-grey-text darken-4">Home</h3>
+        </div>
+        <div class="divider"></div>
+        <br>
+        <div class="row ">
+            <div class="group col s12 m6 l8">
+                <ul class="collection" style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
+                    <a href="#!/batch-view" class="collection-item avatar black-text" ng-click="selectBatch(batch)" ng-repeat="batch in batches">
+                        <img ng-src="{{changeStatus(batch)}}" alt="icon" class="circle">
+                        <span class="title">Batch in {{batch.Bioreactor.FacilityName}}</span>
+                        <p>{{batch.Recipe.Name}} <br> {{batch.Status}}
+                        </p>
+                    </a>
+                </ul>
+            </div>
+            <div class="group col s12 m6 l4">
+                <ul class="collection" style="max-width: 450px; max-height: 700px; width: auto; height: auto;overflow: auto">
+                    <a class="collection-item avatar black-text" ng-click="showRecipe(recipe)" ng-repeat="recipe in recipes">
+                        <img src="/stickers/rec.png" width='200px' alt="icon" class="circle">
+                        <span class="title">{{recipe.Name}}</span>
+                        <p>Click to view details
+                        </p>
+                    </a>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="divider"></div>
-    <br>
-    <div class="row ">
-      <div class="group col s12 m6 l8">
-        <ul class="collection" style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
-          <a href="#!/batch-view" class="collection-item avatar" ng-click="selectBatch(batch)" ng-repeat="batch in batches">
-            <img ng-src="{{changeStatus(batch)}}" alt="icon" class="circle">
-            <span class="title">Batch in {{batch.Bioreactor.FacilityName}}</span>
-            <p>{{batch.Recipe.Name}} <br>
-              {{batch.Status}}
-            </p>
-          </a>
-        </ul>
-      </div>
-      <div class="group col s12 m6 l4">
-        <ul class="collection" style="max-width: 450px; max-height: 700px; width: auto; height: auto;overflow: auto">
-          <a class="collection-item avatar" ng-click="showRecipe(recipe)" ng-repeat="recipe in recipes">
-            <img src="/stickers/rec.png" width='200px' alt="icon" class="circle">
-            <span class="title">{{recipe.Name}}</span>
-            <p>Click to view details
-            </p>
-          </a>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 
 </html>
