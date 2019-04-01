@@ -154,7 +154,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                     title: 'Success!',
                     text: 'You recipe was registered.',
                     imageUrl: '/stickers/victoryko.png',
-                    imageWidth: 300,
+                    imageWidth: 250,
                     imageHeight: 200,
                     imageAlt: 'success',
                     animation: true,

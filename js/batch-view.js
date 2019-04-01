@@ -32,16 +32,27 @@ angular.module('myApp.batchView', ['ngRoute'])
         batch = batchService.get();
         if (Object.entries(batch).length === 0 && batch.constructor === Object) {
             Swal.fire({
-                type: 'error',
                 title: 'Something went wrong!',
-                text: 'No batch has been selected!'
+                text: 'No batch has been selected!',
+                imageUrl: '/stickers/beatko.png',
+                imageWidth: 260,
+                imageHeight: 200,
+                imageAlt: 'no-batch-selected',
+                animation: true,
+                confirmButtonColor: '#f08080'
             });
             window.location.href = '#!/home';
         }
         else if (batch.Status == 'Ready to Start') {
             Swal.fire({
                 title: 'Oops!',
-                text: 'Batch has not started yet!'
+                text: 'Batch has not started yet!',
+                imageUrl: '/stickers/madko.png',
+                imageWidth: 260,
+                imageHeight: 200,
+                imageAlt: 'not_started',
+                animation: true,
+                confirmButtonColor: '#f08080'
             });
             window.location.href = '#!/home';
         }

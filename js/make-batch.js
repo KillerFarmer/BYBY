@@ -273,7 +273,7 @@ config(['$routeProvider', function($routeProvider) {
                 title: 'Success!',
                 text: 'You batch was created.',
                 imageUrl: '/stickers/victoryko.png',
-                imageWidth: 300,
+                imageWidth: 250,
                 imageHeight: 200,
                 imageAlt: 'success',
                 animation: true,

@@ -36,12 +36,21 @@ angular.module('myApp.login', ['ngRoute'])
                     window.location.reload('#!/login');
                 },
                 function signinError(err) {
-                    Swal.fire(err);
+                    Swal.fire({
+                        title: 'Something went wrong!',
+                        text: 'User is not registered.',
+                        imageUrl: '/stickers/madko.png',
+                        imageWidth: 250,
+                        imageHeight: 200,
+                        imageAlt: 'success',
+                        animation: true,
+                        confirmButtonColor: '#f08080'
+                    });
                     if (err == 'UserNotConfirmedException: User is not confirmed.') {
                         window.location.href = '#!/verify';
                     }
                 }
-            );  
+            );
         }
 
         function signin(email, password, onSuccess, onFailure) {
