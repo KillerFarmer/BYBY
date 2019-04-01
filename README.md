@@ -1,5 +1,5 @@
 # BYBY
-This project was a collaboration between CETYS University and ThermoFisher Scientific as a part of the "Train the Trainees" program. 
+This project was a collaboration between CETYS University and ThermoFisher Scientific as a part of the "Train the Trainees" program, with the porpose to teach students how to work in a company enviornment, new technologies and agile methodologies/frameworks such as **SCRUM**. 
 Team Members (In alphabetical order):
 * Adrian Chouza (Internal Product Owner)
 * Alejandro Gastelum
@@ -33,7 +33,7 @@ The team was tasked to develop a solution for the following user story:
 > 
 > Sporadically, Luz checks a batch. To do so, she connects to **BYBY** and request to see her list of batches. The list is displayed in chronological order, but she can view the list in lexicographical order of the batch name or its state. On a selection of a batch, a view showing the chronological state of sensors is displayed and the overall state of the brewing process is illustrated.
 
-We decided to use Amazon Web Services (AWS) for the development of the project, a Raspberry Pi to simulate the bioreactor, and settled on a WebApp format (using Angular, Java Script, HTML and materialize). In order to have a clearer picture of what was going to be developed the following architecture was proposed. 
+We decided to use Amazon Web Services (AWS) for the development of the project, a Raspberry Pi to simulate the bioreactor, and settled on a WebApp format (using Angular, Java Script, HTML and materialize). In order to have a clearer picture of what was going to be developed the following architecture was proposed.
 
 ![Architecture](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/arquitecture.png "Architecture")
 
