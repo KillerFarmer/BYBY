@@ -39,4 +39,4 @@ We decided to use Amazon Web Services (AWS) for the development of the project, 
 
 Each part of the project will be explained in detail, including the user stories that were proposed, the estimates the team decided per story, the general work-flow of the feature and other information. 
 
-## Index:
+## Index
