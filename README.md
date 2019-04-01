@@ -33,4 +33,7 @@ The team was tasked to develop a solution for the following user story:
 > 
 > Sporadically, Luz checks a batch. To do so, she connects to **BYBY** and request to see her list of batches. The list is displaytted in chronological order, but she can view the list in lexicographical order of the batch name or its state. On a selection of a batch, a view showing the chronological state of sensors is displayted an the overall state of the brewing proces is illustrated.
 
+The team decided to use Amazon Web Services (AWS) for the development of the proyect, a Raspberry Pi to simulate the bioreactor, and settled on a WebApp format (using Angular, Java Script, HTML and materialize). In order to have a clearer picture of what was going to be developed the following arquitecture was proposed. 
+![Arquitecture](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/img/arquitecture.png "Arquitecture")
+
 Index:
