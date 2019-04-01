@@ -35,6 +35,6 @@ The team was tasked to develop a solution for the following user story:
 
 The team decided to use Amazon Web Services (AWS) for the development of the proyect, a Raspberry Pi to simulate the bioreactor, and settled on a WebApp format (using Angular, Java Script, HTML and materialize). In order to have a clearer picture of what was going to be developed the following arquitecture was proposed. 
 
-![alt text](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/img/arquitecture.png "Arquitecture")
+![Aquitecture](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/arquitecture.png "Arquitecture")
 
 Index:
