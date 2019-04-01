@@ -2,12 +2,12 @@
 
 angular.module('myApp.home', ['ngRoute'])
 
-    .config(['$routeProvider', function ($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/home', {
             templateUrl: 'views/home.html',
         });
     }])
-    .factory('batchService', function () {
+    .factory('batchService', function() {
         var savedData = {}
 
         function set(data) {
@@ -24,7 +24,7 @@ angular.module('myApp.home', ['ngRoute'])
         }
 
     })
-    .controller('HomeCtrl', ['$scope', '$http', 'batchService', function ($scope, $http, batchService) {
+    .controller('HomeCtrl', ['$scope', '$http', 'batchService', function($scope, $http, batchService) {
         $scope.batches;
         $scope.recipes;
         var poolData = {
@@ -70,7 +70,7 @@ angular.module('myApp.home', ['ngRoute'])
             });
 
         }
-        $scope.selectBatch = function (batch) {
+        $scope.selectBatch = function(batch) {
             batchService.set(batch);
         }
 
@@ -94,7 +94,7 @@ angular.module('myApp.home', ['ngRoute'])
             });
         }
 
-        $scope.changeStatus = function (batch) {
+        $scope.changeStatus = function(batch) {
             var icon;
             if (batch.Status == 'Ready to Start') {
                 icon = "/stickers/red.png";
@@ -111,7 +111,7 @@ angular.module('myApp.home', ['ngRoute'])
             }
         }
 
-        $scope.showRecipe = function (recipe) {
+        $scope.showRecipe = function(recipe) {
             var ingredients = recipe.Ingredients;
             var restrictions = recipe.Restrictions;
             var headingredients = "<table><thead><tr><th>Name</th><th>Amount(gr)</th></tr></thead>";
@@ -156,7 +156,7 @@ angular.module('myApp.home', ['ngRoute'])
                 imageHeight: 200,
                 imageAlt: 'success',
                 title: recipe.Name,
-                html: '<p> Created on: ' + dateConvert(recipe.Timestamp) + '</p>' + body,
+                html: '<p> Created on: ' + $scope.dateConvert(recipe.Timestamp) + '</p>' + body,
             });
         }
 
@@ -172,7 +172,7 @@ angular.module('myApp.home', ['ngRoute'])
             return (convdataTime);
         }
 
-        $scope.orderByMe = function (x) {
+        $scope.orderByMe = function(x) {
             $scope.myOrderBy = x;
         }
     }]);;
