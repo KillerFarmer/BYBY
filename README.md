@@ -1,5 +1,5 @@
 # BYBY
-This project was a collaboration between CETYS University and ThermoFisher Scientific as a part of the "Train the Trainees" program, with the porpose to teach students how to work in a company enviornment, new technologies and agile methodologies/frameworks such as **SCRUM**. 
+This project was a collaboration between CETYS University and ThermoFisher Scientific as a part of the "Train the Trainees" program, with the purpose to teach students how to work in a company environment, new technologies and agile methodologies/frameworks such as **SCRUM**. 
 Team Members (In alphabetical order):
 * Adrian Chouza (Internal Product Owner)
 * Alejandro Gastelum
@@ -37,6 +37,15 @@ We decided to use Amazon Web Services (AWS) for the development of the project, 
 
 ![Architecture](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/arquitecture.png "Architecture")
 
-Each part of the project will be explained in detail, including the user stories that were proposed, the estimates the team decided per story, the general work-flow of the feature and other information. 
+While the original user story suffered changes during development most of the main features described in it were developed. Each part of the project will be explained in detail, including the user stories that were proposed, the estimates the team decided per story, the general work-flow of the feature and other important information. 
 
 ## Index
+* Singin Up
+* Singin In
+* Make a Batch
+* Registering a Recipe
+* View Batches and Recipes
+* Monitoring a Batch
+* Alerts
+* Bioreactor Data Gathering
+* Bioreactor – WebApp Communication
