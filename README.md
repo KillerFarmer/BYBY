@@ -16,9 +16,9 @@ Team Members (In alphabetical order):
   
 Additionally, the following professors and ThermoFisher Scientific representatives assisted in the development of the project (In alphabetical order):
 * Adan Hirales
-* Alejandra
+* Alejandra Villaviciencio
 * Luz Lozano
-* Nataly 
+* Nataly Medina
   
 The team was tasked to develop a solution for the following user story: 
 > Luz wishes to brew a batch of her own ***duff*** recipe.
