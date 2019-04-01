@@ -19,6 +19,7 @@ Additionaly, the following profesors and ThermoFisher Scientific representatives
 * Alejandra
 * Luz Lozano
 * Nataly 
+  
 The team was tasked to develop a solution for the following user story: 
 > Luz wishes to brew a batch of her own ***duff*** recipe.
 >
