@@ -1,5 +1,4 @@
 # BYBY
-<div style="text-align: justify"> 
 This project was a collaboration between CETYS University and ThermoFisher Scientific as a part of the "Train the Trainees" program. 
 Team Members (In alphabetical order):
 * Adrian Chouza (Internal Product Owner)
@@ -41,4 +40,3 @@ We decided to use Amazon Web Services (AWS) for the development of the project, 
 Each part of the project will be explained in detail, including the user stories that were proposed, the estimates the team decided per story, the general work-flow of the feature and other information. 
 
 Index:
-</div>
