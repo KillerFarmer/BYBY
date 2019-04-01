@@ -13,6 +13,7 @@ Team Members (In alfabetical order):
 * Ricardo Ricartti
 * Sandra Nogales
 * Sarahy Rivera
+  
 Additionaly, the following profesors and ThermoFisher Scientific representatives assisted in the development of the proyect (In alfabetical order):
 * Adan Hirales
 * Alejandra
