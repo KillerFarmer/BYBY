@@ -20,3 +20,5 @@ Once the user has created either a recipe or a batch, the home page will show th
 ## Important Files 
 * [home.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/home.js "home.js")
 ## Flow
+### Recipe
+### Batch
