@@ -6,6 +6,8 @@ By default this page will initially be blank, and will only be filled after the 
 ![home](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/homeblank.png "home")
 
 Once the user has created either a recipe or a batch, the home page will show them in a list style.
+
+![home](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/home.png "Home done")
 ## User Stories 
 ## Important Files 
 ## Flow
