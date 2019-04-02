@@ -1,36 +1,20 @@
 <html>
 <div name="header" ng-model='header' ng-controller='myAppCtrl'>
 
-    <div class="navbar-fixed hide-on-med-and-down">
+    <div class="navbar-fixed">
         <nav role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#!/home" class="brand-logo">H O M E </a>
-                <ul class="right hide-on-med-and-down">
+            <div class="nav-wrapper blue lighten-2">
+                <div class="container">
+                <a href="#!/home" class="header">H O M E </a>
+                <ul class="right">
                     <li><a href="#!/make-batch">Make Batch</a></li>
                     <li><a href="#!/register-recipe">Register Recipe</a></li>
                     <li><a ng-click="signOut()">Sign Out</a></li>
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav">
-                    <li><a href="#!/make-batch">Make Batch</a></li>
-                    <li><a href="#!/register-recipe">Capture Recipe</a></li>
-                    <li><a ng-click="signOut()">Sign Out</a></li>
-                </ul>
-                <a href="#!" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </div>
             </div>
-
         </nav>
     </div>
-    <nav class="hide-on-large-only" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#!/home" class="brand-logo">HOME </a>
-
-            <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="sidenav">
-                <li><a href="#!/make-batch">Make Batch</a></li>
-                <li><a href="#!/register-recipe">Capture Recipe</a></li>
-                <li><a ng-click="signOut()">Sign Out</a></li>
-            </ul>
-        </div>
-    </nav>
 </div>
 
 </html>

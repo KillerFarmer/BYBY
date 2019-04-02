@@ -2,12 +2,12 @@
 
 angular.module('myApp.resend', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/resend', {
             templateUrl: 'views/resend.html',
         });
     }])
-    .controller('ResendCtrl', ['$scope', function($scope) {
+    .controller('ResendCtrl', ['$scope', function ($scope) {
 
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
@@ -27,10 +27,19 @@ angular.module('myApp.resend', ['ngRoute'])
                 Pool: userPool
             });
         }
-        $scope.resendVerify = function() {
-            createCognitoUser($scope.email).resendConfirmationCode(function(err, result) {
+        $scope.resendVerify = function () {
+            createCognitoUser($scope.email).resendConfirmationCode(function (err, result) {
                 if (err) {
-                    Swal.fire(err);
+                    Swal.fire({
+                        title: 'Something went wrong!',
+                        text: 'Please try again later.',
+                        imageUrl: '/stickers/dazedko.png',
+                        imageWidth: 260,
+                        imageHeight: 200,
+                        imageAlt: 'success',
+                        animation: true,
+                        confirmButtonColor: '#f08080'
+                    });
                 } else {
                     window.location.href = "#!/verify";
                 }
