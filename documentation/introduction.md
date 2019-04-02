@@ -1,4 +1,4 @@
-# Introcuction
+# Introduction
 The team was tasked to develop a solution for the following user story: 
 > Luz wishes to brew a batch of her own ***duff*** recipe.
 >
