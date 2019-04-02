@@ -11,4 +11,6 @@ Additionally, we used the [Google Maps API](https://developers.google.com/maps/d
 ### Select a bioreactor
 **As a** user, **I want to** select a bioreactor **such that** it is near my current location and is able to process my recipe **so that** I can head to such location to brew a batch.
 ## Important Files 
+* [make-batch.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/make-batch.js "make-batch.js")
 ## Flow
+![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatch.png "Make Batch")
