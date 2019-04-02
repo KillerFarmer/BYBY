@@ -18,4 +18,5 @@ Once the user has created either a recipe or a batch, the home page will show th
 ### View state of a batch
 **As a** user **I want to** check on the state of a brewing batch **so that** I can know when to pick up a batch.
 ## Important Files 
+* [home.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/home.js "home.js")
 ## Flow
