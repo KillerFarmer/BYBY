@@ -19,6 +19,7 @@ Once the user has created either a recipe or a batch, the home page will show th
 **As a** user **I want to** check on the state of a brewing batch **so that** I can know when to pick up a batch.
 ## Important Files 
 * [home.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/home.js "home.js")
+
 Home includes the use of a custom service in order to pass the batch information to the monitoring view, it also includes showing alerts dynamically depending on recipe selected, and organizing the batches by either name or date, as was the case in the make a batch view.
 ## Flow
 The flow now includes two branches on how to proceed, one could either select a recipe to view their information or a batch in order to monitor its progress after it has been started. Note that you can't monitor a batch if it hasn't started. 
