@@ -73,4 +73,4 @@ We can now see our recipe in the home view.
 
 ![Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipedone.png "Done")
 
-Subsequently we may now select the recipe from [home](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md#recipe "home") or use it to [make a batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md "make a batch")
+Subsequently, we may now select the recipe from [home](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md#recipe "home") or use it to [make a batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md "make a batch").
