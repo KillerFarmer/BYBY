@@ -17,5 +17,5 @@ This is one of the longer files since it involves a lot of google maps stuff, sp
 ## Flow
 ![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatch.png "Make Batch")
 ![Make Batch Selection](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchselection.png "Make Batch Selection")
-![Make Batch Success](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchsuccess.png "Make Batch Success")
+![Make Batch Success](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makesuccess.png "Make Batch Success")
 ![Make Batch Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchdone.png "Make Batch Done")
