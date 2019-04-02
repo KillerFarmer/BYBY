@@ -13,6 +13,9 @@
 **As a** user **I want to** specify a range for the readings of a sensor **so that** my beer is not ruined.
 
 ## Important Files 
+* [register-recipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/register-recipe.js "register-recipe.js")
+
+All of the functions are stored here, Regular Expresions are used to validate user input.
 ## Flow
 | Material     | Quantity   |
 |--------------|------------|
