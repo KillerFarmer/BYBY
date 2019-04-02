@@ -18,5 +18,5 @@ One of the main aspects of any WebApp that allows users to sign up is the abilit
 Most of this are pretty self-explanatory, the first 4 containing essential functions that serve to communicate AWS' services with our API. Config.js handles credentials and tells AWS which user pool to use, on which servers are te files located, and which API to communicate with. 
 ## Flow
 * First, we enter the BYBY WebApp by default there's no registered user so it redirects the user to the login page. 
-  ![login.js](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/img/signin.png "login.js")
+  ![login.js](https://raw.githubusercontent.com/BYBY/tree/documentation/documentation/img/signin.png "login.js")
 * 
