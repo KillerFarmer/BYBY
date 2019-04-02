@@ -1,5 +1,5 @@
 # Make a batch
-Now that the user has recipes he can produce, they have now the ability to make a batch. We used the following AWS technologies:
+Now that the user has [recipes he can produce](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/recipe.md#flow "recipes he can produce"), they have now the ability to make a batch. We used the following AWS technologies:
 * [API Gateway](https://aws.amazon.com/api-gateway/ "API Gateway") communicates our WebApp with AWS.
 * [Lambda](https://aws.amazon.com/lambda/ "Lambda") which adds functionality to save and retrieve information in DynamoDB.
 * [DynamoDB](https://aws.amazon.com/dynamodb/ "DynamoDB") where information is stored and recipes retrieved. 
