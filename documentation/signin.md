@@ -3,11 +3,11 @@ One of the main aspects of any WebApp that allows users to sign up is the abilit
 
 ## User Stories 
 ### Login into my account  
-As a user I want to provide my e-mail and password so that I can identify myself.
+**As** a user **I want to** provide my e-mail and password **so that** I can identify myself.
 ### Creating a new account
-As an unregistered user I want to create an account so that my data is stored.
+**As** an unregistered user **I want to** create an account **so that** my data is stored.
 ### Register account 
-As an unregistered user I want to provide and email and password so that my account is secure.
+**As** an unregistered user **I want to** provide and email and password **so that** my account is secure.
 ## Important Files 
 
 ## Flow
