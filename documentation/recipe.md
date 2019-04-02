@@ -68,6 +68,7 @@ Afterwards we adjust the sliders to match the restrictions and we click the Save
 Finally, an alert appears showing that the recipe has been saved and the page redirects to the home view. 
 
 ![Success](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipesuccess.png "Success")
+
 We can now see our recipe in the home view.
 
 ![Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipedone.png "Done")
