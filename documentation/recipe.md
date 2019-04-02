@@ -18,26 +18,26 @@
 |--------------|------------|
 | Water        | 4 L        |
 
-Hops   
+### Hops   
 
 | Material     | Quantity   |
 |--------------|------------|     
 | Hops 1       | 200 gr     |
 | Cafe Hop     | 300 gr     |
 
-Yeast 
+### Yeast 
 
 | Material     | Quantity   |
 |--------------|------------|  
 | Yeast 2      | 400        |
 
-Syrup
+### Syrup
 
 | Material     | Quantity   |
 |--------------|------------|  
 | Azucar glass | 100        |
 
-Restrictions
+### Restrictions
 
 | Sensor       | Min        | Max    |
 |--------------|------------|--------|  
