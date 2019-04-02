@@ -31,7 +31,7 @@ As an unregistered user I want to provide and email and password so that my acco
 #### BDD
 **Given** that I am on the register account page
 
-**When** I enter "thechouzanone@gmail.com" and "aA1;" as e-mail and password, respectively and click the Register Button
+**When** I enter "example@examplemail.com" and "aAbc1235;" as e-mail and password, respectively and click the Register Button
 
 **Then** a pop-up appears telling me that a confirmation e-mail has been sent and I am redirected to the verify e-mail page.
 
