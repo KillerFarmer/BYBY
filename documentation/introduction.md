@@ -16,4 +16,5 @@ We decided to use Amazon Web Services (AWS) for the development of the project, 
 
 ![Architecture](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/arquitecture.png "Architecture")
 
-While the original user story suffered changes during development most of the main features described in it were developed. Each part of the project will be explained in detail, including the user stories that were proposed, the estimates the team decided per story, the general work-flow of the feature and other important information. 
+While the original user story suffered changes during development most of the main features described in it were developed. Each part of the project will be explained in detail, including the user stories that were proposed, the estimates the team decided per story, the general work-flow of the feature and other important information. The first step in order to use AWS integration with js in a secure manner and registering users was using cognito. 
+

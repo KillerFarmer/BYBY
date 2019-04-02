@@ -22,7 +22,7 @@ Additionally, the following professors and ThermoFisher Scientific representativ
 
 ## Index
 * [Introduction](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/introduction.md "Introduction").
-* Singin Up/In
+* [Signinorup](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/introduction.md "Sign In/Up").
 * Make a Batch
 * Registering a Recipe
 * View Batches and Recipes
