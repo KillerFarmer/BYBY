@@ -58,10 +58,18 @@ In order to demonstrate the flow of this feature we will input the following rec
 
 ![Recipe1](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipe1.png "Recipe")
 As we need to input more than one hop, we just need to click the "+" button to add another field. (This works for either hops, yeast or malt/syrups)
+
 ![Recipe2](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipe2.png "Recipe")
+
 Afterwards we adjust the sliders to match the restrictions and we click the Save Recipe button.
+
 ![Recipe3](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipe3.png "Recipe")
+
 Finally, an alert appears showing that the recipe has been saved and the page redirects to the home view. 
+
 ![Success](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipesuccess.png "Success")
+We can now see our recipe in the home view.
+
 ![Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/recipedone.png "Done")
-Now we can select the recipe from [home](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "home") or [make a batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md "make a batch")
+
+Now we can select the recipe from [home](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "home") or use it to [make a batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md "make a batch")
