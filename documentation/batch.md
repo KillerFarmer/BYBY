@@ -16,4 +16,6 @@ Additionally, we used the [Google Maps API](https://developers.google.com/maps/d
 This is one of the longer files since it involves a lot of google maps stuff, specially dinamically generating custom markers. In addition to getting multiple lists from DynamoDB for facilities, recipies and bioreactors. 
 ## Flow
 ![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatch.png "Make Batch")
-![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchselection.png "Make Batch")
+![Make Batch Selection](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchselection.png "Make Batch Selection")
+![Make Batch Success](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchsuccess.png "Make Batch Success")
+![Make Batch Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchdone.png "Make Batch Done")
