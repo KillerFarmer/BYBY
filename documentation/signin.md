@@ -9,11 +9,11 @@ One of the main aspects of any WebApp that allows users to sign up is the abilit
 ### Register account 
 **As** an unregistered user **I want to** provide and email and password **so that** my account is secure.
 ## Important Files 
-* [resend.js](https://aws.amazon.com/cognito/ "resend.js")
-* [sign-up.js](https://aws.amazon.com/cognito/ "sign-up.js")
-* [verify.js](https://aws.amazon.com/cognito/ "verify.js")
-* [login.js](https://aws.amazon.com/cognito/ "login.js")
-* [config.js](https://aws.amazon.com/cognito/ "config.js")
+* [resend.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/resend.js "resend.js")
+* [sign-up.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/sign-up.js "sign-up.js")
+* [verify.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/verify.js "verify.js")
+* [login.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/login.js "login.js")
+* [config.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/config.js "config.js")
 
 Most of this are pretty self-explanatory, the first 4 containing essential functions that serve to communicate AWS' services with our API. Config.js handles credentials and tells AWS which user pool to use, on which servers are te files located, and which API to communicate with. 
 ## Flow
