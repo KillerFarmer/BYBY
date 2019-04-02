@@ -9,7 +9,7 @@
         <br>
         <div name='buttons' class="row">
             <div class="group col s8 m6 l4">
-                <a class="btn waves-effect waves-red white black-text" ng-click="orderByMe('Recipe.Name')">Name</a>
+                <a class="btn waves-effect waves-red white black-text" ng-click="orderByMe('Status')">Status</a>
                 <a class="btn waves-effect waves-red white black-text" ng-click="orderByMe('-Timestamp')">Date</a>
             </div>
         </div>
@@ -21,7 +21,7 @@
                         ng-repeat="batch in batches| orderBy:myOrderBy">
                         <img ng-src="{{changeStatus(batch)}}" alt="icon" class="circle">
                         <span class="title">Batch in {{batch.Bioreactor.FacilityName}}</span>
-                        <p>{{batch.Recipe.Name}} <br> {{batch.Status}}
+                        <p>{{batch.Recipe.Name}} | {{dateConvert(batch.Timestamp)}} <br> {{batch.Status}}
                         </p>
                     </a>
                 </ul>
