@@ -9,5 +9,11 @@ One of the main aspects of any WebApp that allows users to sign up is the abilit
 ### Register account 
 **As** an unregistered user **I want to** provide and email and password **so that** my account is secure.
 ## Important Files 
+* resend.js
+* sign-up.js
+* verify.js
+* login.js
+* config.js
 
+Most of this are pretty self-explanatory, the first 4 containing essential functions that serve to communicate AWS' services with our API. Config.js handles credentials and tells AWS which user pool to use, on which servers are te files located, and which API to communicate with. 
 ## Flow
