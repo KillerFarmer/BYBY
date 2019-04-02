@@ -4,7 +4,11 @@ Now that the user has recipes he can produce, they have now the ability to make 
 * [Lambda](https://aws.amazon.com/lambda/ "Lambda") which adds functionality to save and retrieve information in DynamoDB.
 * [DynamoDB](https://aws.amazon.com/dynamodb/ "DynamoDB") where information is stored and recipes retrieved. 
 
-Additionally, we used the [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial "Maps"), which usually 
+Additionally, we used the [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial "Maps"), which allows us to display maps and custom markers as well as user location (which wasn't our case since it requieres SSL certification). Furthermore, we used custom markers to signal the facilities where the bioreactors are located, displaying the locations that are within a small radius of the user. 
 ## User Stories 
+### Select bioreactor from map
+**As a** user **I want to** select a bioreactor from the map **such that** a bioreactor is assigned to me.
+### Select a bioreactor
+**As a** user, **I want to** select a bioreactor **such that** it is near my current location and is able to process my recipe **so that** I can head to such location to brew a batch.
 ## Important Files 
 ## Flow
