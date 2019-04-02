@@ -8,7 +8,9 @@ One of the main aspects of any WebApp that allows users to sign up is the abilit
 As a user I want to provide my e-mail and password so that I can identify myself.
 #### BDD
 *Given* that I am on the login page and I am registered
+
 *When* I enter "example@examplemail.com" and "aAbc1235;" as e-mail and password, respectively and click the Login Button
+
 *Then* I am sent to the homepage.
 
 ## Important Files 
