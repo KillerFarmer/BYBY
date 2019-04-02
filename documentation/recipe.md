@@ -1,4 +1,8 @@
 # Register a Recipe
+One of the main parts of the original user story, was the storing of a user's beer recipe so that they can latter produce them in a facility. In order to do accomplish that we need to a couple of amazon technologies:
+* API Gateway communicates our WebApp with AWS.
+* Lambda which adds functionality to save information in DynamoDB.
+* Dynamo DB where information is stored.
 ## User Stories 
 ### Validating and storing new recipe values
 **As a** user **I want** the app to verify the values I provide **so that** I am not allowed to enter wrong data.
@@ -15,7 +19,7 @@
 ## Important Files 
 * [register-recipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/register-recipe.js "register-recipe.js")
 
-All of the functions are stored here, Regular Expresions are used to validate user input.
+All of the functions are stored here, Regular Expresions are used to validate user input. Most functions are in charge of storing a list of Hops, Yeast or Syrups, creating the restrictions sliders and communicating through API Gateway to invoke a special lambda function. 
 ## Flow
 | Material     | Quantity   |
 |--------------|------------|
