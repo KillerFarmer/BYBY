@@ -29,4 +29,4 @@ After that, we can find our new batch showing in the home view.
 
 ![Make Batch Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchdone.png "Make Batch Done")
 
-Now we can proceed to monitor our batch in the [home view](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "home view").
+Now we can proceed to monitor our batch in the [home view](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md#batch "home view").
