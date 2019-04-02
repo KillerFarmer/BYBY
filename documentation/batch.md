@@ -13,7 +13,7 @@ Additionally, we used the [Google Maps API](https://developers.google.com/maps/d
 ## Important Files 
 * [make-batch.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/make-batch.js "make-batch.js")
   
-This is one of the longer files since it involves a lot 
+This is one of the longer files since it involves a lot of google maps stuff, specially dinamically generating custom markers. In addition to getting multiple lists from DynamoDB for facilities, recipies and bioreactors. 
 ## Flow
 ![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatch.png "Make Batch")
 ![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchselection.png "Make Batch")
