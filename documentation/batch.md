@@ -16,11 +16,17 @@ Additionally, we used the [Google Maps API](https://developers.google.com/maps/d
 This is one of the longer files since it involves a lot of google maps stuff, specially dynamically generating custom markers. In addition to getting multiple lists from DynamoDB for facilities, recipes and bioreactors. 
 ## Flow
 ![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatch.png "Make Batch")
+
 We just need to select a recipe, then a location and a bioreactor will be automatically assigned to us if they're available. 
+
 ![Make Batch Selection](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchselection.png "Make Batch Selection")
+
 Afterwards, we'll receive an alert that shows that the batch has been created. Additionally, a DynamoDB trigger runs sending an MQTT message to the Raspberry Pi simulating the bioreactor.
+
 ![Make Batch Success](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makesuccess.png "Make Batch Success")
+
 After that, we can find our new batch showing in the home view. 
+
 ![Make Batch Done](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatchdone.png "Make Batch Done")
 
 Now we can proceed to monitor our batch in the [home view](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "home view").
