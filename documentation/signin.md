@@ -25,3 +25,5 @@ Most of this are pretty self-explanatory, the first 4 containing essential funct
 ![verify.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/verify.png "verify.js")
 * In this view we only need to provide the email so that another confirmation message can be sent, and to finally redirect us to the verify view so we can resume the sign up process.
 ![resend.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/resend.png "resend.js")
+
+Once the user successfuly completes the sign-up process, they are redirected to the [home view](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "home view"). 
