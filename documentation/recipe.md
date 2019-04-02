@@ -1,8 +1,8 @@
 # Register a Recipe
 One of the main parts of the original user story, was the storing of a user's beer recipe so that they can latter produce them in a facility. In order to do accomplish that we need to a couple of amazon technologies:
-* API Gateway communicates our WebApp with AWS.
-* Lambda which adds functionality to save information in DynamoDB.
-* Dynamo DB where information is stored.
+* [API Gateway](https://aws.amazon.com/api-gateway/ "API Gateway") communicates our WebApp with AWS.
+* [Lambda](https://aws.amazon.com/lambda/ "Lambda") which adds functionality to save information in DynamoDB.
+* [DynamoDB](https://aws.amazon.com/dynamodb/ "DynamoDB") where information is stored.
 ## User Stories 
 ### Validating and storing new recipe values
 **As a** user **I want** the app to verify the values I provide **so that** I am not allowed to enter wrong data.
