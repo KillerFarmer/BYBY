@@ -1,5 +1,17 @@
 # Register a Recipe
 ## User Stories 
+### Validating and storing new recipe values
+**As a** user **I want** the app to verify the values I provide **so that** I am not allowed to enter wrong data.
+
+### Capture ingredients#25
+**As a** user **I want to** add multiple ingredients **so that** my beer is tasty.
+
+### Capturing a beer recipe#8
+**As a** user **I want to** record my beer recipes **so that** I can retrieve them when I’m ready to brew a new batch.
+
+### Specifying sensor ranges
+**As a** user **I want to** specify a range for the readings of a sensor **so that** my beer is not ruined.
+
 ## Important Files 
 ## Flow
 | Material     | Quantity   |
