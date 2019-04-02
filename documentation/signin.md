@@ -20,5 +20,8 @@ Most of this are pretty self-explanatory, the first 4 containing essential funct
 * First, we enter the BYBY WebApp by default there's no registered user, so it redirects the user to the login page. Since we intended to create a user, we click the Sign Up link. 
 ![login.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/signin.png "login.js")
 * After we are redirected to the Sign Up view, it's only a matter of filling the information and clicking the Sign Up button.
-![register.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/signup.png "register.js")
-*
+![sign-up.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/signup.png "sign-up.js")
+* Subsequently, we are redirected to the verify view which asks us for our email in order to send a verification code, after the email is confirmed the WebApp redirects us to the login page where we can now login without problems. Alternatively, if one does not recieve a code there's a link that can be clicked in order to redirect to the resend view. 
+![verify.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/verify.png "verify.js")
+* In this view we only need to provide the email so that another confirmation message can be sent, and to finally redirect us to the verify view so we can resume the sign up process.
+![resend.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/resend.png "resend.js")
