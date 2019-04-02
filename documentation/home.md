@@ -23,6 +23,8 @@ Home includes the use of a custom service in order to pass the batch information
 ## Flow
 The flow now includes two branches on how to proceed, one could either select a recipe to view their information or a batch in order to monitor its progress after it has been started. Note that you can't monitor a batch if it hasn't started. 
 ### Recipe
+![recipe](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/homerec.png "Recipe")
+
 Viewing the recipe information is pretty straight forward, it's only a matter of clicking a recipe from the list and a pop up will appear showing such data. 
 
 ![recipe1](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/homerec1.png "Recipe 1")
@@ -30,4 +32,6 @@ Viewing the recipe information is pretty straight forward, it's only a matter of
 
 As you can see all the recipe information is displayed including the date it was created, an ingredient list and its restrictions. Afterwards, we can just click "OK" to close the pop up.
 ### Batch
+![batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/homebatch.png "Batch")
+
 Batches are displayed on the left side of the view, displaying their information without needing the user to click on them unlike the recipe. As we can see it shows its name, on which facility it's stored and finally its state. Now we can just [start a batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/startbatch.md "start a batch") in order to [monitor](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/monitor.md "home") its progress by clicking on the batch. 
