@@ -22,10 +22,10 @@ Additionally, the following professors and ThermoFisher Scientific representativ
 
 ## Index
 * [Introduction](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/introduction.md "Introduction").
-* [Sign In/Up](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/signin.md "Sign In/Up").
-* Make a Batch
-* Registering a Recipe
-* View Batches and Recipes
+* [Signing In/Up](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/signin.md "Sign In/Up").
+* [Making a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md "Make a Batch").
+* [Registering a Recipe](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/recipe.md "Registering a Recipe").
+* [View Batches and Recipes](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "View Batches and Recipes").
 * Monitoring a Batch
 * Alerts
 * Bioreactor Data Gathering
