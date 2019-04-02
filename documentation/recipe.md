@@ -3,10 +3,10 @@
 ### Validating and storing new recipe values
 **As a** user **I want** the app to verify the values I provide **so that** I am not allowed to enter wrong data.
 
-### Capture ingredients#25
+### Capture ingredients
 **As a** user **I want to** add multiple ingredients **so that** my beer is tasty.
 
-### Capturing a beer recipe#8
+### Capturing a beer recipe
 **As a** user **I want to** record my beer recipes **so that** I can retrieve them when I’m ready to brew a new batch.
 
 ### Specifying sensor ranges
