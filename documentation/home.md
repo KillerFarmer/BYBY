@@ -21,13 +21,14 @@ Once the user has created either a recipe or a batch, the home page will show th
 * [home.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/home.js "home.js")
 
 Home includes the use of a custom service in order to pass the batch information to the monitoring view, it also includes showing alerts dynamically depending on recipe selected, and organizing the batches by either name or date, as was the case in the make a batch view.
-## Flow
-The flow now includes two branches on how to proceed, one could either select a recipe to view their information or a batch in order to monitor its progress after it has been started. Note that you can't monitor a batch if it hasn't started. 
 ## Important Lambda Functions
 * [getrecipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/getrecipe.js "getrecipe.js")
 * [getbatch.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/getbatch.js "getbatch.js")
 
 The functions serve to get the stored recipes and batches for viewing. 
+## Flow
+The flow now includes two branches on how to proceed, one could either select a recipe to view their information or a batch in order to monitor its progress after it has been started. Note that you can't monitor a batch if it hasn't started. 
+
 ### Recipe
 ![recipe](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/homerec.png "Recipe")
 
