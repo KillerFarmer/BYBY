@@ -21,11 +21,11 @@ Additionally, the following professors and ThermoFisher Scientific representativ
 * Nataly Medina
 
 ## Index
-* [Introduction](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/introduction.md "Introduction").
-* [Signing In/Up](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/signin.md "Sign In/Up").
-* [Registering a Recipe](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/recipe.md "Registering a Recipe").
-* [Making a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md "Make a Batch").
-* [View Batches and Recipes](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "View Batches and Recipes").
-* [Monitoring a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/monitor.md "Monitoring a Batch").
-* [Bioreactor – WebApp Communication](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/biocomms.md "Bioreactor – WebApp Communication").
+* [Introduction](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/introduction.md#introduction "Introduction").
+* [Signing In/Up](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/signin.md#sign-inup "Sign In/Up").
+* [Registering a Recipe](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/recipe.md#register-a-recipe "Registering a Recipe").
+* [Making a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md#make-a-batch "Make a Batch").
+* [View Batches and Recipes](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md#view-batches-and-recipes "View Batches and Recipes").
+* [Monitoring a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/monitor.md#monitoring-a-batch "Monitoring a Batch").
+* [Bioreactor – WebApp Communication](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/biocomms.md#bioreactor--webapp-communication "Bioreactor – WebApp Communication").
 * Bioreactor Data Gathering
