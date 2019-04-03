@@ -8,7 +8,7 @@ The final part of the original user story, consisted in monitoring the state of 
 ### View batch characteristics
 **As a** user **I want to** click a batch **so that** I can see data read from the sensors.
 ## Important Files 
-* batch-view.js
+* [batch-view.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/batch-view.js "batch-view.js")
 
 We used [Chart.js]("Chart.js") to produce the dynamic charts and we used plugins for the [zoom](https://github.com/chartjs/chartjs-plugin-zoom "Zoom") and [annotation](https://github.com/chartjs/chartjs-plugin-annotation "Annotation") features. 
 ## Important Lambda Functions
