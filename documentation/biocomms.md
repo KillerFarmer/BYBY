@@ -2,9 +2,9 @@
 The last part of the project was to simulate the Bioreactor, which in our case was a RaspberryPi 3. We used special [wi-fi modules]("Modules") to connect the sensors and MQTT to send messages to IoT Core and inovke rules. 
 * [IoT Core](https://aws.amazon.com/iot-core/ "IoT Core") Were we declared a Thing named Bioreactor with the associated Certificate files, which have been removed from github for security reasons.
 There are three different rules that are invoked in the process: 
-* UpdateBatchStatus listens to "updateBatchStatus" topic and stores the contents of these messages into the Batch table updating the value as its name suggests
-* StoreData listens for "measure" topic and writes it into Measurements table.
-* UpdateBioreactorStatus listens for "updateBioreactorAvailable" topic and writes into Bioreactor table.
+    * UpdateBatchStatus listens to "updateBatchStatus" topic and stores the contents of these messages into the Batch table updating the value as its name suggests
+    * StoreData listens for "measure" topic and writes it into Measurements table.
+    * UpdateBioreactorStatus listens for "updateBioreactorAvailable" topic and writes into Bioreactor table.
 
 ## User Stories 
 Load Batch to bioreactor
