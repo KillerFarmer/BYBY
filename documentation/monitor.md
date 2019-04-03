@@ -3,7 +3,7 @@ The final part of the original user story, consisted in monitoring the state of 
 * [API Gateway](https://aws.amazon.com/api-gateway/ "API Gateway") communicates our WebApp with AWS.
 * [Lambda](https://aws.amazon.com/lambda/ "Lambda") which adds functionality to retrieve information in DynamoDB.
 * [DynamoDB](https://aws.amazon.com/dynamodb/ "DynamoDB") where information is stored.
-* [SES](https://aws.amazon.com/dynamodb/ "DynamoDB") AWS' simple email service which allows us to send emails automatically. 
+* [SES](https://aws.amazon.com/ses/ "SES") AWS' simple email service which allows us to send emails automatically. 
 ## User Stories 
 ### View batch characteristics
 **As a** user **I want to** click a batch **so that** I can see data read from the sensors.
