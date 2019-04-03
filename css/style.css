@@ -8,6 +8,17 @@
  * Made By MaterializeCSS.com
  */
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
  .icon-block {
     padding: 0 15px;
 }
@@ -94,5 +105,16 @@ canvas {
   overflow-x: scroll;
   position: relative;
 }
-
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#map{
+  height: 400px;
+  overflow: hidden;
+  padding-bottom: 22.25%;
+  padding-top: 30px;
+  position: relative;
+}
     

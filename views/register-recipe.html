@@ -6,34 +6,20 @@
     <div class="container">
         <form name="registerForm">
             <div style="text-align:center">
-                <div class="row">
-                    <div class="col s2 m2 l2 offset-l1">
-                        <img width="200" src="../stickers/amazedko.png" />
-                    </div>
-                    <div class="col s8 m8 l8">
-                        <h3 class="orange-text">Register a new recipe!</h3>
-                    </div>
-                </div>
-                <div class="divider"></div>
 
                 <div class="row">
                     <div class="group col s12 m6 l6">
                         <h4>Ingredients</h4>
-                        <ul class="collection"
-                            style="width:auto;height:auto; max-width: 600px; max-height: 500px; overflow: auto">
+                        <ul class="collection" style="width:auto;height:auto; max-width: 600px; max-height: 500px; overflow: auto; overflow-x: hidden;">
                             <div>
                                 <h5>Name</h5>
                                 <div class="divider"></div>
                                 <div class="row">
                                     <div class="group col s12">
-                                        <input type="text" placeholder="Name" name="Name" ng-model="name" required
-                                            ng-change="search()" required pattern="^[a-zA-Z0-9\s]*$" />
+                                        <input type="text" placeholder="Name" name="Name" ng-model="name" required ng-change="search()" required pattern="^[a-zA-Z0-9\sñÑ]*$" />
                                     </div>
-                                    <div style="color:red;"
-                                        ng-show="registerForm.Name.$invalid && registerForm.Name.$dirty">
-                                        Only
-                                        alphanumeric characters are
-                                        allowed!
+                                    <div style="color:red;" ng-show="registerForm.Name.$invalid && registerForm.Name.$dirty">
+                                        Only alphanumeric characters are allowed!
                                     </div>
                                     <div ng-hide="!notfound" style="color:red">Name already in database!</div>
 
@@ -45,8 +31,7 @@
                                 <div class="divider"></div>
                                 <div class="row">
                                     <div class="group col s12">
-                                        <input type="number" placeholder="Amount of water (L)" ng-model="water"
-                                            required />
+                                        <input type="number" placeholder="Amount of water (L)" ng-model="water" required />
                                     </div>
                                 </div>
                                 <br><br>
@@ -62,7 +47,7 @@
                                                         <div class="group col s6">
                                                             <input name="grain{{$index+1}}" type="text"
                                                                 ng-model="grain.name" placeholder="Hops" required
-                                                                pattern="^[a-zA-Z0-9\s]*$" />
+                                                                pattern="^[a-zA-Z0-9\sñÑ]*$" />
                                                         </div>
                                                         <div class="group col s6">
                                                             <input type="number" ng-model="grain.amount"
@@ -88,8 +73,7 @@
                                     </li>
                                     <li>
                                         <br>
-                                        <a class="btn waves-effect waves-purple white black-text"
-                                            ng-click="newGrain($event)"> +
+                                        <a class="btn waves-effect waves-purple white black-text" ng-click="newGrain($event)"> +
                                         </a>
                                     </li>
                                 </ul>
@@ -107,7 +91,7 @@
                                                         <div class="group col s6">
                                                             <input name="yeast{{$index+1}}" type="text"
                                                                 ng-model="yeast.name" placeholder="Yeast" required
-                                                                pattern="^[a-zA-Z0-9\s]*$" />
+                                                                pattern="^[a-zA-Z0-9\sñÑ]*$" />
                                                         </div>
                                                         <div class="group col s6">
                                                             <input type="number" ng-model="yeast.amount"
@@ -133,8 +117,7 @@
                                     </li>
                                     <li>
                                         <br>
-                                        <a class="btn waves-effect waves-purple white black-text"
-                                            ng-click="newYeast($event)"> +
+                                        <a class="btn waves-effect waves-purple white black-text" ng-click="newYeast($event)"> +
                                         </a>
                                     </li>
                                 </ul>
@@ -152,7 +135,7 @@
                                                         <div class="group col s6">
                                                             <input name="syrup{{$index+1}}" type="text"
                                                                 ng-model="syrup.name" placeholder="Syrup" required
-                                                                pattern="^[a-zA-Z0-9\s]*$" />
+                                                                pattern="^[a-zA-Z0-9\sñÑ]*$" />
                                                         </div>
                                                         <div class="group col s6">
                                                             <input type="number" ng-model="syrup.amount"
@@ -179,8 +162,7 @@
                                     </li>
                                     <li>
                                         <br>
-                                        <a class="btn waves-effect waves-purple white black-text"
-                                            ng-click="newSyrup($event)"> +
+                                        <a class="btn waves-effect waves-purple white black-text" ng-click="newSyrup($event)"> +
                                         </a>
                                     </li>
                                 </ul>
@@ -195,23 +177,22 @@
                         <div class="row">
                             <h4>Restrictions</h4>
                             <img width="65" height="65" src="../stickers/tempi.png" />
-                            <h5 class="orange-text">Temperature (°C)</h5>
+                            <h5 class="blue-grey-text darken-4">Temperature (°C)</h5>
                             <div id="slider-temp"></div>
                         </div>
                         <div class="row">
                             <img width="65" height="65" src="../stickers/waterph.png" />
-                            <h5 class="orange-text">pH</h5>
+                            <h5 class="blue-grey-text darken-4">pH</h5>
                             <div id="slider-ph"></div>
                         </div>
                         <div class="row">
                             <img width="65" height="65" src="../stickers/pres.png" />
-                            <h5 class="orange-text">Pressure (hPa)</h5>
+                            <h5 class="blue-grey-text darken-4">Pressure (hPa)</h5>
                             <div id="slider-press"></div>
                         </div>
                     </div>
                 </div>
-                <a class="btn waves-effect waves-purple white black-text" ng-click="confirm()"
-                    ng-disabled="registerForm.$invalid || notfound"> Save recipe </a>
+                <a class="btn waves-effect waves-light red accent-1 black-text" ng-click="confirm()" ng-disabled="registerForm.$invalid || notfound"> Save recipe </a>
                 <br>
                 <div class="divider"></div>
                 <br>

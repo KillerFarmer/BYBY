@@ -32,17 +32,27 @@ angular.module('myApp.batchView', ['ngRoute'])
         batch = batchService.get();
         if (Object.entries(batch).length === 0 && batch.constructor === Object) {
             Swal.fire({
-                type: 'error',
                 title: 'Something went wrong!',
-                text: 'No batch has been selected!'
+                text: 'No batch has been selected!',
+                imageUrl: '/stickers/beatko.png',
+                imageWidth: 260,
+                imageHeight: 200,
+                imageAlt: 'no-batch-selected',
+                animation: true,
+                confirmButtonColor: '#f08080'
             });
             window.location.href = '#!/home';
         }
-        else if (batch.Status != 'In Progress') {
+        else if (batch.Status == 'Ready to Start') {
             Swal.fire({
-                type: 'error',
-                title: 'Something went wrong!',
-                text: 'Batch has not started yet!'
+                title: 'Oops!',
+                text: 'Batch has not started yet!',
+                imageUrl: '/stickers/madko.png',
+                imageWidth: 260,
+                imageHeight: 200,
+                imageAlt: 'not_started',
+                animation: true,
+                confirmButtonColor: '#f08080'
             });
             window.location.href = '#!/home';
         }
@@ -72,6 +82,10 @@ angular.module('myApp.batchView', ['ngRoute'])
         var temp = document.getElementById('tempChart');
         var ph = document.getElementById('phChart');
         var press = document.getElementById('pressChart');
+        var tempChartWrap = document.getElementById('tempChartWrapper');
+        var phChartWrap = document.getElementById('phChartWrapper');
+        var pressChartWrap = document.getElementById('pressChartWrapper');
+
         var tempChart = new Chart(temp, {
             type: 'line',
             data: {
@@ -326,6 +340,9 @@ angular.module('myApp.batchView', ['ngRoute'])
                 dataset.data = data;
             });
             chart.update();
+            tempChartWrap.scrollTo(4000, 0);
+            phChartWrap.scrollTo(4000, 0);
+            pressChartWrap.scrollTo(4000, 0);
         }
 
     }]);

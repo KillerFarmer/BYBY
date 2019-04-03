@@ -2,12 +2,12 @@
 
 angular.module('myApp.verify', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/verify', {
             templateUrl: 'views/verify.html',
         });
     }])
-    .controller('VerifyCtrl', ['$scope', function($scope) {
+    .controller('VerifyCtrl', ['$scope', function ($scope) {
         var poolData = {
             UserPoolId: _config.cognito.userPoolId,
             ClientId: _config.cognito.userPoolClientId
@@ -20,7 +20,7 @@ angular.module('myApp.verify', ['ngRoute'])
             AWSCognito.config.region = _config.cognito.region;
         }
 
-        $scope.handleVerify = function() {
+        $scope.handleVerify = function () {
             var email = $scope.email;
             var code = $scope.vcode;
             event.preventDefault();
@@ -32,7 +32,16 @@ angular.module('myApp.verify', ['ngRoute'])
                     window.location.href = '#!/login';
                 },
                 function verifyError(err) {
-                    Swal.fire(err);
+                    Swal.fire({
+                        title: 'Something went wrong!',
+                        text: 'Verification code is incorrect.',
+                        imageUrl: '/stickers/naniko.png',
+                        imageWidth: 250,
+                        imageHeight: 200,
+                        imageAlt: 'wrong-code',
+                        animation: true,
+                        confirmButtonColor: '#f08080'
+                    });
                 }
             );
         }

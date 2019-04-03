@@ -98,6 +98,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                 decimals: 0
             })
         });
+
         function getrecipeList(token) {
             var req = {
                 method: 'POST',
@@ -125,9 +126,9 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
             var yeasts = $scope.yeastlist;
             var syrups = $scope.syruplist;
             var restrictions = [
-                { Sensor: "Temperaure", min: tempVals[0], max: tempVals[1] },
-                { Sensor: "PH", min: phVals[0], max: phVals[1] },
-                { Sensor: "Pressure", min: pressVals[0], max: pressVals[1] }
+                { Sensor: "Temperature", min: Math.trunc(tempVals[0]), max: Math.trunc(tempVals[1]) },
+                { Sensor: "PH", min: Math.trunc(phVals[0]), max: Math.trunc(phVals[1]) },
+                { Sensor: "Pressure", min: Math.trunc(pressVals[0]), max: Math.trunc(pressVals[1]) }
             ];
             var req = {
                 method: 'POST',
@@ -153,7 +154,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
                     title: 'Success!',
                     text: 'You recipe was registered.',
                     imageUrl: '/stickers/victoryko.png',
-                    imageWidth: 300,
+                    imageWidth: 250,
                     imageHeight: 200,
                     imageAlt: 'success',
                     animation: true,
@@ -176,8 +177,7 @@ angular.module('myApp.registerRecipe', ['ngRoute']).
         $scope.search = function () {
             if (nameList.includes($scope.name) && nameList.length > 0) {
                 $scope.notfound = true;
-            }
-            else {
+            } else {
                 $scope.notfound = false;
             }
         }

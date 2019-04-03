@@ -7,59 +7,50 @@
     <div class="container">
         <div ng-controller="MakeBatchCtrl">
             <div class="section no-pad-bot" id="index-banner">
-                <div class="row" style="text-align:center">
-                    <div class="col s12 m12 l12">
-                        <h3 class="orange-text">Make a new batch!</h3>
-                    </div>
-                </div>
-                <div class="divider"></div>
-                <br>
 
             </div>
             <div id="buttons" class="row">
                 <div class="group col s8 m6 l4">
-                    <a class="btn waves-effect waves-purple white black-text" ng-click="orderByMe('Name')">Name</a>
-                    <a class="btn waves-effect waves-purple white black-text"
-                        ng-click="orderByMe('-Timestamp')">Date</a>
+                    <a class="btn waves-effect waves-red white black-text" ng-click="orderByMe('Name')">Name</a>
+                    <a class="btn waves-effect waves-red white black-text" ng-click="orderByMe('-Timestamp')">Date</a>
                 </div>
             </div>
             <div id="items" class="row">
                 <div id="group1" class="group col s6 m6 l6">
-                    <ul class="collection"
-                        style="max-width: 850px; max-height: 700px; width: auto; height: auto;overflow: auto">
-                        <li id={{x.Name}} ng-click="addRecipe(x.Name)" class="collection-item"
-                            ng-repeat="x in recipes| orderBy:myOrderBy">
-                            <div>{{x.Name}}<a
-                                    class="secondary-content black-text"><i>{{dateConvert(x.Timestamp)}}</i></a>
-                            </div>
-                        </li>
+                    <ul class="collection" style="max-width: 850px; max-height: 528px; width: auto; height: auto;overflow: auto">
+                        <a id="{{x.Name}}" ng-click="addRecipe(x.Name)" class="collection-item avatar black-text" ng-repeat="x in recipes| orderBy:myOrderBy">
+                            <img src="/stickers/black.png" alt="icon" class="circle">
+                            <span class="title">{{x.Name}}</span>
+                            <p>{{dateConvert(x.Timestamp)}}</p>
+                        </a>
                     </ul>
                 </div>
-                <div id="group2" class="group col s6 m6 l6">
-                    <div id="map" style="width: 650px; height: 500px;"></div>
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Facility</th>
-                                    <th>Recipe Name</th>
-                                    <th>Bioreactor</th>
-                                </tr>
-                            </thead>
+                <div class="row">
+                    <div id="group2" class="group col s6 m6 l6">
+                        <div id="map"></div>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Facility</th>
+                                        <th>Recipe Name</th>
+                                        <th>Bioreactor</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <tr>
-                                    <td>{{Facility}}</td>
-                                    <td>{{RecipeName}}</td>
-                                    <td>{{Bioreactor}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <br>
-                    <div class="group col offset-s5">
-                        <a class="btn waves-effect waves-purple white black-text" ng-click="Confirm()"
-                            ng-disabled="filled">Confirm</a>
+                                <tbody>
+                                    <tr>
+                                        <td>{{Facility}}</td>
+                                        <td>{{RecipeName}}</td>
+                                        <td>{{Bioreactor}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <div class="group col offset-s5">
+                            <a class="btn waves-effect waves-light red accent-1 black-text" ng-click="Confirm()" ng-disabled="filled">Confirm</a>
+                        </div>
                     </div>
                 </div>
             </div>
