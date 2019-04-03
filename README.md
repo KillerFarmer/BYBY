@@ -28,4 +28,3 @@ Additionally, the following professors and ThermoFisher Scientific representativ
 * [View Batches and Recipes](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md#view-batches-and-recipes "View Batches and Recipes").
 * [Monitoring a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/monitor.md#monitoring-a-batch "Monitoring a Batch").
 * [Bioreactor – WebApp Communication](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/biocomms.md#bioreactor--webapp-communication "Bioreactor – WebApp Communication").
-* Bioreactor Data Gathering
