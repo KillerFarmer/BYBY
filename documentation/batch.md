@@ -14,6 +14,12 @@ Additionally, we used the [Google Maps API](https://developers.google.com/maps/d
 * [make-batch.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/make-batch.js "make-batch.js")
   
 This is one of the longer files since it involves a lot of google maps stuff, specially dynamically generating custom markers. In addition to getting multiple lists from DynamoDB for facilities, recipes and bioreactors. Subsequently, one can order their recipes by either state or by date. 
+## Important Lambda Functions
+* [getrecipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/getrecipe.js "getrecipe.js")
+* [getbioreactor.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/getbioreactor.js "getbioreactor.js")
+* [putbatch.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/putbatch.js "putbatch.js")
+
+These functions serve to get the stored recipes for selecting them, getting the bioreactor based on facility and finally to store the newly formed batch.
 ## Flow
 ![Make Batch](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/makebatch.png "Make Batch")
 

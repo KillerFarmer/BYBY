@@ -11,6 +11,10 @@ The final part of the original user story, consisted in monitoring the state of 
 * batch-view.js
 
 We used [Chart.js]("Chart.js") to produce the dynamic charts and we used plugins for the [zoom](https://github.com/chartjs/chartjs-plugin-zoom "Zoom") and [annotation](https://github.com/chartjs/chartjs-plugin-annotation "Annotation") features. 
+## Important Lambda Functions
+* [getmeasurement.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/getmeasurement.js "getmeasurement.js")
+
+The functions serve to get the stored measurements for display on the charts.
 ## Flow
 Most of the processes for this part of the WebApp are automatic, the only thing the user can do is use the "Reload Charts" to retrieve the latest information from DynamoDB. 
 ![Monitor 1](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/monitor.png "Make Batch Done")

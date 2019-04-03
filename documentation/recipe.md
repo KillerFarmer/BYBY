@@ -22,6 +22,11 @@ In order to communicate our Angular Js application with API Gateway we used the 
 * [register-recipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/register-recipe.js "register-recipe.js")
 
 All of the functions are stored here, Regular Expressions are used to validate user input. Most functions are in charge of storing a list of Hops, Yeast or Syrups, creating the restrictions sliders and communicating through API Gateway to invoke a special lambda function. 
+## Important Lambda Functions
+* [getrecipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/getrecipe.js "getrecipe.js")
+* [putrecipe.js](https://github.com/KillerFarmer/BYBY/tree/documentation/LambdaFunctions/putrecipe.js "putrecipe.js")
+
+These functions serve to get the stored recipes for validation and to store the new recipe. 
 ## Flow
 In order to demonstrate the flow of this feature we will input the following recipe along with its restrictions. 
 
