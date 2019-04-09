@@ -12,7 +12,7 @@ The final part of the original user story, consisted in monitoring the state of 
 
 We used [Chart.js]("Chart.js") to produce the dynamic charts and we used plugins for the [zoom](https://github.com/chartjs/chartjs-plugin-zoom "Zoom") and [annotation](https://github.com/chartjs/chartjs-plugin-annotation "Annotation") features. 
 ## Important Lambda Functions
-* [getmeasurement.js](https://github.com/KillerFarmer/BYBY/tree/master/LambdaFunctions/getmeasurement.js "getmeasurement.js")
+* [getmeasurement.js](https://github.com/KillerFarmer/BYBY/blob/master/LambdaFunctions/getmeasurements.js)
 
 The function serves to get the stored measurements for display on the charts.
 ## Flow
