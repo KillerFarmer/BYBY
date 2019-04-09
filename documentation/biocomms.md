@@ -14,9 +14,9 @@ Add more sensors
 Test Bioreactor Hardware
 Storing batch data
 ## Important Files 
-* [connect.py](https://github.com/KillerFarmer/BYBY/blob/documentation/Bioreactor/connect.py "connect.py")
-* [RGB.py](https://github.com/KillerFarmer/BYBY/blob/documentation/Bioreactor/RGB.py "RGB.py")
-* [Button.py](https://github.com/KillerFarmer/BYBY/blob/documentation/Bioreactor/Button.py "Button.py")
+* [connect.py](https://github.com/KillerFarmer/BYBY/blob/master/Bioreactor/connect.py "connect.py")
+* [RGB.py](https://github.com/KillerFarmer/BYBY/blob/master/Bioreactor/RGB.py "RGB.py")
+* [Button.py](https://github.com/KillerFarmer/BYBY/blob/master/Bioreactor/Button.py "Button.py")
 
 ## Flow
 ### Recieving a Batch
