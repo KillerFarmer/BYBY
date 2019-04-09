@@ -9,21 +9,21 @@ One of the main aspects of any WebApp that allows users to sign up is the abilit
 ### Register account 
 **As** an unregistered user **I want to** provide and email and password **so that** my account is secure.
 ## Important Files 
-* [resend.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/resend.js "resend.js")
-* [sign-up.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/sign-up.js "sign-up.js")
-* [verify.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/verify.js "verify.js")
-* [login.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/login.js "login.js")
-* [config.js](https://github.com/KillerFarmer/BYBY/tree/documentation/js/config.js "config.js")
+* [resend.js](https://github.com/KillerFarmer/BYBY/tree/master/js/resend.js "resend.js")
+* [sign-up.js](https://github.com/KillerFarmer/BYBY/tree/master/js/sign-up.js "sign-up.js")
+* [verify.js](https://github.com/KillerFarmer/BYBY/tree/master/js/verify.js "verify.js")
+* [login.js](https://github.com/KillerFarmer/BYBY/tree/master/js/login.js "login.js")
+* [config.js](https://github.com/KillerFarmer/BYBY/tree/master/js/config.js "config.js")
 
 Most of this are pretty self-explanatory, the first 4 containing essential functions that serve to communicate AWS' services with our API. Config.js handles credentials and tells AWS which user pool to use, on which servers are the files located, and which API to communicate with. 
 ## Flow
 * First, we enter the BYBY WebApp by default there's no registered user, so it redirects the user to the login page. Since we intended to create a user, we click the Sign Up link. 
-![login.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/signin.png "login.js")
+![login.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/master/documentation/img/signin.png "login.js")
 * After we are redirected to the Sign Up view, it's only a matter of filling the information and clicking the Sign Up button.
-![sign-up.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/signup.png "sign-up.js")
+![sign-up.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/master/documentation/img/signup.png "sign-up.js")
 * Subsequently, we are redirected to the verify view which asks us for our email in order to send a verification code, after the email is confirmed the WebApp redirects us to the login page where we can now login without problems. Alternatively, if one does not recieve a code there's a link that can be clicked in order to redirect to the resend view. 
-![verify.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/verify.png "verify.js")
+![verify.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/master/documentation/img/verify.png "verify.js")
 * In this view we only need to provide the email so that another confirmation message can be sent, and to finally redirect us to the verify view so we can resume the sign up process.
-![resend.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/documentation/documentation/img/resend.png "resend.js")
+![resend.js](https://raw.githubusercontent.com/KillerFarmer/BYBY/master/documentation/img/resend.png "resend.js")
 
-Once the user successfuly completes the sign-up process, they are redirected to the [home view](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/home.md "home view"). 
+Once the user successfuly completes the sign-up process, they are redirected to the [home view](https://github.com/KillerFarmer/BYBY/tree/master/documentation/home.md "home view"). 
