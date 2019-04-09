@@ -17,8 +17,8 @@ We used [Chart.js]("Chart.js") to produce the dynamic charts and we used plugins
 The function serves to get the stored measurements for display on the charts.
 ## Flow
 Most of the processes for this part of the WebApp are automatic, the only thing the user can do is use the "Reload Charts" to retrieve the latest information from DynamoDB. 
-![Monitor 1](https://raw.githubusercontent.com/KillerFarmer/BYBY/tree/master/img/monitor.png "Make Batch Done")
-![Monitor 2](https://raw.githubusercontent.com/KillerFarmer/BYBY/tree/master/img/monitor2.png "Make Batch Done")
-![Monitor 3](https://raw.githubusercontent.com/KillerFarmer/BYBY/tree/master/img/monitor3.png "Make Batch Done")
+![Monitor 1](https://raw.githubusercontent.com/KillerFarmer/BYBY/blob/master/img/monitor.png "Make Batch Done")
+![Monitor 2](https://raw.githubusercontent.com/KillerFarmer/BYBY/blob/master/img/monitor2.png "Make Batch Done")
+![Monitor 3](https://raw.githubusercontent.com/KillerFarmer/BYBY/blob/master/img/monitor3.png "Make Batch Done")
 
 Finally, you may have noticed two red lines in the charts, this serve as reference lines for the minimum and maximum values the user specified in their recipe. If a value goes over or under the respective limit an email is send using SES. It's important to know that our SES was in sandbox mode, thus you had to verify the emails manually. This concludes the WebApp part of the proyect if you would like to know how the Raspberry Pi works and sends or recieves information you can read about it [here](https://github.com/KillerFarmer/BYBY/blob/master/documentation/biocomms.md#bioreactor--webapp-communication "Biorreactor Communication").
