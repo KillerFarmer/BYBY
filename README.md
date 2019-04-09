@@ -21,7 +21,7 @@ Additionally, the following professors and ThermoFisher Scientific representativ
 * Nataly Medina
 
 ## Index
-* [Introduction](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/introduction.md#introduction "Introduction").
+* [Introduction](https://github.com/KillerFarmer/BYBY/tree/master/documentation/introduction.md#introduction "Introduction").
 * [Signing In/Up](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/signin.md#sign-inup "Sign In/Up").
 * [Registering a Recipe](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/recipe.md#register-a-recipe "Registering a Recipe").
 * [Making a Batch](https://github.com/KillerFarmer/BYBY/tree/documentation/documentation/batch.md#make-a-batch "Make a Batch").
