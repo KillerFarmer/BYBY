@@ -25,7 +25,7 @@ A message is published to a unique topic referencing a specific bioreactor. Ever
 ### Start a Batch
 After this, the led should turn orange while it connects itself to the sensors. Once its done, it turns yellow to indicate that the button (Button.py) must be pressed.
 ### Storing Batch Measurements
-The led turns red and the sensors start sending information to the RaspberryPi who then publishes it to "measure" topic. If you wish to know more about how the sensors communicate with the Pi you can read the code [here]("Bioreactor-Sensor Communication").
+The led turns red and the sensors start sending information to the RaspberryPi who then publishes it to "measure" topic. If you wish to know more about how the sensors communicate with the Pi you can read the code [here](https://github.com/KillerFarmer/BYBY/blob/master/Bioreactor/MCU8266/esp8266_thermo_tcp.ino "Bioreactor-Sensor Communication").
 ### Finishing a Batch
 Once the brewing process is done (simulated by a timespan of seconds), it updates the batch status to "ready for pickup" and the led turns green. A timer to simulate the time taken for the user to pick up his batch is started and when it's done, batch status is changed to "Finished" and the process restarts, updating the Availability of the bioreactor to True, opening its doors to another batch.
 
